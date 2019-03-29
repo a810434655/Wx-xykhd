@@ -1,0 +1,25 @@
+<!--pages/manage/poster.wxml-->
+<canvas canvas-id='share' style='width:750px;height:1290px;background-color:#fff' hidden='{{canvasHidden}}'></canvas>
+<view class="container center" style='height:100%;background:#333333;'>
+  <view style='width:450rpx;height:774rpx;background:#fff;padding:20rpx;margin:100rpx auto;transform:scale(1.2)'>
+    <image src="/resources/image/ic_activity_add.png" class="upImg" mode='center' bindtap='upImg' wx:if="{{imgPath.length == 0}}" />
+    <image id='posterImg' src="{{imgPath}}" class="upImg" mode='aspectFill' bindtap='upImg' wx:else/>
+    <i-row>
+      <i-col span="7">
+        <image style='width:120rpx;height:120rpx;margin-left:20rpx;margin-top:20rpx' src="https://dreamoncampus.com/dreamact/index/getMiniCode?scene={{activityId}}&page=pages/activity/info&width=100"></image>
+      </i-col>
+      <i-col span="16" offset='1' i-class="c-tag center">
+      <!-- vertical-center  -->
+        <view class='info vertical-center center centerv'>
+          <view style='margin-top:0rpx;text-align:left;min-width:100%;'>长按识别小程序二维码</view>
+          <view style='text-align:left;min-width:100%;'>进入
+            <text style='color:#07C2FF'>{{title}}</text>
+          </view>
+          <view style='text-align:left;min-width:100%;'>查看更多详情</view>
+        </view>
+      </i-col>
+    </i-row>
+  </view>
+  <i-button shape="circle" type="theme1" i-class='mbottom' bindtap='save'>保存图片</i-button>
+  <i-message id="message" />
+</view>

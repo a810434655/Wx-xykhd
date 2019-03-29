@@ -1,0 +1,4 @@
+/* component/net-error/net-error.wxss */
+.page-content{
+  position:fixed;overflow:auto;top:0;right:0;bottom:0;left:0;height:100%;z-index:1000;display:flex;outline:0;-webkit-box-align:center;align-items:center;-webkit-box-pack:center;justify-content:center;transform:translateZ(1px);opacity:1;visibility:visible;
+}

@@ -1,0 +1,25 @@
+/* pages/manage/vote/edit.wxss */
+
+.b-white {
+  background: #fff !important;
+  margin-bottom: 20rpx;
+  padding-bottom: 30rpx;
+}
+
+.img-bg {
+  border-radius: 8rpx;
+  border: 1px solid #dde4ed;
+  position: relative;
+  display: flex;
+  background: #f5f8fd;
+  align-items: center;
+  min-height: 87rpx;
+ 
+}
+
+.timeline {
+  margin-bottom: 20rpx;
+}
+.fleft {
+  float: left;
+}

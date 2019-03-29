@@ -1,0 +1,60 @@
+<!--pages/activity/schoolactivity.wxml-->
+<view class="container" style='display:flex;flex-direction: column;height:100%;'>
+  <view class="page-body" style='overflow:hidden;background:#fff;'>
+    <image mode='aspectFill' style='width:100%;height:260rpx' src="http://www.dreamoncampus.com/file/img/ic_schoolactivity.png"></image>
+    <text class="school-title">{{schoolInfo.name}}</text>
+    <i-row i-class='tabs-title'>
+      <i-col span="24" i-class='c-title-32 center'>
+        <picker bindchange="bindSchoolGroupChange" range="{{schoolGroup}}" range-key="name">
+          {{selectSchoolGroup.name ? selectSchoolGroup.name: '全部组织'}}
+          <image mode='aspectFill' style='width:36rpx;height:20rpx;' src='/resources/image/ic_down_arrow.png'></image>
+        </picker>
+      </i-col>
+    </i-row>
+  </view>
+  <scroll-view scroll-y="true" style='flex: 1;margin-top:328rpx;padding: 10rpx 40rpx;width: auto;'>
+    <i-col span="24" i-class="radius school-activity {{activityList.length == (index + 1) ? 'noLine' : ''}}" wx:for="{{activityList}}" wx:index="{{index}}" wx:key="item.activityId" data-id="{{item.activityId}}" bindtap='openInfo'>
+      <i-col span="9">
+        <image mode='aspectFill' class='radius' style='width:100%;height:160rpx;' src="{{item.bannerData[0]}}">
+        </image>
+      </i-col>
+      <i-col span="15">
+        <i-col span="24">
+          <view class='c-title-30 ellipsis' style='margin-top:4rpx;width:95%;padding-left:20rpx'>
+            {{item.name}}
+          </view>
+        </i-col>
+        <i-col span="24">
+          <view class='c-content-info-20 ellipsis' style='padding-top:10rpx;padding-left:20rpx;'>
+            <text class='activity-tag-small gray' wx:if="{{item.remark.activityState == 3}}">已结束</text>
+            <text class='activity-tag-small hot' wx:if="{{item.remark.activityState == 2}}">热门</text>
+            <text class='activity-tag-small new' wx:if="{{item.remark.activityState == 1}}">新活动</text>
+            <text class='activity-tag-small' wx:if="{{item.remark.activityState == 0}}">进行中</text>
+            <block wx:if="{{item.remark.activityState != 3}}">
+                <text class='activity-tag-small' wx:if="{{item.remark.ticket < 0}}">抢票中</text>
+                <text class='activity-tag-small blue' wx:if="{{item.remark.apply > 0}}">报名中</text>
+                <text class='activity-tag-small blue' wx:if="{{item.remark.vote != 0}}">投票中</text>
+                <text class='activity-tag-small hot' wx:if="{{item.remark.prize != 0}}">抽奖中</text>
+              </block>
+          </view>
+        </i-col>
+        <i-col span="24">
+          <view class='c-content-info-22 ellipsis' style='margin-top:12rpx;padding-left:20rpx'>
+            {{item.schoolGroup}}
+          </view>
+        </i-col>
+        <i-col span="24">
+          <view class='c-content-info-22 ellipsis' style='margin-top:6rpx;padding-left:20rpx'>
+            浏览数{{item.viewNumber}}人
+          </view>
+        </i-col>
+      </i-col>
+    </i-col>
+    <i-col span="24" wx:if="{{activityList.length == 0}}">
+      <view class='page-body centerv vertical-center' style='flex-direction:column;margin:300rpx 0rpx'>
+        <view class='c-tag-24' style='display:block;padding-top:370rpx'>该组织还未创建活动哦~</view>
+      </view>
+    </i-col>
+  </scroll-view>
+  <i-message id="message" />
+</view>

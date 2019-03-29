@@ -1,0 +1,46 @@
+/* pages/home/activity.wxss */
+
+.activity {
+  /* background-color: rgba(0, 0, 0, 0.4); */
+  border-radius:2rpx 2rpx 0rpx 0rpx;
+  min-height: 280rpx;
+  max-height: 280rpx; 
+}
+.activity-content {
+  top:-280rpx;
+  position:relative;
+  z-index:999;
+  overflow: hidden;
+}
+
+.card-bottom {
+  background: #fff;
+  padding: 30rpx;
+  border-radius: 0rpx 0rpx 20rpx 20rpx;
+}
+
+.browse {
+  text-align: right;
+  color: #b3bdc9;
+}
+
+.h5icon{
+animation: spin 2.5s ease-in-out infinite;
+}
+@keyframes spin {
+        0% {
+          opacity: 1;
+          left: 0;
+          top: 0;
+        }
+        50% {
+          opacity: 1;
+          left: 0;
+          top: 12px;
+        }
+        100% {
+          opacity: 1;
+          left: 0;
+          top: 0;
+        }
+      }

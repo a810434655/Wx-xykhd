@@ -1,0 +1,47 @@
+/* pages/my/ticket.wxss */
+.page-content {
+  padding: 0;
+  height: 100%;
+}
+.line {
+  min-height: 1px;
+	background-color: #f4f6f9;
+}
+.bottom-shadow {
+  /* box-shadow: 14px 14px 14px rgba(179, 189, 201, 0.2); */
+  margin: 20rpx;
+  border-radius: 20rpx
+}
+.ticket {
+  margin: 10rpx 0rpx 40rpx 0rpx;
+}
+.ticket-title {
+  background: url(/resources/image/ic_ticket_background.png)no-repeat;
+  background-size: 100% 100%;
+}
+.text-title {
+  border-radius: 40rpx;
+  border: 2rpx solid #FFF;
+  padding: 2rpx 10rpx;
+  margin-right: 10rpx
+}
+.activity-col-img {
+  padding:40rpx 50rpx 20rpx 0rpx;
+  position:relative;
+}
+
+.activity-img {
+  width: 100%;
+  border: 4rpx solid #FFF;
+  height: 200rpx;
+}
+
+.qrcode-img {
+  width: 320rpx;
+  height: 350rpx;
+}
+
+.info-centent {
+  padding: 40rpx 0; 
+  border-radius: 0rpx 0rpx 20rpx 20rpx!important;
+}

@@ -1,0 +1,111 @@
+<!--pages/my/identification.wxml-->
+<view class="container">
+  <view class="page-body" style='padding-bottom:120rpx'>
+    <i-row i-class="page-content">
+      <i-panel title="姓名（必填）" isInfo hideBorder>
+        <i-input value="{{ identInfo.name }}" placeholder="请输入姓名" key="name" bind:change='changeInput' />
+      </i-panel>
+      <i-panel title="微信号（必填）" isInfo hideBorder wx:if="{{id != 3}}">
+        <i-input value="{{ identInfo.wechatNumber }}" placeholder="请输入微信号或绑定的手机、QQ" key="wechatNumber" bind:change='changeInput' />
+      </i-panel>
+      <i-panel title="手机号码（必填）" isInfo hideBorder>
+        <i-input value="{{ identInfo.phone }}" placeholder="请输入手机号码" type='number' key="phone" maxlength="11" bind:change='changeInput' />
+      </i-panel>
+      <i-panel title="验证码（必填）" isInfo hideBorder>
+        <i-col span="15">
+          <i-input placeholder="请输入验证码" type='number' bind:change='changeCodeInput' maxlength="6" /></i-col>
+        <i-col span="8" offset="1">
+          <button class="c-title-28 btn c-content center vertical-center" style='line-height:86rpx;height: 86rpx;display:block;padding:0rpx;color:#fff;background-image: -webkit-linear-gradient(top, #00e4ff, #21a3f6)!important;texe-align:center;border-radius:6rpx;' disabled='{{getCode != 0}}'
+            bindtap='getTelCode'>
+            {{getCode == 0? '获取验证码':getCode}}
+          </button>
+        </i-col>
+      </i-panel>
+    </i-row>
+    <view class='b-background' style='min-height:20rpx;width:100%;margin-top:20rpx'></view>
+    <i-row i-class="page-content" wx:if="{{id == 3}}">
+      <i-panel title="学校名称（必填）" isInfo hideBorder>
+        <i-input value='{{studentInfo.schoolName}}' placeholder="例：北京大学" disabled='true' key="schoolName" bindtap='selectSchool' />
+      </i-panel>
+    </i-row>
+    <i-row i-class="page-content" wx:if="{{id == 1}}">
+      <i-panel title="学校名称（必填）" isInfo hideBorder>
+        <i-input value='{{studentInfo.schoolName}}' placeholder="例：北京大学" disabled='true' key="schoolName" bindtap='selectSchool' />
+      </i-panel>
+      <i-panel title="学生组织名称（必填）" isInfo hideBorder>
+        <i-input placeholder="例：材料学院学生会 宣传部" key="schoolGroup" bind:change='changeStudent' />
+      </i-panel>
+      <i-panel title="职位（必填）" isInfo hideBorder>
+        <i-input placeholder="例：干事、部长、主席" key="schoolPosition" bind:change='changeStudent' />
+      </i-panel>
+      <i-panel title="学生组织规模（必填）" isInfo hideBorder>
+        <picker bindchange="bindScaleListChange" value="0" range="{{studioScaleList}}" range-key="name">
+          <i-input value="{{ studentInfo.schoolGroupScale }}" placeholder="请选择" disabled/>
+        </picker>
+      </i-panel>
+      <i-panel title="届别（必填）" isInfo hideBorder>
+        <picker bindchange="bindClassChange" value="0" range="{{studioClassList}}" range-key="name">
+          <i-input value="{{ studentInfo.schoolClass }}" placeholder="请选择" disabled/>
+        </picker>
+      </i-panel>
+    </i-row>
+    <i-row i-class="page-content" wx:if="{{id == 2}}">
+      <i-panel title="所在高校名称（必填）" isInfo hideBorder>
+        <i-input placeholder="例：北京大学、无" key="schoolName" bind:change='changeMedia' />
+      </i-panel>
+      <i-panel title="所属自媒体平台（必填）" isInfo hideBorder>
+        <picker bindchange="bindPlatformListChange" value="0" range="{{mediaPlatformList}}" range-key="name">
+          <i-input value="{{ mediaInfo.mediaPlatform }}" placeholder="请选择" disabled/>
+        </picker>
+      </i-panel>
+      <i-panel title="内容类型（必填）" isInfo hideBorder>
+        <picker bindchange="bindContentChange" value="0" range="{{mediaContentList}}" range-key="name">
+          <i-input value="{{ mediaInfo.mediaContent }}" placeholder="请选择" disabled/>
+        </picker>
+      </i-panel>
+      <i-panel title="自媒体号/名称（必填）" isInfo hideBorder>
+        <i-input placeholder="例：福州高校那些事儿" key="mediaName" bind:change='changeMedia' />
+      </i-panel>
+    </i-row>
+    <view class='b-background' style='min-height:20rpx;width:100%;margin-top:20rpx'></view>
+    <!-- <i-row i-class="page-content" wx:if="{{id == 1}}">
+      <i-panel title="学生身份认证资料上传（必传）" isInfo hideBorder>
+        <i-col span='5' offset='1' wx:for="{{imgList}}" wx:key="{{item.url}}">
+          <image src="{{item.url}}" class="upImg" data-inx='{{index}}' bindtap='removeImgInfo' bindlongpress='removeImg' />
+        </i-col>
+        <i-col span='5' offset='1' wx:if="{{imgList.length < 4}}">
+          <image src="/resources/image/ic_add.png" class="upImg" bindtap='upImg' />
+        </i-col>
+      </i-panel>
+      <text class='c-content'>上传学生证或带名字的食堂饭卡等</text>
+    </i-row> -->
+    <i-row i-class="page-content">
+      <i-panel title="{{id == 1 ? '学生组织工作者资料上传':'在校学生身份资料上传'}}（必传）" isInfo hideBorder>
+        <i-col span='5' offset='1' wx:for="{{imgList}}" wx:key="{{item.url}}">
+          <image src="{{item.url}}" class="upImg" data-inx='{{index}}' bindtap='removeImgInfo' bindlongpress='removeImg' />
+        </i-col>
+        <i-col span='5' offset='1' wx:if="{{imgList.length < 4}}">
+          <image src="/resources/image/ic_add.png" class="upImg" bindtap='upImg' />
+        </i-col>
+      </i-panel>
+      <text class='c-tag-24'>{{id == 1 ?'请上传两张图片\n1.学生证等证明学生身份的资料\n2.学生组织工作证、群聊截图等证明学生组织工作者身份的资料': id == 2 ?'包括但不限于自媒体号后台截图、身份绑定信息等' : id == 3 ? '请上传学生证或带姓名的校园卡等以证明身份' : ''}}</text>
+    </i-row>
+    <view class='b-background' style='min-height:20rpx;width:100%;margin-top:20rpx'>
+    </view>
+    <i-row i-class="page-content">
+      <view class='c-tag-24' style='margin-top:20rpx'>您的以上所有信息都将受到严格保护，任何违反《隐私保护条款》的行为都将承担相应的法律责任</view>
+      <checkbox-group style='margin-top:20rpx' bindchange="checkboxChange">
+        <checkbox class='c-tag-24' value='agreePrivacyPolicy' checked='{{agreePrivacyPolicy}}'>我已仔细阅读并接受
+          <text class='c-tag-24' style='color:#21a3f6' bindtap='openH5Page' data-url='https://h5.dreamoncampus.com/file/html/privacypolicy.html'>隐私保护条款</text>
+        </checkbox>
+      </checkbox-group>
+       
+    </i-row>
+  </view>
+  <form bindsubmit="submit" report-submit="true">
+    <button class="c-title-36 btn bottom c-title center vertical-center" style='line-height:100rpx;height: 100rpx;display:block;padding:0rpx;color:#fff;background-image: -webkit-linear-gradient(top, #00e4ff, #21a3f6)!important;texe-align:center' formType="submit">
+      提交
+    </button>
+  </form>
+  <i-message id="message" />
+</view>

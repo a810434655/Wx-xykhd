@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "投票",
+  "usingComponents": {
+    "i-row": "/resources/dist/row/index",
+    "i-col": "/resources/dist/col/index",
+    "i-notice-bar": "/resources/dist/notice-bar/index",
+    "i-button": "/resources/dist/button/index",
+    "i-message": "/resources/dist/message/index",
+    "i-input": "/resources/dist/input/index",
+    "i-modal": "/resources/dist/modal/index"
+  }
+}

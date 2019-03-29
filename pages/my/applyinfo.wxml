@@ -1,0 +1,10 @@
+<!--pages/my/applyinfo.wxml-->
+<view class="container" style='display:block;background:#f8f8f9'>
+  <view class="page-body page-content" style='background:#fff;padding-bottom:0rpx'>
+    <view style='padding:30rpx 10rpx;border-bottom: 2rpx solid #f8f8f9;overflow: hidden;'  wx:for="{{dataInfo.jsonData}}" wx:key="{{item.key}}">
+      <text class='c-tag-30' style='font-size:30rpx;color:#bbbec4'>{{item.key}}</text>
+      <image wx:if="{{item.value == 'pic'}}" src='{{item.data}}' style='width:10%;float:right;'  mode="widthFix"></image>
+      <text class='c-content' style='font-size:30rpx;float:right;color:#2c3141' wx:else>{{item.data}}</text>
+    </view>
+  </view>
+</view>

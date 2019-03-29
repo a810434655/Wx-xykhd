@@ -1,0 +1,99 @@
+<!--pages/activity/record.wxml-->
+<view class="container" style='display:flex;flex-direction: column;height:100%'>
+  <i-row i-class='tab-title center'>
+    <i-col span="1105" i-class="enter" data-type="0" bindtap='selectTab'>
+      <i-col span="24" i-class="c-title-32 pt-10 {{type != 0 ? 'tab-unselect-color' : ''}}">
+        我的收藏
+      </i-col>
+      <i-col span="8" offset='8'>
+        <view wx:if="{{type == 0}}" class="tab-title-select" style='float:left;width:100%;'></view>
+      </i-col>
+    </i-col>
+    <i-col span="1" i-class="center">
+      <view class='jg pt-10'></view>
+    </i-col>
+    <i-col span="1105" i-class="center" data-type="1" bindtap='selectTab'>
+      <i-col span="24" i-class="c-title-32 pt-10 {{type != 1 ? 'tab-unselect-color' : ''}}">
+        浏览记录
+      </i-col>
+      <i-col span="8" offset='8'>
+        <view wx:if="{{type == 1}}" class="tab-title-select" style='float:left;width:100%;'></view>
+      </i-col>
+    </i-col>
+  </i-row>
+  <scroll-view scroll-y="true" style='flex: 1;margin-top:85rpx' scroll-top="{{scrollTop}}">
+    <view class="page-body page-content" style='padding:10rpx 0rpx' wx:if="{{type == 0}}">
+    <block wx:for="{{collectList}}" wx:index="{{index}}" wx:key="item.activityId">
+      <i-col span="24" i-class="b-background heart-activity" animation="{{collectList[index].anim}}" wx:if="{{collectList[index].collectId}}">
+        <i-col span="4" class="center">
+          <image mode='aspectFit' style='width:40%;height:140rpx;' src="/resources/image/record/ic_collect.png" data-id="{{item.activityId}}" bindtap='cancelCollect' data-inx="{{index}}" >
+          </image>
+        </i-col>
+        <i-col span="7" data-id="{{item.activityId}}" bindtap='openInfo'>
+          <image mode='aspectFill' class='radius' style='width:100%;height:140rpx;' src="{{item.bannerData[0]}}">
+          </image>
+        </i-col>
+        <i-col span="13" data-id="{{item.activityId}}" bindtap='openInfo'>
+          <i-col span="24">
+            <view class='c-title-30 ellipsis' style='margin-top:5rpx;width:95%;padding-left:20rpx;'>
+              {{item.name}}
+            </view>
+          </i-col>
+          <i-col span="24">
+            <view class='c-content-info-22 ellipsis' style='width:90%;padding:15rpx 0rpx 15rpx 20rpx;'>
+              <text class='ellipsis'>{{item.schoolGroup}}</text>
+            </view>
+          </i-col>
+          <i-col span="24">
+            <view class='c-content-info-22 ellipsis' style='width:90%;padding:0rpx 0rpx 15rpx 20rpx;'>
+              <text class='ellipsis'>浏览{{item.viewNumber}}人</text>
+            </view>
+          </i-col>
+        </i-col>
+      </i-col>
+      </block>
+      <view class='page-body centerv vertical-center' style='flex-direction:column;margin:100rpx 0rpx' wx:if="{{collectList.length == 0}}">
+        <image mode='aspectFit' style='vertical-align:top;width:50%;height:250rpx;display:block' src="/resources/image/ic_no_activity.png">
+        </image>
+        <view class='c-content' style='display:block;padding-top:20rpx'>您还没有收藏过活动哟，赶快去收藏活动吧~</view>
+      </view>
+    </view>
+    <view class="page-body page-content" style='padding:10rpx 0rpx' wx:if="{{type == 1}}">
+      <block wx:for="{{recordList}}" wx:index="{{index}}" wx:key="item.activityId">
+        <i-col span="24" i-class="b-background heart-activity" animation="{{recordList[index].anim}}" wx:if="{{recordList[index].viewId}}">
+          <i-col span="4" class="center">
+            <image mode='aspectFit' style='width:40%;height:140rpx;' src="/resources/image/record/ic_delete.png" data-inx="{{index}}" data-id="{{item.viewId}}" bindtap='deleteRecord'>
+            </image>
+          </i-col>
+          <i-col span="7" data-id="{{item.activityId}}" bindtap='openInfo'>
+            <image mode='aspectFill' class='radius' style='width:100%;height:140rpx;' src="{{item.bannerData[0]}}">
+            </image>
+          </i-col>
+          <i-col span="13" data-id="{{item.activityId}}" bindtap='openInfo'>
+            <i-col span="24">
+              <view class='c-title-30 ellipsis' style='margin-top:5rpx;width:95%;padding-left:20rpx;'>
+                {{item.name}}
+              </view>
+            </i-col>
+            <i-col span="24">
+              <view class='c-content-info-22 ellipsis' style='width:90%;padding:15rpx 0rpx 15rpx 20rpx;'>
+                <text class='ellipsis'>{{item.schoolGroup}}</text>
+              </view>
+            </i-col>
+            <i-col span="24">
+              <view class='c-content-info-22 ellipsis' style='width:90%;padding:0rpx 0rpx 15rpx 20rpx;'>
+                <text class='ellipsis'>浏览{{item.viewNumber}}人</text>
+              </view>
+            </i-col>
+          </i-col>
+        </i-col>
+      </block>
+      <view class='page-body centerv vertical-center' style='flex-direction:column;margin:100rpx 0rpx' wx:if="{{recordList.length == 0}}">
+        <image mode='aspectFit' style='vertical-align:top;width:50%;height:250rpx;display:block' src="/resources/image/ic_no_activity.png">
+        </image>
+        <view class='c-content' style='display:block;padding-top:20rpx'>您还没有浏览过活动哟，赶快去参加活动吧~</view>
+      </view>
+    </view>
+  </scroll-view>
+  <i-message id="message" />
+</view>

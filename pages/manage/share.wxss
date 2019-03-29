@@ -1,0 +1,104 @@
+/* pages/manage/share.wxss */
+
+.activity {
+  /* background-color: rgba(0, 0, 0, 0.4); */
+  border-radius:2rpx 2rpx 0rpx 0rpx;
+  min-height: 230rpx;
+  max-height: 230rpx; 
+}
+.activity-content {
+  top:-180rpx;
+  position:relative;
+  z-index:999;
+  overflow: hidden;
+}
+
+.card-bottom {
+  background: #fff;
+  padding: 30rpx;
+  border-radius: 0rpx 0rpx 20rpx 20rpx;
+}
+
+.browse {
+  text-align: right;
+  color: #b3bdc9;
+}
+
+.cell {
+  padding: 20rpx 30rpx;border-radius:20rpx;z-index:99;margin:30rpx 40rpx 0 40rpx
+}
+
+.activity-name {
+  width: 100%;
+  min-height: 200rpx;
+}
+.btn {
+  margin: 0rpx;
+  padding: 0rpx;
+  background: none;
+  border: none;  
+}
+.btn:after {
+  border: none;
+}
+
+.radio{
+  background: #f8f8f9;
+  padding: 15rpx 20rpx;
+  width: 140rpx;
+  color:#b3bdc9;
+  margin-bottom: 15rpx;
+  text-align: center;
+  border-radius: 4rpx;
+  border:1px solid #dde4ed;
+}
+.radio.checked{
+  background: rgba(90, 143, 255, 0.2);
+  padding: 15rpx 20rpx;
+  width: 140rpx;
+  color: #051c33;
+  text-align: center;
+  border-radius: 4rpx;
+  border:1px solid #5a8fff;
+}
+
+radio .wx-radio-input {
+  border-radius: 0rpx!important;
+  border: 0px!important;
+  margin-top: -4rpx;
+  width: 0px!important;
+  height: 0px!important;
+}
+
+
+/* radio选中时样式 */
+
+radio .wx-radio-input.wx-radio-input-checked::before {
+  /* 自定义样式.... */
+  padding: 0px;
+  width: 0rpx;
+  text-align: center;
+  border-radius: 4rpx;
+  border:0px;
+  color:transparent; /* 对勾颜色 白色 */
+  /* position: absolute; */
+  background: transparent;
+}
+radio .wx-radio-input-checked{
+  background: #c0c;
+  border-radius: 0rpx!important;
+  border: 0px!important;
+  margin-top: -4rpx;
+  width: 0px!important;
+  height: 0px!important;
+}
+
+radio .wx-radio-checked{
+  background: #c0c;
+}
+
+.i-modal-main{
+  width:600rpx;
+  max-height:900rpx;
+
+}

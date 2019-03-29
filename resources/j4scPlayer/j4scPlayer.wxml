@@ -1,0 +1,10 @@
+<view class="mini-audio-player">
+    <view bindtap="play" class="btn-play" wx:if="{{!playing}}"></view>
+    <view bindtap="pause" class="btn-pause" wx:else></view>
+    <view class="audio-info">
+        <view class="h3">{{title}}</view>
+        <view class="p">
+            <text wx:if="data.audio_time_arr">{{curTime}}/{{endTime}}</text>
+        </view>
+    </view>
+</view>

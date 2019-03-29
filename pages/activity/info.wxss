@@ -1,0 +1,154 @@
+/* pages/activity/info.wxss */
+
+.swiper-box .wx-swiper-dots.wx-swiper-dots-horizontal {
+  margin-bottom: 60rpx;
+}
+
+.page-body {
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 450rpx;
+}
+
+.page-content {
+  border-radius: 40rpx 40rpx 0rpx 0rpx;
+  margin-top: -50rpx;
+  position: relative;
+  z-index: 100;
+  padding: 0;
+}
+
+.tabs-title {
+  border-radius: 40rpx 40rpx 0rpx 0rpx;
+  padding: 20rpx 0rpx;
+  position: relative;
+  background: #fff;
+  z-index: 100;
+}
+
+.tabs-bottom-select {
+  margin-top: 5rpx;
+  border-radius: 5rpx;
+  min-width: 5rpx;
+  background: #ffbf00;
+  display: inline-block;
+  min-height: 10rpx;
+}
+
+.tabs-name {
+  margin-top: 10rpx;
+}
+
+.icon {
+  color: #4a505f;
+  font-size: 22rpx;
+  line-height: 1.2;
+}
+
+.activity {
+  padding: 0rpx;
+  background: #fff;
+}
+
+.activity .nodify {
+  padding: 10rpx 20rpx;
+  position: relative;
+  background: rgba(71, 159, 231, 0.5);
+  color: #2ea3f6;
+  font-size: 28rpx;
+  line-height: 1.5;
+  z-index: 100;
+}
+
+.info-bottom {
+  opacity: 0.95;
+  background: transparent;
+  box-shadow: 0 0 10rpx transparent;
+}
+
+.info-zan image {
+  display: flex;
+  position: relative;
+}
+
+.info-zan text {
+  display: flex;
+  position: relative;
+}
+
+.timeline {
+  font-size: 28rpx;
+  padding: 20rpx 40rpx;
+  text-align: left !important;
+}
+
+.right-time {
+  text-align: right;
+}
+
+.chat {
+  padding: 10rpx 40rpx;
+}
+
+.chat-tag {
+  display: inline-block;
+  padding: 7rpx 12rpx;
+  line-height: 1;
+  font-size: 22rpx;
+  margin-left: 10rpx;
+  font-weight: normal;
+  color: #fff;
+  background: #2ea3f6;
+  border-radius: 0rpx 20rpx 0rpx 20rpx;
+}
+
+.chat-content {
+  margin-left: 10rpx;
+  margin-top: -10rpx;
+  padding-bottom: 15rpx;
+  margin-bottom: 20rpx;
+  border-bottom: 2rpx solid #f8f8f9;
+}
+
+.chat-content-end {
+  margin-bottom: 160rpx;
+}
+
+.chat-input {
+  margin-top: 20rpx;
+}
+
+.disable {
+  opacity: 0.6;
+}
+
+.btn {
+  margin: 0rpx;
+  padding: 0rpx;
+  background: none;
+  border: none;
+}
+
+.btn:after {
+  border: none;
+}
+
+.modal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+}
+.modal-mask.show{
+  opacity:1;
+  visibility:visible;
+}

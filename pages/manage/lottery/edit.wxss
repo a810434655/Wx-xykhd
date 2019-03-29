@@ -1,0 +1,111 @@
+/* pages/manage/lottery/edit.wxss */
+
+.b-white {
+  background: #fff !important;
+  margin-bottom: 20rpx;
+  padding-bottom: 30rpx;
+}
+
+.img-bg {
+  border-radius: 8rpx;
+  border: 1px solid #dde4ed;
+  position: relative;
+  display: flex;
+  background: #f5f8fd;
+  align-items: center;
+  min-height: 87rpx;
+}
+
+.upImg {
+  width: 84rpx;
+  height: 84rpx;
+}
+
+.prize-num{
+  margin-top: 20rpx;
+}
+
+.timeline {
+  margin-bottom: 20rpx;
+}
+.fleft {
+  float: left;
+}
+.people {
+  padding: 25rpx 0rpx
+}
+.theme-default .wx-radio-input {
+  border: 12rpx solid #dde4ed!important;
+  border-radius: 30rpx!important;
+  width: 15rpx!important;
+  height: 15rpx!important;
+  padding: 0rpx!important;
+  margin: 0rpx 10rpx!important;
+}
+
+.theme-default .wx-radio-input.wx-radio-input-checked::before {
+  /* 自定义样式.... */
+  border: 0rpx solid #ffbf00 !important;
+  border-radius: 40rpx!important;
+  color: transparent!important;
+  background: transparent !important;
+  /* height: 15rpx!important;
+  width: 15rpx!important; */
+}
+
+.theme-default .wx-radio-input-checked {
+  background: transparent !important;
+  border: 12rpx solid #ffbf00 !important;
+  border-radius: 40rpx!important;
+  width: 15rpx!important;
+  height: 15rpx!important;
+}
+radio .wx-radio-input {
+  border: 0rpx solid #dde4ed!important;
+  border-radius: 0rpx!important;
+  width: 0rpx!important;
+  height: 0rpx!important;
+  padding: 0!important;
+  margin: 0!important;
+}
+radio .wx-radio-input.wx-radio-input-checked::before {
+  /* 自定义样式.... */
+  border-radius:0rpx!important;
+  border:0px solid #dde4ed!important;
+  color: transparent;
+  background: transparent !important;
+  /* position: absolute; */
+}
+radio .wx-radio-input-checked{
+  background: transparent !important;
+  border: 0rpx solid #ffbf00 !important;
+  border-radius: 0rpx!important;
+  width: 0rpx!important;
+  height: 0rpx!important;
+}
+radio {
+  margin-right:0rpx;
+}
+.radio-right{
+  margin-right:16rpx;
+}
+.checkbox{
+  background: #f5f8fd;
+  padding: 20rpx 30rpx;
+  width: 150rpx;
+  margin-bottom: 20rpx;
+  color:#b3bdc9;
+  text-align: center;
+  font-size: 28rpx;
+  border-radius: 8rpx;
+  border:1px solid #dde4ed;
+}
+.checkbox.checked{
+  background: rgba(90, 138, 255, 0.2);
+  padding: 20rpx 30rpx;
+  width: 150rpx;
+  color: #313e51;
+  text-align: center;
+  border-radius: 8rpx;
+  border:1px solid #286eff;
+}

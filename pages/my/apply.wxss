@@ -1,0 +1,7 @@
+/* pages/my/apply.wxss */
+.top-right{
+  border-radius:0rpx 10rpx 0rpx 0rpx;
+}
+.bottom-right{
+  border-radius:0rpx 0rpx 10rpx 0rpx;
+}

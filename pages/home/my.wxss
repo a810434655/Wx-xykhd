@@ -1,0 +1,54 @@
+/* pages/home/my.wxss */
+.user-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 60rpx;
+  overflow: hidden;
+  background-color: #FFF;
+}
+.user-button {
+  /* margin: 0rpx!important; */
+}
+.page-content {
+  padding: 10rpx 0rpx;
+}
+.page-content-m{
+  padding: 10rpx 40rpx;
+}
+.fix{
+  padding: 0rpx 20rpx;
+}
+.bfix{
+  padding-left: 20rpx;
+}
+.user-button-r {
+  opacity:.5;
+}
+.user-button-fix {
+  margin-top: 60rpx!important
+}
+.right {
+  text-align: right
+}
+.cell {
+  position:relative;
+  overflow:hidden;
+  margin: 20rpx 20rpx;
+}
+.red-point{
+  float:right;width:20rpx;height:20rpx;position:absolute;z-index:10;left:65rpx;top:5rpx;
+  background: #ff6d55;
+  border: 2rpx solid #FFF;
+  border-radius: 40rpx;
+}
+/* .cell-ft{position:relative;text-align:right;display:inline-block;color:#81848e} */
+.cell-ft{content:" ";display:inline-block;width:14rpx;height:14rpx;position:absolute;top:50%;right:10rpx;border-width:2px 2px 0 0;border-color:#b3bdc9;border-style:solid;transform:translateY(-50%) matrix(.71,.71,-.71,.71,0,0)}
+.btn {
+  margin: 0rpx;
+  padding: 0rpx;
+  background: none;
+  border: none;  
+}
+.btn:after {
+  border: none;
+}

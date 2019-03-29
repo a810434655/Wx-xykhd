@@ -1,0 +1,9 @@
+/* pages/manage/function.wxss */
+.function-card{
+  background: #fff;
+  margin-top: 30rpx;
+  padding: 40rpx 10rpx;
+}
+.card-img {
+  vertical-align:top;width:100%;height:170rpx;display:block;margin:20rpx 0
+}

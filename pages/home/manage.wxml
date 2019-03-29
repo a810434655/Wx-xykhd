@@ -1,0 +1,85 @@
+<!--pages/home/manage.wxml-->
+<view class="container">
+  <view class="page-body" wx:if="{{activityList.length != 0 && !showLogin}}">
+    <i-swipeout i-class="i-swipeout-demo-item" operateWidth="{{80}}" wx:for="{{activityList}}" wx:key="{{item.activityId}}">
+      <view slot="content" class="page-content" style='padding-bottom:20rpx'>
+        <i-row i-class="" background="url(https://oss.dreamoncampus.com/img/ic_activity_manage_bg.png)no-repeat;background-size:cover;margin-bottom:20rpx;padding:30rpx 40rpx;border-radius: 20rpx;" bindtap="openInfo" data-id="{{item.activityId}}">
+          <i-col span="24">
+            <view class='c-title-38 ellipsis' style='display:block;color:#fff'>{{item.name}}</view>
+          </i-col>
+          <i-col span="24">
+            <view class='ellipsis' style='font-size: 22rpx;display:block;margin:13rpx 0rpx;color:#fff'>浏览数:{{item.viewNumber}}</view>
+          </i-col>
+          <i-col span="24" i-class="card-bottom radius bottom-shadow">
+            <i-col span="8" i-class="c-content-info-22 center" data-id="{{item.activityId}}" catch:tap="toCreat" wx:if="{{item.type == 0}}">
+              <image mode='aspectFit' class='card-button' src="/resources/image/manage/ic_edit.png" /> 编辑活动
+            </i-col>
+            <i-col span="8" i-class="c-content-info-22 center" data-id="{{item.activityId}}" data-role="{{item.type}}" data-title="{{item.name}}" catch:tap="toFunction">
+              <image mode='aspectFit' class='card-button' src="/resources/image/manage/ic_function.png" /> 功能模块
+            </i-col>
+            <i-col span="8" i-class="c-content-info-22 center" data-id="{{item.activityId}}" catch:tap="toShare">
+              <image mode='aspectFit' class='card-button' src="/resources/image/manage/ic_share.png" /> 超级分享
+            </i-col>
+          </i-col>
+        </i-row>
+      </view>
+      <view slot="button" style='height:100%;'>
+        <image mode='aspectFit' style='margin-left:25%;vertical-align:top;width:50%;height:170rpx;display:block;margin-top:70%;' src="/resources/image/ic_manage_delete.png" data-id="{{item.activityId}}" bindtap="toDelete" />
+      </view>
+    </i-swipeout>
+  </view>
+  <view class='page-body centerv vertical-center' style='flex-direction:column;margin-bottom:100rpx' wx:elif="{{activityList.length == 0 && !showLogin}}">
+    <swiper class="swiper-guide center centerv" indicator-dots="true" autoplay="false" interval="5000" duration="500" indicator-color='#dde4ed' indicator-active-color='#000' circular='true'>
+        <swiper-item>
+          <image class='radius-20 bottom-shadow' mode='aspectFill' style='width:600rpx;height:760rpx;' src="https://oss.dreamoncampus.com/img/lead1.png"></image>
+        </swiper-item>
+        <swiper-item>
+          <image class='radius-20 bottom-shadow' mode='aspectFill' style='width:600rpx;height:760rpx;' src="https://oss.dreamoncampus.com/img/lead2.png"></image>
+        </swiper-item>
+        <swiper-item>
+          <image class='radius-20 bottom-shadow' mode='aspectFill' style='width:600rpx;height:760rpx;' src="https://oss.dreamoncampus.com/img/lead3.png"></image>
+        </swiper-item>
+      </swiper>
+    <i-button style='width:80%' type="warning" shape="circle" bindtap="toCreat">创建活动</i-button>
+    <view class='c-content-30 center centerv' style='display:block;padding-top:20rpx;color:#FFCB12'>
+      <text data-id="72" bindtap='openInfo'>示例活动</text>
+      <text style='margin:0 20rpx'>|</text>
+      <text bindtap='openHelp'>使用帮助</text>
+    </view>
+  </view>
+  <view class='page-body centerv vertical-center' style='flex-direction:column;margin-bottom:100rpx' wx:else>
+    <image mode='aspectFit' style='vertical-align:top;width:50%;height:250rpx;display:block' src="/resources/image/ic_no_userinfo.png">
+    </image>
+    <view class='c-content' style='display:block;padding-top:20rpx'>拒绝授权将无法体验完整功能，建议用户打开信息授权</view>
+    <button style='width:80%' type="primary" open-type="getUserInfo" bindgetuserinfo="toLogin">确认登录</button>
+  </view>
+  <image mode='aspectFit' bindtap="toCreat" src="/resources/image/ic_ufo_add.png" class='center' style='position:fixed;bottom:200rpx;left:75%;border-radius: 100rpx;width:100rpx;height:100rpx;box-shadow: 0px 4px 14px rgba(255, 203, 18, 0.2);' wx:if="{{activityList.length != 0 && !showLogin}}"
+  />
+  <i-modal visible="{{ idenFarstModal }}" cancel-text='暂不认证' ok-text='前往认证' bind:ok="openIden" bind:cancel="handleClose">
+    <i-row i-class='page-content-m'>
+      <!-- <i-col span="24">
+        <view class='c-sub-content' style='font-weight:700;text-align:left;'>认证说明：</view>
+      </i-col> -->
+      <i-col span="24">
+        <text class='c-tag' style='text-align:left;display:block;padding-top:20rpx'>{{idenFarstInfo}}</text>
+      </i-col>
+    </i-row>
+  </i-modal>
+  <!-- <view class="modal-mask {{guideModal ? 'show' : ''}} center centerv" style='align-items:center;'>
+    <view class='center b-white' style='width:590rpx;height:960rpx;position:relative;padding:30rpx 0;border-radius:20rpx'>
+    <image src='/resources/image/ic_right_quit.png' mode='aspectFit' style='width:50rpx;height:50rpx;position:absolute;z-index:10;right:-15rpx;top:-15rpx;' bindtap='handleClose'></image>
+      <swiper class="swiper-guide" indicator-dots="true" autoplay="false" interval="5000" duration="500" indicator-color='#dde4ed' indicator-active-color='#000' circular='true'>
+        <swiper-item>
+          <image mode='aspectFill' style='width:100%;height:100%;' src="/resources/image/manage/ic_guide_1.png"></image>
+        </swiper-item>
+        <swiper-item>
+          <image mode='aspectFill' style='width:100%;height:100%;' src="/resources/image/manage/ic_guide_2.png"></image>
+        </swiper-item>
+        <swiper-item>
+          <image mode='aspectFill' style='width:100%;height:100%;' src="/resources/image/manage/ic_guide_3.png"></image>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view> -->
+  <i-message id="message" />
+</view>

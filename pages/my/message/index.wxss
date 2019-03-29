@@ -1,0 +1,17 @@
+/* pages/my/message/index.wxss */
+.b-white {
+  position:relative;
+  overflow:hidden;
+  background: #FFF!important;
+  margin-top: 20rpx;
+  padding: 30rpx;
+}
+
+.cell-ft{content:" ";display:inline-block;width:14rpx;height:14rpx;position:absolute;top:50%;right:40rpx;border-width:2px 2px 0 0;border-color:#b3bdc9;border-style:solid;transform:translateY(-50%) matrix(.71,.71,-.71,.71,0,0)}
+
+.red-point{
+  float:right;width:20rpx;height:20rpx;position:absolute;z-index:10;left:90rpx;
+  background: #ff6d55;
+  border: 2rpx solid #FFF;
+  border-radius: 40rpx;
+}

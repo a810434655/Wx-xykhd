@@ -1,0 +1,97 @@
+/* pages/home/plaza.wxss */
+.swiper-box .wx-swiper-dots.wx-swiper-dots-horizontal{
+  margin-bottom: 60rpx;
+}
+.tabs-search {
+  margin-top: -60rpx;
+  position: relative;
+  z-index: 100;
+} 
+.search-container {
+  background: #fff;
+  border-radius: 50rpx;
+  padding: 20rpx 60rpx;
+}
+.search-container input {
+  width: 90%;
+  display: inline-block
+}
+.tabs-title {
+  margin-top: 60rpx;
+  padding-bottom: 0rpx;
+}
+.fleft {
+  float: left;
+}
+.page-content {
+  border-bottom: 20rpx solid #f4f6f9
+}
+.hot-activity {
+  min-height: 385rpx;
+  position:relative;
+}
+.state{
+  position: absolute;
+  padding: 10rpx 25rpx;
+  border-radius: 0 10rpx 0 10rpx;
+  background: #ffcc12;
+  color: #fff;
+  font-size: 24rpx;
+  font-weight: 700;
+  right:0rpx;
+
+}
+.school-activity{
+  padding: 20rpx 0rpx 18rpx 0rpx;
+  margin-bottom: 10rpx;
+  border-bottom: 1px solid #f4f6f9
+}
+.school-activity.noLine{
+  border-bottom: 0px solid #f4f6f9!important
+}
+
+.activity-tag-small {
+  padding: 4rpx 14rpx;
+  font-weight: 700;
+  text-align: center;
+  margin-right: 10rpx;
+  background: rgba(255,203,18,0.2);
+  color: rgb(255,203,18);
+}
+
+.activity-tag-small.new {
+  background: rgba(31,220,133,0.2);
+  color: rgb(31,220,133);
+}
+
+.activity-tag-small.hot {
+  background: rgba(255,109,85,0.2);
+  color: rgb(255,109,85);
+}
+
+.activity-tag-small.blue {
+   background: rgba(0,168,255,0.2);
+  color: rgb(0,168,255);
+}
+
+.activity-tag-small.gray {
+   background: rgba(121,130,142,0.2);
+  color: rgb(121,130,142);
+}
+
+.modal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+}
+.modal-mask.show{
+  opacity:1;
+  visibility:visible;
+}

@@ -1,0 +1,112 @@
+/* pages/activity/apply.wxss */
+@import "../../resources/dist/button/index.wxss";
+.card-bottom {
+  background: #fff;
+  padding: 30rpx;
+  border-radius: 0rpx 0rpx 20rpx 20rpx;
+}
+.input{
+  border-radius:10rpx!important;
+  margin: 20rpx 0rpx;
+}
+.button {
+  width:80%;
+  margin-left: 75rpx!important;
+}
+
+.r-content {
+  font-size: 28rpx;
+  color:#bbbec4;
+}
+
+.theme1 radio .wx-radio-input-checked{
+  border: 12rpx solid #ffbf00 !important;
+}
+.theme2 radio .wx-radio-input-checked{
+  border: 12rpx solid #ff4c39 !important;
+}
+.theme3 radio .wx-radio-input-checked{
+  border: 12rpx solid #1dd89c !important;
+}
+.theme4 radio .wx-radio-input-checked{
+  border: 12rpx solid #21a3f6 !important;
+}
+.theme5 radio .wx-radio-input-checked{
+  border: 12rpx solid #252436 !important;
+}
+
+
+/* checkbox */
+checkbox .wx-checkbox-input {
+  border:5rpx solid #dde4ed!important;
+  border-radius:12rpx;
+  width: 30rpx;
+  height: 30rpx;
+}
+/* checkbox选中时样式 */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  /* 自定义样式.... */
+  border:5rpx solid #ffbf00!important;
+  border-radius:12rpx;
+  width: 30rpx;
+  height: 30rpx;
+  /* padding: 0px;
+  width: 0rpx;
+  text-align: center;
+  border-radius: 12rpx;
+  border:0px; */
+   color:transparent; /*对勾颜色 白色 */
+  /* position: absolute; */
+  background: #ffbf00!important;
+}
+checkbox .wx-checkbox-input-checked{
+  background: #ffbf00!important;
+  border:5rpx solid #ffbf00!important;
+  border-radius:12rpx;
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.theme1 checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  border:5rpx solid #ffbf00!important;
+  background: #ffbf00!important;
+}.theme1 checkbox .wx-checkbox-input-checked{
+  background: #ffbf00!important;
+  border:5rpx solid #ffbf00!important;
+}
+.theme2 checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  border:5rpx solid #ff4c39!important;
+  background: #ff4c39!important;
+}.theme2 checkbox .wx-checkbox-input-checked{
+  background: #ff4c39!important;
+  border:5rpx solid #ff4c39!important;
+}
+.theme3 checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  border:5rpx solid #1dd89c!important;
+  background: #1dd89c!important;
+}.theme3 checkbox .wx-checkbox-input-checked{
+  background: #1dd89c!important;
+  border:5rpx solid #1dd89c!important;
+}
+.theme4 checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  border:5rpx solid #21a3f6!important;
+  background: #21a3f6!important;
+}.theme4 checkbox .wx-checkbox-input-checked{
+  background: #21a3f6!important;
+  border:5rpx solid #21a3f6!important;
+}
+.theme5 checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  border:5rpx solid #252436!important;
+  background: #252436!important;
+}.theme5 checkbox .wx-checkbox-input-checked{
+  background: #252436!important;
+  border:5rpx solid #252436!important;
+}
+
+
+.imgBg{
+  background:#f5f8fd;
+  border-radius:8rpx;
+  border:1px solid #dde4ed;
+  margin-top: 20rpx
+}

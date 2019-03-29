@@ -1,0 +1,73 @@
+/* pages/activity/lottery.wxss */
+.swiper-box .wx-swiper-dots.wx-swiper-dots-horizontal {
+  margin-bottom: 60rpx;
+}
+
+.page-body {
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.page-content {
+  border-radius: 40rpx 40rpx 0rpx 0rpx;
+  margin-top: -50rpx;
+  position: relative;
+  z-index: 100;
+  padding: 0;
+}
+
+.tabs-title {
+  border-radius: 40rpx 40rpx 0rpx 0rpx;
+  padding: 40rpx 0rpx;
+  position: relative;
+  background: #fff;
+  z-index: 100;
+}
+
+.b-white {
+  background: #FFF!important;
+  margin-bottom: 20rpx 
+}
+.b-white-fix {
+  background: #FFF!important
+}
+
+.button{
+  text-align:center;
+  vertical-align:middle;touch-action:manipulation;cursor:pointer;background-image:none;white-space:nowrap;user-select:none;
+  background-image: linear-gradient(-90deg, 
+		#ffcc12 0%, 
+		#ffe200 100%);
+  border-radius: 50%;
+  width: 200rpx;
+  height: 200rpx;
+  font-size: 36rpx;
+  color: #FFF!important;
+  border: 0!important;
+  font-weight: 700;
+  line-height: 1;
+  padding-top:80rpx;
+}
+.i-btn-hover{opacity:.9}
+.i-btn-display{opacity:.5}
+.modal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+}
+.modal-mask.show{
+  opacity:1;
+  visibility:visible;
+}
+.model-button{
+  margin: 20rpx 20rpx 0rpx 20rpx;
+}

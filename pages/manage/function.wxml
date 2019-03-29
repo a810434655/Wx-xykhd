@@ -1,0 +1,52 @@
+<!--pages/manage/function.wxml-->
+<view class="container b-background">
+  <view class="page-body">
+     <i-row>
+      <i-col span="10" offset="105" i-class="function-card radius center">
+        <text class='c-title-38'>报名</text>
+        <image mode='aspectFit' class='card-img' src="/resources/image/manage/function/ic_apply.png" />
+        <i-col span="24" i-class="center">
+          <i-button hape="circle" type="theme4" size="tag" bindtap='toCreat' data-ftype="1" wx:if="{{!applyInfo.formId}}">创建</i-button>
+          <i-button hape="circle" type="theme1" size="tag" bindtap='toInfo' data-ftype="1" wx:if="{{applyInfo.formId}}">管理</i-button>
+          <i-button hape="circle" type="theme2" size="tag" bindtap='showDeleteModal' data-ftype="1" wx:if="{{applyInfo.formId && role == 0}}">删除</i-button>
+        </i-col>
+      </i-col>
+      <i-col span="10" offset="1" i-class="function-card radius center">
+        <text class='c-title-38'>抢票</text>
+        <image mode='aspectFit' class='card-img' src="/resources/image/manage/function/ic_lootticket.png" />
+        <i-col span="24" i-class="center">
+          <i-button hape="circle" type="theme4" size="tag" bindtap='toCreat' data-ftype="2" wx:if="{{!lootticketInfo.formId}}">创建</i-button>
+          <i-button hape="circle" type="theme1" size="tag" bindtap='toInfo' data-ftype="2" wx:if="{{lootticketInfo.formId}}">管理</i-button>
+          <i-button hape="circle" type="theme2" size="tag" bindtap='showDeleteModal' data-ftype="2" wx:if="{{lootticketInfo.formId && role == 0}}">删除</i-button>
+        </i-col>
+      </i-col>
+      <i-col span="10" offset="105" i-class="function-card radius center">
+        <text class='c-title-38'>投票</text>
+        <image mode='aspectFit' class='card-img' src="/resources/image/manage/function/ic_vote.png" />
+        <i-col span="24" i-class="center">
+          <i-button hape="circle" type="theme4" size="tag" bindtap='toCreat' data-ftype="3" wx:if="{{!voteInfo.formId}}">创建</i-button>
+          <i-button hape="circle" type="theme1" size="tag" bindtap='toInfo' data-ftype="3" wx:if="{{voteInfo.formId}}">管理</i-button>
+          <i-button hape="circle" type="theme2" size="tag" bindtap='showDeleteModal' data-ftype="3" wx:if="{{voteInfo.formId && role == 0}}">删除</i-button>
+        </i-col>
+      </i-col>
+      <i-col span="10" offset="1" i-class="function-card radius center">
+        <text class='c-title-38'>抽奖</text>
+        <image mode='aspectFit' class='card-img' src="/resources/image/manage/function/ic_lottery.png" />
+        <i-col span="24" i-class="center">
+          <i-button hape="circle" type="theme4" size="tag" bindtap='toCreat' data-ftype="4" wx:if="{{!lotteryInfo.formId}}">创建</i-button>
+          <i-button hape="circle" type="theme1" size="tag" bindtap='toInfo' data-ftype="4" wx:if="{{lotteryInfo.formId}}">管理</i-button>
+          <i-button hape="circle" type="theme2" size="tag" bindtap='showDeleteModal' data-ftype="4" wx:if="{{lotteryInfo.formId && role == 0}}">删除</i-button>
+        </i-col>
+      </i-col>
+    </i-row>
+  </view>
+   <i-modal visible="{{ deleteModal }}" cancel-text='暂不删除' ok-text='确认删除' bind:ok="toDelete" bind:cancel="handleClose">
+    <i-row i-class='modal-content'>
+      <i-col span="20" offset="2">
+        <text class='c-content-28' style='text-align:left;padding:0px'>删除当前表单将抹掉全部数据，请确认数据下载后再进行删除操作</text>
+      </i-col>
+    </i-row>
+  </i-modal>
+  <net-error wx:if="{{netError}}"></net-error>
+  <i-message id="message" />
+</view>

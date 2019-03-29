@@ -1,0 +1,9 @@
+{
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "i-row": "/resources/dist/row/index",
+    "i-message": "/resources/dist/message/index",
+    "i-col": "/resources/dist/col/index",
+    "i-modal": "/resources/dist/modal/index"
+  }
+}

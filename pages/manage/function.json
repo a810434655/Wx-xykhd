@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "功能模块",
+  "usingComponents": {
+    "net-error": "/component/net-error/net-error",
+    "i-row": "/resources/dist/row/index",
+    "i-button": "/resources/dist/button/index",
+    "i-col": "/resources/dist/col/index",
+    "i-message": "/resources/dist/message/index",
+    "i-modal": "/resources/dist/modal/index"
+  }
+}

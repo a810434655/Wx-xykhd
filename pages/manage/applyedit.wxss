@@ -1,0 +1,76 @@
+/* pages/manage/applyedit.wxss */
+.b-white {
+  background: #FFF!important;
+  margin-bottom: 20rpx;
+}
+/* .checkbox{
+  background: #f8f8f9;
+  padding: 15rpx 20rpx;
+  width: 155rpx;
+  margin-bottom: 15rpx;
+  color:#b3bdc9;
+  text-align: center;
+  border-radius: 4rpx;
+  border:1px solid #dde4ed;
+}
+.checkbox.checked{
+  background: rgba(90, 143, 255, 0.2);
+  padding: 15rpx 20rpx;
+  width: 155rpx;
+  color: #051c33;
+  text-align: center;
+  border-radius: 4rpx;
+  border:1px solid #5a8fff;
+}
+
+checkbox .wx-checkbox-input {
+  border-radius: 0rpx;
+  border: 0px;
+  margin-top: -4rpx;
+  width: 0px;
+  height: 0px;
+} */
+
+
+/* checkbox选中时样式 */
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  /* 自定义样式.... */
+  padding: 0px;
+  width: 0rpx;
+  text-align: center;
+  border-radius: 4rpx;
+  border:0px;
+  color:transparent; /* 对勾颜色 白色 */
+  /* position: absolute; */
+  background: transparent;
+}
+checkbox .wx-checkbox-input-checked{
+  background: #c0c;
+  border-radius: 0rpx;
+  border: 0px;
+  margin-top: -4rpx;
+  width: 0px;
+  height: 0px;
+}
+
+checkbox .wx-checkbox-checked{
+  background: #c0c;
+}
+
+.picker {
+  width: 72%
+}
+
+.typeInput {
+  text-align: center
+}
+
+.imgInput {
+  width: 85%;
+  margin: 0rpx 11rpx;
+}
+
+.timeline {
+  margin-bottom: 20rpx
+}

@@ -1,0 +1,12 @@
+<!--component/iden-bottom/iden-bottom.wxml-->
+<view class='i-content'>
+<view class='center centerv' style='width:100%;height:100%'>
+  <text class='c-content-32'>
+    为确认您的身份以及活动真实性
+    请进行学生组织工作者认证后查看数据
+  </text>
+  <view class="c-title-36 center vertical-center radius" style='margin:30rpx;line-height:100rpx;height: 100rpx;display:block;padding:0rpx;color:#fff;background-image: linear-gradient(-90deg,#286eff 0%,#5a90ff 100%)!important;texe-align:center' bindtap='handleIden'>
+    前往认证
+  </view>
+  </view>
+</view>

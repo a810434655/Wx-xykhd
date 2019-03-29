@@ -1,0 +1,33 @@
+/* component/iden-bottom/iden-bottom.wxss */
+.i-content{
+  width: 100%;
+  height: 305rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  justify-content: space-between;
+  background-color: #fff;
+  z-index: 10;
+}
+.center {
+  text-align: center;
+  vertical-align: middle;
+}
+.centerv {
+  justify-content: center;
+}
+.c-content-32 {
+  color: #313e51;
+  font-size: 32rpx;
+}
+.c-title-36 {
+  color: #051c33;
+  font-size: 36rpx;
+  font-weight: 700;
+}
+.radius {
+  border-radius: 10rpx;
+}

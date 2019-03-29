@@ -1,0 +1,46 @@
+/* pages/manage/lottery/lottery.wxss */
+.page-body {
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 180rpx;
+}
+
+.page-content {
+  border-radius: 40rpx 40rpx 0rpx 0rpx;
+  /* margin-top: 40rpx; */
+  position: relative;
+  z-index: 100;
+  padding: 0;
+}
+
+.card {
+  border-radius: 20rpx;
+  background: #fff;
+  position: relative;
+  z-index: 100;
+  margin-bottom: 30rpx;
+  padding: 35rpx 30rpx;
+}
+
+.card-img {
+  margin-left:25%;vertical-align:top;width:50%;height:70rpx;display:block;margin-bottom: 20rpx;
+}
+
+.tabs-title {
+  border-radius: 40rpx 40rpx 0rpx 0rpx;
+  padding: 35rpx 10rpx;
+  position: relative;
+  background: rgba(90, 144, 255, 0.2);
+  z-index: 100;
+}
+
+.tabs-content {
+  padding: 20rpx 0rpx;
+}
+
+.modal-content {
+  padding-bottom: 20rpx;
+}

@@ -1,0 +1,20 @@
+<!--pages/ui/statepage.wxml-->
+<view class="container">
+  <i-row i-class='page-content'>
+    <i-col span="24" i-class='center vertical-center' style="display:flex">
+      <image mode='aspectFit' style='width:100%;padding-top:120rpx;vertical-align:top;height:150rpx;display:block' src="/resources/image/ic_state_wait.png" wx:if="{{state == 1}}">
+      </image>
+      <image mode='aspectFit' style='width:100%;padding-top:120rpx;vertical-align:top;height:150rpx;display:block' src="/resources/image/ic_state_succees.png" wx:if="{{state == 2 || state == 3}}">
+      </image>
+    </i-col>
+    <i-col span="24">
+      <view class='c-title-32 center vertical-center' style='display:block;padding-top:50rpx'>{{info}}</view>
+    </i-col>
+    <i-col span="24">
+      <view class='c-tag center vertical-center' style='display:block;padding:20rpx'>{{content}}</view>
+    </i-col>
+    <i-col span="24" wx:if="{{state == 2}}">
+      <i-button shape="circle" type="warning" bindtap='goMy'>前往个人中心</i-button>
+    </i-col>
+  </i-row>
+</view>

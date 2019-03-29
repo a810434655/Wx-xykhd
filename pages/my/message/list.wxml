@@ -1,0 +1,18 @@
+<!--pages/my/message/list.wxml-->
+<view class="container b-background">
+  <view class="page-body page-content" wx:if="{{messageList.length != 0}}">
+    <i-row i-class="b-white" background="#fff;margin:30rpx 0rpx;border-radius:10rpx" wx:for="{{messageList}}" wx:key="{{item.id}}" data-inx="{{index}}">
+      <i-col span="20" offset="2" i-class="c-title-38">
+          <view class='ellipsis' style="padding-top:30rpx;{{item.jsonData && item.jsonData.titleColor?('color:'+item.jsonData.titleColor): ''}}">{{item.title}}</view>
+      </i-col>
+      <i-col span="20" offset="2">
+          <view class='ellipsis c-content-info-24' style='padding-top:20rpx;'>{{item.ctime}}</view>
+          <view class='text-all c-content-28' style='padding:20rpx 0rpx'>{{item.content}}</view>
+          <view class='text-all c-tag-24' style='padding:20rpx 0rpx;border-top:1rpx solid #f4f6f9' wx:if="{{item.remark != undefined}}">{{item.remark}}</view>
+      </i-col>
+    </i-row>
+  </view>
+  <view class='page-body centerv vertical-center' style='flex-direction:column;margin-bottom:100rpx' wx:else>
+    <view class='c-tag' style='display:block;padding-top:20rpx'>暂无消息哦~</view>
+  </view>
+</view>

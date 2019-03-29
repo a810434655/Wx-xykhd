@@ -1,0 +1,4 @@
+<!--component/net-error/net-error.wxml-->
+<view class="page-content center;b-background">
+  <view>网络错误，请点击重试</view>
+</view>

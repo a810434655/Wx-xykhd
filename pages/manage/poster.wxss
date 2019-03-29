@@ -1,0 +1,26 @@
+/* pages/manage/poster.wxss */
+
+page {
+  background: #333;
+}
+
+.c-tag {
+  font-size: 22rpx;
+}
+
+.info {
+  height: 150rpx;
+  align-items: center;
+  display: flex;
+  flex-direction: column
+}
+
+.upImg {
+  width: 100%;
+  height: 80%;
+  background: #f8f8f9;
+}
+
+.mbottom {
+  margin: 0rpx 80rpx !important;
+}

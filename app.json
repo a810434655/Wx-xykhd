@@ -1,0 +1,84 @@
+{
+  "pages": [
+    "pages/home/plaza",
+    "pages/home/activity",
+    "pages/home/manage",
+    "pages/home/my",
+    "pages/my/feedback",
+    "pages/my/fullimg",
+    "pages/my/ticket",
+    "pages/my/apply",
+    "pages/activity/info",
+    "pages/manage/edit",
+    "pages/manage/lootticketedit",
+    "pages/manage/share",
+    "pages/manage/apply",
+    "pages/login",
+    "pages/manage/applyedit",
+    "pages/ui/statepage",
+    "pages/activity/lootticket",
+    "pages/activity/apply",
+    "pages/my/applyinfo",
+    "pages/my/identification",
+    "pages/ui/webview",
+    "pages/manage/applyfieldedit",
+    "pages/activity/record",
+    "pages/activity/top",
+    "pages/ui/selectpage",
+    "pages/activity/schoolactivity",
+    "pages/activity/searchlist",
+    "pages/my/aboutus",
+    "pages/manage/poster",
+    "pages/manage/function",
+    "pages/manage/vote/edit",
+    "pages/manage/lottery/edit",
+    "pages/manage/lootticket/lootticket",
+    "pages/manage/vote/vote",
+    "pages/my/message/index",
+    "pages/manage/lottery/lottery",
+    "pages/activity/vote",
+    "pages/activity/lottery",
+    "pages/my/message/list",
+    "pages/ui/lottery"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "校园酷活动",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#b3bdc9",
+    "selectedColor": "#313e51",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/plaza",
+        "iconPath": "resources/image/ic_home_activity.png",
+        "selectedIconPath": "resources/image/ic_home_activity_s.png",
+        "text": "活动广场"
+      },
+      {
+        "pagePath": "pages/home/manage",
+        "iconPath": "resources/image/ic_home_manage.png",
+        "selectedIconPath": "resources/image/ic_home_manage_s.png",
+        "text": "活动管理"
+      },
+      {
+        "pagePath": "pages/home/my",
+        "iconPath": "resources/image/ic_home_my.png",
+        "selectedIconPath": "resources/image/ic_home_my_s.png",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false,
+  "navigateToMiniProgramAppIdList": [
+    "wx2aaa10a010060549"
+  ]
+}

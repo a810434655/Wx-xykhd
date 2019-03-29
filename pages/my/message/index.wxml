@@ -1,0 +1,39 @@
+<!--pages/my/message/index.wxml-->
+<view class="container b-background" style='display:block;'>
+  <i-col span="24" i-class='b-white centerv' bindtap='openPage' data-type="1">
+    <image src="/resources/image/my/message/ic_lottery.png" style='float:left;width: 80rpx;height: 80rpx;' />
+    <view class='red-point' wx:if="{{messageInfo.drawPrizeNotice>0}}" />
+    <view style='height:70rpx;display:inline-block;padding:0rpx 30rpx'>
+      <text class='c-title-30' style='display:block'>开奖通知</text>
+      <text class='c-tag-24'>{{messageInfo.drawPrizeNotice>0 ? '您有新的开奖通知':'查看历史开奖通知'}}</text>
+    </view>
+    <view class='cell-ft'></view>
+  </i-col>
+  <i-col span="24" i-class='b-white centerv' bindtap='openPage' data-type="2">
+    <image src="/resources/image/my/message/ic_msg.png" style='float:left;width: 80rpx;height: 80rpx;' />
+    <view class='red-point' wx:if="{{messageInfo.interactiveMessage>0}}" />
+    <view style='height:70rpx;display:inline-block;padding:0rpx 30rpx'>
+      <text class='c-title-30' style='display:block'>互动消息</text>
+      <text class='c-tag-24'>{{messageInfo.interactiveMessage>0 ? '您有新的互动消息请前往查看':'暂无新的消息'}}</text>
+    </view>
+    <view class='cell-ft'></view>
+  </i-col>
+  <i-col span="24" i-class='b-white centerv' bindtap='openPage' data-type="3">
+    <image src="/resources/image/my/message/ic_ticket.png" style='float:left;width: 80rpx;height: 80rpx;' />
+    <view class='red-point' wx:if="{{messageInfo.admissionReminder>0}}" />
+    <view style='height:70rpx;display:inline-block;padding:0rpx 30rpx'>
+      <text class='c-title-30' style='display:block'>入场提醒</text>
+      <text class='c-tag-24'>{{messageInfo.admissionReminder>0 ? '您有新的入场通知':'当前没有新的入场通知'}}</text>
+    </view>
+    <view class='cell-ft'></view>
+  </i-col>
+  <i-col span="24" i-class='b-white centerv' bindtap='openPage' data-type="4">
+    <image src="/resources/image/my/message/ic_system.png" style='float:left;width: 80rpx;height: 80rpx;' />
+    <view class='red-point' wx:if="{{messageInfo.systemMessage>0}}" />
+    <view style='height:70rpx;display:inline-block;padding:0rpx 30rpx'>
+      <text class='c-title-30' style='display:block'>系统消息</text>
+      <text class='c-tag-24'>{{messageInfo.systemMessage>0 ? '您有新的系统消息':'查看历史系统消息'}}</text>
+    </view>
+    <view class='cell-ft'></view>
+  </i-col>
+</view>

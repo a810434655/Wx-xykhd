@@ -1,0 +1,42 @@
+/* pages/home/manage.wxss */
+.card-bottom{
+  background: #fff;
+  padding: 20rpx;
+}
+.card-button {
+  margin-left:25%;vertical-align:top;width:50%;height:60rpx;display:block;margin-bottom:10rpx
+}
+.browse{
+  text-align:right;
+  color: #b3bdc9;
+}
+.page-content-m{
+  padding: 10rpx 40rpx;
+}
+.bottom-shadow {
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.2);
+}
+.modal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+}
+.modal-mask.show{
+  opacity:1;
+  visibility:visible;
+}
+.swiper-guide{
+  width:100%;
+  height: 850rpx;
+}
+.swiper-guide swiper-item{
+  padding-top:20rpx;
+  padding-bottom:40rpx;
+}

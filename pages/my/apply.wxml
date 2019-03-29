@@ -1,0 +1,19 @@
+<!--pages/my/apply.wxml-->
+<view class="container">
+  <view class="page-body page-content b-background" wx:if="{{applyList.length != 0}}">
+    <i-row i-class="" background="#ffcc12;border-radius:10rpx;margin:30rpx 0rpx" wx:for="{{applyList}}" wx:key="{{item.number}}" data-inx="{{index}}" bindtap="openInfo">
+      <i-col span="23" offset="1" i-class="b-white c-title-30 top-right">
+          <view class='ellipsis' style='padding:40rpx 30rpx'>{{item.name}}</view>
+      </i-col>
+      <i-col span="23" offset="1" i-class="b-white c-tag-24 bottom-right">
+          <view class='ellipsis' style='padding:0rpx 30rpx'>{{item.beginDate}}~{{item.endDate}}</view>
+          <view class='text-all' style='padding:20rpx 30rpx 30rpx 30rpx'>{{item.address}}</view>
+      </i-col>
+    </i-row>
+  </view>
+  <view class='page-body centerv vertical-center' style='flex-direction:column;margin-bottom:100rpx' wx:else>
+    <image mode='aspectFit' style='vertical-align:top;width:50%;height:250rpx;display:block' src="/resources/image/ic_no_ticket.png">
+    </image>
+    <view class='c-tag' style='display:block;padding-top:20rpx'>您还没有报名过活动哟，赶快参加活动吧~</view>
+  </view>
+</view>

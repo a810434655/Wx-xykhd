@@ -1,0 +1,90 @@
+<!--pages/manage/lottery/edit.wxml-->
+<view class="container">
+  <view class="page-body b-background" style='padding-bottom:20rpx'>
+    <i-row i-class="page-content b-white">
+      <i-panel title="奖品（必填）" isInfo hideBorder>
+      </i-panel>
+      <i-col span="24" wx:for="{{itemList}}" wx:key="item.id" i-class="timeline">
+        <i-col span="4" i-class="center img-bg" data-idx="{{index}}" bindtap='upItemIMG'>
+          <image mode='aspectFit' style='vertical-align:top;width:40%;height:80rpx;display:inline-block;' src="/resources/image/manage/function/ic_pic.png" wx:if="{{item.pic.length == 0}}" />
+          <image mode='aspectFit' style='vertical-align:top;width:100%;height:80rpx;display:inline-block;' src="{{item.pic}}" wx:else/>
+        </i-col>
+        <i-col span="17" offset="1">
+          <i-input value="{{ item.name }}" placeholder="请输入奖品名称" key="{{index}}" bind:change='changeItemInput' />
+        </i-col>
+        <i-col span="2">
+          <image mode="widthFix" src="/resources/image/manage/ic_+.png" style='width:50rpx;height:50rpx;margin-top:20rpx;margin-left:20rpx' wx:if="{{(index + 1) == itemList.length }}" data-idx="{{index}}" bindtap='addItem'></image>
+          <image mode="widthFix" src="/resources/image/manage/ic_-.png" style='width:50rpx;height:50rpx;margin-top:20rpx;margin-left:20rpx' wx:else data-idx="{{index}}" bindtap='minusItem'></image>
+        </i-col>
+        <i-col span="24" i-class="prize-num">
+          <i-input placeholder="奖品份数" key="{{index}}" type='number' value="{{item.num}}" bind:change='changeItemNumInput' />
+        </i-col>
+      </i-col>
+    </i-row>
+    <i-row i-class="page-content b-white">
+      <i-col span="24">
+        <i-panel title="补充描述" isInfo hideBorder i-class="inline fleft">
+        </i-panel>
+        <radio-group class="theme-default" bindchange="radioContentChange" style="padding:18rpx 10rpx;">
+          <radio class='c-content-30' style='padding:3rpx 4rpx' value="0" checked="{{ contentType == '0'}}">多行文本
+          </radio>
+          <radio class='c-content-30' style='padding:3rpx 4rpx' value="1" checked="{{ contentType == '1'}}">单张长图
+          </radio>
+        </radio-group>
+      </i-col>
+      <i-col span="24" wx:if="{{contentType == '0'}}">
+        <i-input value="{{ contentText }}" placeholder="建议将活动详细信可补充抽奖说明或者活动其他信息等" key="content" type="textarea" bind:change='changeInput' /></i-col>
+      <i-col span="24" wx:if="{{contentType == '1'}}">
+        <i-col span='24' wx:if="{{contentImg != ''}}">
+          <image src="{{contentImg}}" mode="aspectFill" style='border-radius:10rpx;height:390rpx;width:295rpx' data-inx='7' bindtap='removeImgInfo' bindlongpress='removeImg' />
+        </i-col>
+        <i-col span='7' wx:else>
+          <image src="/resources/image/ic_add.png" class="upImg" data-key='contentData' bindtap='upImg' />
+        </i-col>
+        <i-col span='24'>
+          <text class='c-tag-24'>建议上传宽为975像素的图片，5.0MB以内，仅支持：jpg,jpeg,png。</text>
+        </i-col>
+      </i-col>
+      <!-- <i-panel title="补充描述" isInfo hideBorder>
+        <i-input value="{{ activityInfo.content }}" placeholder="可补充抽奖说明或者活动其他信息等" key="content" type="textarea" bind:change='changeInput' />
+      </i-panel> -->
+      <i-col span="24">
+        <i-panel title="领奖方式" isInfo hideBorder>
+          <i-input placeholder="例：中奖后等待主办方联系" key="contact" value="{{extraData.contact}}" bind:change='changeInput' />
+        </i-panel>
+      </i-col>
+    </i-row>
+    <i-row i-class="page-content b-white">
+      <i-panel title="开奖规则（必选）" isInfo hideBorder></i-panel>
+      <radio-group class="check-default" bindchange="radioSelectChange">
+        <radio value="0" checked="{{ selectType == '0'}}" class='radio-right'>
+          <view style='display:inline-block;' class="c-content checkbox {{selectType == '0'? 'checked':''}}">按时间开奖</view>
+        </radio>
+        <radio value="1" checked="{{ selectType == '1'}}" class='radio-right'>
+          <view style='display:inline-block;' class="c-content checkbox {{selectType == '1'? 'checked':''}}">按人数开奖</view>
+        </radio>
+        <radio value="2" checked="{{ selectType == '2'}}">
+          <view style='display:inline-block;' class="c-content checkbox {{selectType == '2'? 'checked':''}}">手动开奖</view>
+        </radio>
+      </radio-group>
+      <i-col span="24" wx:if="{{ selectType == '0' }}">
+        <picker mode="date" value="{{date}}" start="{{nowDate}}" end="2020-12-01" bindchange="bindDateChange" style='display:inline-block;width:47%;'>
+          <i-input value="{{date}}" disabled i-class='picker center' />
+        </picker>
+        <picker mode="time" value="{{time}}" bindchange="bindTimeChange" style='display:inline-block;width:47%;margin-left:6%'>
+          <i-input value="{{time}}" disabled i-class='picker center' />
+        </picker>
+      </i-col>
+      <i-col span="24" wx:if="{{ selectType == '1' }}" i-class="c-tag">
+        <i-col span="3" i-class="people">到达</i-col>
+        <i-col span="10" offset="1">
+          <i-input value="{{peopleNum}}" type='number' bind:change='changePeopleNumInput' value="{{ruleData}}" i-class='center' /></i-col>
+        <i-col span="7" offset="1" i-class="people">人 后开奖</i-col>
+      </i-col>
+    </i-row>
+    <view class="c-title-36 center vertical-center radius" style='margin:30rpx;line-height:100rpx;height: 100rpx;display:block;padding:0rpx;color:#fff;background-image: linear-gradient(-90deg,#286eff 0%,#5a90ff 100%)!important;texe-align:center' bindtap='submit'>
+      {{formId?'保存':'提交'}}
+    </view>
+  </view>
+  <i-message id="message" />
+</view>

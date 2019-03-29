@@ -1,0 +1,70 @@
+/* pages/activity/schoolactivity.wxss */
+.page-body {
+  z-index: 999;
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  /* min-height: 450rpx; */
+}
+.page-content {
+  border-radius: 40rpx 40rpx 0rpx 0rpx;
+  margin-top: -50rpx;
+  position: relative;
+  z-index: 100;
+  padding: 0;
+}
+.school-title {
+  color: #FFF;
+  font-size: 50rpx;
+  font-weight: 700;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  top: 50rpx
+}
+.tabs-title {
+  padding: 10rpx 0rpx;
+  background: #fff!important;
+  z-index: 99;
+}
+.c-title {
+  padding-left: 14rpx;
+}
+.school-activity{
+  padding: 20rpx 0rpx 18rpx 0rpx;
+  margin-bottom: 10rpx;
+  border-bottom: 1px solid #f4f6f9
+}
+.school-activity.noLine{
+  border-bottom: 0px solid #f4f6f9!important
+}
+.activity-tag-small {
+  padding: 4rpx 14rpx;
+  font-weight: 700;
+  text-align: center;
+  margin-right: 10rpx;
+  background: rgba(255,203,18,0.2);
+  color: rgb(255,203,18);
+}
+
+.activity-tag-small.new {
+  background: rgba(31,220,133,0.2);
+  color: rgb(31,220,133);
+}
+
+.activity-tag-small.hot {
+  background: rgba(255,109,85,0.2);
+  color: rgb(255,109,85);
+}
+
+.activity-tag-small.blue {
+   background: rgba(0,168,255,0.2);
+  color: rgb(0,168,255);
+}
+
+.activity-tag-small.gray {
+   background: rgba(121,130,142,0.2);
+  color: rgb(121,130,142);
+}

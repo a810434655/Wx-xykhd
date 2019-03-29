@@ -1,0 +1,16 @@
+<!--pages/my/feedback.wxml-->
+<view class="container b-background">
+  <view class="page-body" style='padding-bottom:40rpx'>
+    <i-row i-class="page-content">
+      <i-col span='24' i-class='c-content-info-30'>
+        <view class='center' style='margin:25rpx 25rpx 0rpx 25rpx'>期待您与我们共同成长</view>
+      </i-col>
+    </i-row>
+    <textarea placeholder="请填写您的宝贵意见" style='background:#fff;width:100%;height:300rpx;padding:20rpx 40rpx' auto-focus data-key="content" bindinput='changeInput' placeholder-class='c-tag-30' class='c-content'/>
+    <input placeholder="您的邮箱或手机号"  style='background:#fff;width:100%;padding:20rpx 40rpx;margin:40rpx 0rpx' data-key="contactWay" bindinput='changeInput' placeholder-class='c-tag-30' class='c-content'/>
+    <i-col span='20' offset='2' i-class='input-col'>
+      <i-button shape="circle" type="warning" bindtap='feedback'>反馈</i-button>
+    </i-col>
+  </view>
+  <i-message id="message" />
+</view>

@@ -1,0 +1,81 @@
+<!--pages/manage/vote/edit.wxml-->
+<view class="container">
+  <view class="page-body b-background" style='padding-bottom:20rpx'>
+    <i-row i-class="page-content b-white">
+      <i-panel title="投票名称（必填）" isInfo hideBorder>
+        <i-input value="{{ extraData.name }}" placeholder="例：十佳歌手大赛人气王票选" key="name" bind:change='changeInput' />
+      </i-panel>
+      <i-panel title="补充描述" isInfo hideBorder>
+        <i-input value="{{ extraData.content }}" placeholder="可补充投票说明或者活动其他信息等" key="content" type="textarea" bind:change='changeInput' />
+      </i-panel>
+    </i-row>
+    <i-row i-class="page-content b-white">
+      <i-panel title="选项（必填）" isInfo hideBorder>
+      </i-panel>
+      <i-col span="24" wx:for="{{itemList}}" wx:key="item.id" i-class="timeline">
+        <i-col span="4" i-class="center img-bg" data-idx="{{index}}" bindtap='upItemIMG'>
+          <image mode='aspectFit' style='vertical-align:top;width:40%;height:80rpx;display:inline-block;' src="/resources/image/manage/function/ic_pic.png" wx:if="{{item.pic.length == 0}}" />
+          <image mode='aspectFit' style='vertical-align:top;width:100%;height:80rpx;display:inline-block;' src="{{item.pic}}" wx:else/>
+        </i-col>
+        <i-col span="17" offset="1">
+          <i-input value="{{ item.name }}" placeholder="请输入选项名称" key="{{index}}" bind:change='changeItemInput' />
+        </i-col>
+        <i-col span="2">
+          <image mode="widthFix" src="/resources/image/manage/ic_+.png" style='width:50rpx;height:50rpx;margin-top:20rpx;margin-left:20rpx' wx:if="{{(index + 1) == itemList.length }}" data-idx="{{index}}" bindtap='addItem'></image>
+          <image mode="widthFix" src="/resources/image/manage/ic_-.png" style='width:50rpx;height:50rpx;margin-top:20rpx;margin-left:20rpx' wx:else data-idx="{{index}}" bindtap='minusItem'></image>
+        </i-col>
+      </i-col>
+      <view class='c-tag-24'>图片非必传，默认有选项名称则为可用选项。</view>
+    </i-row>
+    <i-row i-class="page-content b-white">
+      <i-panel title="截止时间（必选）" isInfo hideBorder>
+        <picker mode="date" value="{{date}}" start="{{nowDate}}" end="2020-12-01" bindchange="bindDateChange" style='display:inline-block;width:47%;'>
+          <i-input value="{{date}}" disabled i-class='picker center' />
+        </picker>
+        <picker mode="time" value="{{time}}" bindchange="bindTimeChange" style='display:inline-block;width:47%;margin-left:6%'>
+          <i-input value="{{time}}" disabled i-class='picker center' />
+        </picker>
+      </i-panel>
+      <i-panel title="投票规则（必填）" isInfo hideBorder i-class="inline fleft"></i-panel>
+      <radio-group class="theme-default" bindchange="radioSelectTypeChange" style="padding:19rpx 10rpx;">
+        <radio class='c-content-30' style='padding:3rpx 4rpx' value="0" checked="{{ selectType == '0'}}">单选
+        </radio>
+        <radio class='c-content-30' style='padding:3rpx 4rpx' value="1" checked="{{ selectType == '1'}}">多选
+        </radio>
+      </radio-group>
+      <i-col span="24" wx:if="{{ selectType == '1' }}">
+        <view style='display:inline-block;width:47%;'>
+          <i-input value="{{extraData.minItem}}" placeholder='最少选几项' i-class='picker center' type="number" key="minItem" bind:change='changeCheckItemInput' />
+        </view>
+        <view style='display:inline-block;width:47%;margin-left:6%'>
+          <i-input value="{{extraData.maxItem}}" placeholder='最多选几项' i-class='picker center' type="number" key="maxItem" bind:change='changeCheckItemInput' />
+        </view>
+      </i-col>
+    </i-row>
+    <i-row i-class="page-content b-white">
+      <i-panel title="投票类型（必选）" isInfo hideBorder>
+         <radio-group class="theme-default" bindchange="radioVoteTypeChange" style="padding:19rpx 10rpx;">
+        <radio class='c-content-30' style='padding:3rpx 4rpx' value="1" checked="{{extraData.voteType == '1'}}">普通投票
+        </radio>
+        <radio class='c-content-30' style='padding:3rpx 4rpx;margin-left:50rpx;' value="2" checked="{{extraData.voteType == '2'}}">现场投票
+        </radio>
+      </radio-group>
+      <view class="c-tag-24" style='padding:3rpx 10rpx;'>选择现场投票即拥有门票的学生可参与投票</view>
+      </i-panel>
+    </i-row>
+    <i-row i-class="page-content b-white">
+      <i-panel title="是否向用户展示投票结果(必选)" isInfo hideBorder>
+         <radio-group class="theme-default" bindchange="radioShowTypeChange" style="padding:19rpx 10rpx;">
+        <radio class='c-content-30' style='padding:3rpx 4rpx' value="1" checked="{{extraData.showType == '1'}}">是
+        </radio>
+        <radio class='c-content-30' style='padding:3rpx 4rpx;margin-left:50rpx;' value="2" checked="{{extraData.showType == '2'}}">否
+        </radio>
+      </radio-group>
+      </i-panel>
+    </i-row>
+    <view class="c-title-36 center vertical-center radius" style='margin:30rpx;line-height:100rpx;height: 100rpx;display:block;padding:0rpx;color:#fff;background-image: linear-gradient(-90deg,#286eff 0%,#5a90ff 100%)!important;texe-align:center' bindtap='submit'>
+      {{formId?'保存':'提交'}}
+    </view>
+  </view>
+  <i-message id="message" />
+</view>

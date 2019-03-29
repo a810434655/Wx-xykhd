@@ -1,0 +1,47 @@
+/* pages/activity/top.wxss */
+.page-body {
+  z-index: 999;
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+}
+.page-content {
+  border-radius: 40rpx 40rpx 0rpx 0rpx;
+  margin-top: -50rpx;
+  position: relative;
+  z-index: 100;
+  padding: 0;
+}
+.top-title {
+  color: #2c3141;
+  font-size: 26rpx;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 20rpx;
+  background: #FFDE00;
+  padding: 25rpx 10rpx;
+  border-radius: 35rpx 0rpx 0rpx 35rpx;
+  -webkit-writing-mode: vertical-lr;
+  riting-mode: vertical-lr;
+}
+.tabs-title {
+  border-radius: 40rpx 40rpx 0rpx 0rpx;
+  padding: 20rpx 0rpx;
+  position: relative;
+  background: #fff;
+  z-index: 100;
+}
+.jg{
+  margin-top: 5rpx;
+  border-radius: 2rpx;
+  min-width: 4rpx;
+  background: #ddd;
+  display: inline-block;
+  min-height: 36rpx;
+}
+.activity{
+  padding: 20rpx 20rpx 8rpx 10rpx;
+  margin-top: 30rpx;
+}

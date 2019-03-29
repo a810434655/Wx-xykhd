@@ -1,0 +1,8 @@
+<view class="i-class i-panel">
+    <view wx:if="{{ title }}" class="i-panel-title {{ hideTop ? 'i-panel-title-hide-top' : '' }}" style="{{isInfo ? 'color: #2c3141;font-size: 30rpx;font-weight:700;padding:30rpx 0rpx' :''}}{{isTitle ? 'color: #1d2336;font-weight:700;font-size: 40rpx;padding:30rpx 0rpx' :''}}"><view style="border-radius:10rpx;min-width:10rpx;background:{{ color }};display:{{isInfo || isTitle ? 'none' : 'inline-block'}};min-height:37rpx;margin-right:10rpx"></view>{{ title }}
+     <image mode="question" src="/resources/image/ic_question.png" style="width:50rpx;height:50rpx;display: {{ showQuestion ? 'inline-block' : 'none' }}" catchtap="tapQuestion"></image>
+     <view class="c-sub-color" style='margin-left:20rpx;font-weight:500'>{{ content }}</view>
+    <view catchtap="navigateTo" class="i-panel-ft" style="display: {{ isLink ? 'inline-block' : 'none' }}"></view>
+    </view>
+    <view class="i-panel-content {{ hideBorder ? 'i-panel-without-border' : '' }}"><slot></slot></view>
+</view>

@@ -1,0 +1,93 @@
+<!--pages/manage/lottery/lottery.wxml-->
+<view class="container" style='display:flex;flex-direction: column;height:100%'>
+  <view class="page-body b-light-primary" style='overflow:hidden'>
+    <i-row i-class="page-content">
+      <i-col span="24" i-class="center">
+        <view style='font-size:24rpx;font-weight: 600;padding:10rpx 20rpx;display:inline-block;color:#fff;margin-bottom:20rpx'>已有{{lotteryInfo.totalTickets}}人参与抽奖 {{lotteryInfo.status == 1? '当前未开奖': '已开奖'}}</view>
+      </i-col>
+    </i-row>
+  </view>
+  <i-row i-class="page-content" style="margin-top:80rpx;position: fixed;width:100%;z-index:1000;background-image:linear-gradient(180deg, #5a90ff 100rpx, #ffffff 100rpx)!important">
+    <i-col span="22" offset="1" i-class="card bottom-shadow">
+      <i-col span="8" i-class="center c-tag" data-modal="lotteryModal" bindtap="showModal">
+        <image mode='aspectFit' class='card-img' src="/resources/image/manage/function/ic_manual.png" /> 手动开奖
+      </i-col>
+      <i-col span="8" i-class="center c-tag" data-modal="downloadModal" bindtap="showModal">
+        <image mode='aspectFit' class='card-img' src="/resources/image/manage/function/ic_download.png" /> 数据下载
+      </i-col>
+      <i-col span="8" i-class="center c-tag" data-modal="editModal" bindtap="showModal">
+        <image mode='aspectFit' class='card-img' src="/resources/image/manage/function/ic_edit.png" /> 重新编辑
+      </i-col>
+    </i-col>
+    <i-col span="22" offset="1" i-class="tabs-title">
+      <i-col span="8" i-class="center c-title-30">
+        姓名
+      </i-col>
+      <i-col span="8" i-class="center c-title-30">
+        奖项名称
+      </i-col>
+      <i-col span="8" i-class="center c-title-30">
+        手机号
+      </i-col>
+    </i-col>
+  </i-row>
+  <scroll-view scroll-y="true" style='flex: 1;margin-top:410rpx' wx:if="{{lotteryInfo.status == 2}}">
+    <i-row>
+      <i-col span="22" offset="1" i-class="tabs-content {{index % 2 == 1 ? 'b-white' : 'b-background'}} c-content-28" wx:for="{{lotteryDatas}}" wx:key="item.id">
+        <block wx:if="{{!studentIden}}">
+          <i-col span="8" i-class="custom-zan-col center">
+            ***
+          </i-col>
+          <i-col span="8" i-class="custom-zan-col center">
+            ******
+          </i-col>
+          <i-col span="8" i-class="custom-zan-col center">
+            ***
+          </i-col>
+        </block>
+        <block wx:else>
+          <i-col span="8" i-class="custom-zan-col center">
+            {{item.name}}
+          </i-col>
+          <i-col span="8" i-class="custom-zan-col center">
+            {{item.winPrize}}
+          </i-col>
+          <i-col span="8" i-class="custom-zan-col center">
+            {{item.phone}}
+          </i-col>
+        </block>
+      </i-col>
+    </i-row>
+  </scroll-view>
+  <view class='page-body centerv vertical-center' style='height:100%;position: relative;flex-direction:column;margin-bottom:100rpx' wx:else>
+    <!-- <image mode='aspectFit' style="vertical-align:top;width:50%;height:250rpx;display:block;margin-top:160rpx" src="/resources/image/ic_no_activity.png">
+    </image> -->
+    <view class='c-tag' style='display:block;padding-top:320rpx'>{{lotteryInfo.extraData.lotteryType == '0' ? ('将于'+lotteryInfo.extraData.lotteryData+'开奖'):lotteryInfo.extraData.lotteryType == '1' ? ('抽奖人数到达'+lotteryInfo.extraData.lotteryData+'人开奖') : '还没有开奖哦~请手动开奖'}}</view>
+  </view>
+  <i-modal visible="{{ downloadModal }}" cancel-text='取消' ok-text='发送' bind:ok="handleDownload" bind:cancel="handleClose">
+    <i-row i-class='modal-content'>
+      <i-col span="20" offset="2">
+        <view class='c-title-30' style='text-align:center;margin-bottom:40rpx;'>数据下载至邮箱</view>
+      </i-col>
+      <i-col span="20" offset="2">
+        <i-input value="{{ email }}" placeholder="请输入您的邮箱" key="email" bind:change='changeInput' />
+      </i-col>
+    </i-row>
+  </i-modal>
+  <i-modal visible="{{ editModal }}" cancel-text='取消' ok-text='编辑' bind:ok="handleEdit" bind:cancel="handleClose">
+    <i-row i-class='modal-content'>
+      <i-col span="20" offset="2">
+        <text class='c-content-28' style='text-align:left;padding:0px'>重新编辑当前表单将抹除全部数据，请确认数据下载后再进行编辑操作</text>
+      </i-col>
+    </i-row>
+  </i-modal>
+  <i-modal visible="{{ lotteryModal }}" cancel-text='取消' ok-text='确定' bind:ok="handleLottrey" bind:cancel="handleClose">
+    <i-row i-class='modal-content'>
+      <i-col span="20" offset="2">
+        <text class='c-content-28' style='text-align:left;padding:0px'>{{lotteryInfo.extraData.lotteryType == '2' ?('当前已有'+lotteryInfo.totalTickets+'人参加抽奖\n确定当前直接开奖吗？'):'您选择开奖方式非手动开奖\n确定当前直接开奖吗？'}}</text>
+      </i-col>
+    </i-row>
+  </i-modal>
+  <iden-bottom wx:if="{{!studentIden}}"/>
+  <i-message id="message" />
+</view>

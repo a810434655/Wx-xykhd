@@ -1,0 +1,112 @@
+<!--pages/activity/lottery.wxml-->
+<view class="container b-white">
+  <view class="page-body b-background" style='overflow:hidden'>
+    <swiper class="swiper-box" indicator-dots="true" autoplay="false" interval="5000" duration="500" style='height:320rpx' indicator-color='#fff' indicator-active-color='#000' circular='true'>
+      <block wx:for="{{lotteryInfo.jsonData}}" wx:key="{{item.id}}">
+        <swiper-item>
+          <image mode='aspectFill' style='width:100%;height:100%' src="{{item.pic ? item.pic:'/resources/image/activity/ic_noprizepic.png'}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <i-row i-class='page-content b-white'>
+      <i-col span="20" offset="2" i-class="tabs-title">
+        <i-col span="24" i-class="c-title-32">抽奖说明</i-col>
+        <i-col span="24" i-class="c-content-24">
+          <text style='margin:15rpx 0rpx;line-height:2' wx:if="{{contentType == '0'}}">{{lotteryInfo.extraData.content}}
+          </text>
+          <image src="{{lotteryInfo.extraData.imgUrl}}" mode="widthFix" style='width:100%;margin-bottom:40rpx' wx:if="{{activityId == '321'}}" bindtap='showImg' data-url="{{lotteryInfo.extraData.imgUrl}}"/>
+          <image src="{{contentImg}}"data-url="{{contentImg}}" mode="widthFix" style='width:100%;margin-bottom:40rpx' wx:if="{{contentType == '1'}}" bindtap='showImg'/>
+          <i-col span="24">
+            <view class='c-content-24 b-background mb-20 center' style='padding:10rpx 20rpx;display:inline-block;border-radius:5rpx' wx:if="{{lotteryInfo.status != 2 }}">{{lotteryInfo.extraData.lotteryType == '0' ? ('将于'+lotteryInfo.extraData.lotteryData+'开奖'):lotteryInfo.extraData.lotteryType == '1' ? ('抽奖人数到达'+lotteryInfo.extraData.lotteryData+'人开奖') : '等待发起人手动开奖'}}</view>
+            <view class='c-content-24 b-background mb-20 center' style='padding:10rpx 20rpx;display:inline-block;border-radius:5rpx' wx:else>已开奖</view>
+          </i-col>
+        </i-col>
+        <i-col span="24" i-class="centerv mb-20 c-title-32">
+          奖品信息
+        </i-col>
+        <block wx:for="{{lotteryInfo.jsonData}}" wx:key="{{item.id}}">
+          <i-col span="17" i-class="c-title-28 mb-20 c-error">
+            {{item.name}}
+          </i-col>
+          <i-col span="6" offset="1" i-class="c-title-28 tr mb-20">
+            {{item.num}}份
+          </i-col>
+        </block>
+      </i-col>
+    </i-row>
+    <i-row i-class='b-white-fix'>
+      <i-col span="20" offset="2">
+        <i-col span="24" i-class="c-title-32 pd-40">参与信息</i-col>
+      </i-col>
+      <i-col span="20" offset="2" i-class="mb-30">
+        <i-input i-class='input' right="true" title="姓名" placeholder="（必填）" key="name" bind:change='changeInput' value="{{lotteryInfo.extraData.userDrawPrize ? lotteryInfo.extraData.userDrawPrize.name : ''}}" disabled='{{lotteryInfo.extraData.userDrawPrize || lotteryInfo.status == 2}}'
+        />
+      </i-col>
+      <i-col span="20" offset="2" i-class="mb-30">
+        <i-input i-class='input' right="true" title="手机号" placeholder="（必填）" type='number' key="phone" value="{{lotteryInfo.extraData.userDrawPrize ? lotteryInfo.extraData.userDrawPrize.phone : ''}}" bind:change='changeInput' disabled='{{lotteryInfo.extraData.userDrawPrize || lotteryInfo.status == 2}}'
+        />
+      </i-col>
+      <i-col span="20" offset="2" i-class="mb-20 center" wx:if="{{lotteryInfo.status == 1}}">
+        <form bindsubmit="submit" report-submit="true">
+          <button class="button {{lotteryInfo.extraData.userDrawPrize ? 'i-btn-display' : ''}}" hover-class="i-btn-hover" plain="true" formType="submit" bindgetuserinfo="submit" open-type="getUserInfo" disabled='{{lotteryInfo.extraData.userDrawPrize}}'>{{lotteryInfo.extraData.userDrawPrize ? '待开奖':'抽奖'}}</button>
+        </form>
+      </i-col>
+      <i-col span="20" offset="2" i-class="c-tag-24 mb-20 center" wx:if="{{lotteryInfo.status == 1}}">
+        当前已有{{lotteryInfo.totalTickets}}人参与
+      </i-col>
+      <block wx:else>
+        <i-col span="20" offset="2" i-class="mb-20 center">
+          <view class="{{lotteryInfo.extraData.userDrawPrize && lotteryInfo.extraData.userDrawPrize.flag ? 'c-error': ''}} c-title" style='margin-top:30rpx;padding-top:20rpx;border-top:1rpx solid #f4f6f9;'>
+            {{lotteryInfo.extraData.userDrawPrize ? (lotteryInfo.extraData.userDrawPrize.flag ? '恭喜您！已中奖':'很遗憾！未中奖'): '您来晚了！已结束'}}
+          </view>
+        </i-col>
+        <block wx:if="{{lotteryInfo.extraData.userDrawPrize && lotteryInfo.extraData.userDrawPrize.flag}}">
+          <i-col span="20" offset="2">
+            <i-col span="7" i-class="c-content-28 mb-20">
+              奖品名称
+            </i-col>
+            <i-col span="16" offset="1" i-class="c-title-28 tr mb-20">
+              {{lotteryInfo.extraData.userDrawPrize.winPrize}}
+            </i-col>
+          </i-col>
+          <i-col span="20" offset="2">
+            <i-col span="7" i-class="c-content-28 mb-20">
+              领取方式
+            </i-col>
+            <i-col span="16" offset="1" i-class="c-title-28 tr mb-20">
+              {{lotteryInfo.extraData.contact}}
+            </i-col>
+          </i-col>
+        </block>
+        <i-col span="20" offset="2">
+          <i-col span="7" i-class="c-content-28 mb-20">
+            本次参与人数
+          </i-col>
+          <i-col span="16" offset="1" i-class="c-title-28 tr mb-20">
+            {{lotteryInfo.totalTickets}}
+          </i-col>
+        </i-col>
+      </block>
+    </i-row>
+  </view>
+  <view class="modal-mask {{lotteryModal ? 'show' : ''}} center centerv" style='align-items:center;'>
+    <view class='center b-white' style='width:590rpx;height:640rpx;position:relative;padding:30rpx 0;border-radius:20rpx'>
+      <image src='/resources/image/activity/ic_star.png' mode='aspectFit' style='width:590rpx;height:235rpx;position:absolute;z-index:10;top:-120rpx;left:0rpx;' bindtap='handleClose'></image>
+      <view class='c-title-38' style='margin-top:120rpx;margin-bottom:20rpx'>您已成功参与本次抽奖</view>
+      <text class='c-content-24' style='line-height:3;font-weight:500'>校园酷活动<text class='c-error'>3.0</text>正式上线
+      新增<text class='c-error'>抽奖/投票/报名/抢票</text>功能
+      快去认证
+      尝试创建最酷校园活动吧~
+      </text>
+      <i-row i-class="model-button">
+        <i-col span="12">
+          <i-button shape="circle" type="theme1-border" bindtap='openPage' data-url='/pages/home/plaza' data-type='5'>随便逛逛</i-button>
+        </i-col>
+        <i-col span="12" >
+          <i-button shape="circle" type="theme1" bindtap='openPage' data-url='/pages/home/manage' data-type='6'>前往认证</i-button>
+        </i-col>
+      </i-row>
+    </view>
+  </view>
+  <i-message id="message" />
+</view>

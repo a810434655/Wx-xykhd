@@ -1,0 +1,27 @@
+<!--pages/activity/lootticket.wxml-->
+<view class="container" style='background-image: linear-gradient(0deg,#ff6c58 10%,#6669ff 100%) '>
+  <scroll-view class="page-body" style='z-index:99;background:url(http://www.dreamoncampus.com/file/img/ic_lootticket_v3.png)no-repeat;background-size:100% auto;'>
+    <i-row background="#ff6c59;border-radius:20rpx 20rpx;z-index:99;margin:360rpx 30rpx 0rpx 30rpx;padding-bottom:100rpx;padding-top:30rpx;">
+      <i-col span="20" offset="2" class="center c-white c-title-38 mb-20">{{title}}</i-col>
+      <i-col span="20" offset="2" wx:for="{{formInfo.jsonData}}" wx:key="{{item.key}}">
+         <i-input i-class='input' right="true" title="{{item.key}}" placeholder="{{item.required? '（必填）': ''}}" type='{{item.inputType}}' key="{{index}}" bind:change='changeInput' wx:if="{{item.fieldType=='input'}}" />
+        <radio-group class="{{themeList[themeId].buttonTheme}}" bindchange="radioChange" data-inx="{{index}}" wx:if="{{item.fieldType=='radio'}}">
+          <view class='r-content' style='margin:15rpx 20rpx'>{{item.key}}{{item.required? '（必选）': ''}}</view>
+          <radio class='r-content' style='padding:10rpx 30rpx' value="{{index}}" checked="{{item.checked}}" wx:for="{{item.radioList}}" wx:key="{{item.key}}">{{item.name}}
+          </radio>
+        </radio-group>
+        <checkbox-group class="{{themeList[themeId].buttonTheme}}" bindchange="checkboxChange" data-inx="{{index}}" wx:if="{{item.fieldType=='checkbox'}}">
+          <view class='r-content' style='margin:15rpx 20rpx'>{{item.key}}{{item.required? '（必选）': ''}}</view>
+          <checkbox class='r-content' style='padding:10rpx 30rpx' value="{{index}}" wx:for="{{item.checkList}}" wx:for-item="checkItem" wx:key="{{checkItem.name}}">
+            {{checkItem.name}}
+          </checkbox>
+        </checkbox-group>
+      </i-col>
+    </i-row>
+    <form bindsubmit="commit" report-submit="true">
+          <button class="button i-class i-btn i-btn-theme1 i-btn-circle" hover-class="i-btn-hover" plain="true" formType="submit">抢票</button>
+        </form>
+    <!-- <i-button i-class='button' style='width:100%' type="theme1" shape="circle" bindtap="commit">抢票</i-button> -->
+  </scroll-view>
+  <i-message id="message" />
+</view>
