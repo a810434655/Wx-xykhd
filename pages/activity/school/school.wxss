@@ -1,0 +1,6 @@
+/* pages/activity/school/school.wxss */
+.school-search{
+  background: red;
+  height: 100rpx;
+  width: 100vm;
+}

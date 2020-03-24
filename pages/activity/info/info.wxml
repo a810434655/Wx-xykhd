@@ -1,0 +1,149 @@
+<!--pages/activity/info.wxml-->
+<canvas canvas-id='share' class="{{canvas?'displayNone':'displayYes'}}" style='width:590px;height:980px;'></canvas>
+<!-- <view class="model">
+    <view class="model-box">
+      <view class="model-box-top"><view>当前仅限获得门票的观众进行投票，门票获取方式及投票规则请向主办方询问</view></view>
+      <view class="model-box-bottom"></view>
+    </view>
+</view> -->
+<view class="container" style='display:flex;flex-direction: column;height:100%'>
+  <view class="page-body" style='overflow:hidden'>
+    <swiper class="swiper-box" indicator-dots="true" autoplay="false" interval="5000" duration="500" style='height:390rpx' indicator-color='#dde4ed' indicator-active-color='#000' circular='true'>
+      <block wx:for="{{activityInfo.bannerData}}" wx:key="{{item}}">
+        <swiper-item>
+          <image mode='aspectFill' style='width:100%;height:100%' src="{{item}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <i-row i-class='page-content'>
+      <i-col span="24" i-class="tabs-title">
+        <i-col span="4" i-class="center" data-id="0" bindtap='selectTab'>
+          <i-col span="24" i-class="c-title-32 tabs-name {{tabId == 0 ? 'theme-color-'+(activityInfo.theme): ''}}">
+            详情
+          </i-col>
+          <i-col span="8" offset='8'>
+            <view animation='{{animationData}}' class="tabs-bottom-select theme-bgl-color-{{activityInfo.theme}}" style='float:left;width:100%;'></view>
+          </i-col>
+        </i-col>
+        <i-col span="4" i-class="center" data-id="1" bindtap='selectTab'>
+          <i-col span="24" i-class="c-title-32 tabs-name {{tabId == 1 ? 'theme-color-'+(activityInfo.theme): ''}}">
+            日程
+          </i-col>
+        </i-col>
+        <i-col span="4" i-class="center" data-id="2" bindtap='selectTab'>
+          <i-col span="24" i-class="c-title-32 tabs-name {{tabId == 2 ? 'theme-color-'+(activityInfo.theme): ''}}">
+            留言
+          </i-col>
+        </i-col>
+        <i-col span="12">
+          <i-col span="4" offset="{{collectType?'13':'18'}}"  i-class="c-sub-content center float" bindtap="shareHandler">
+          <!-- open-type="share" -->
+            <button class='btn icon' style='display:inline-block;display:block;float:right;'>
+              <image mode='aspectFit' style='width:40rpx;height:40rpx' src='/resources/image/ic_activity_share_s.png'></image>
+              分享
+            </button> 
+          </i-col>
+          <i-col span="4" offset="1" i-class="c-sub-content center icon float" wx:if="{{collectType}}"  bindtap="collectHandler">
+            <image mode='aspectFit' style='width:40rpx;height:40rpx' src="{{ collect ? '/resources/image/ic_activity_heart.png': '/resources/image/ic_activity_heart_e.png'}}"></image>
+            收藏
+          </i-col>
+        </i-col>
+      </i-col>
+    </i-row>
+  </view>
+
+  <scroll-view scroll-y="true" style='flex: 1;margin-top:450rpx'>
+    <i-row wx:if="{{tabId == 0}}" i-class="activity">
+      <i-notice-bar icon="systemprompt" loop color="#5a90ff" speed="20000" backgroundcolor="rgba(90, 144, 255,0.1)" wx:if="{{activityInfo.notice}}">
+        {{activityInfo.notice}}
+      </i-notice-bar>
+      <view class='c-title-38 text-all center' style='display:block;padding:40rpx 20rpx;'>{{activityInfo.name}}</view>
+      <text class='c-content-28 text-all' style='display:block;padding:0rpx 40rpx;font-size:30rpx;margin-bottom:40rpx' wx:if="{{contentType == '0'}}">{{activityInfo.content}}</text>
+      <image src="{{contentImg}}" mode="widthFix" style='width:100%;margin-bottom:40rpx' wx:if="{{contentType == '1'}}" />
+      <view class='ellipsis c-content-28' style='padding:0rpx 40rpx;' wx:if="{{activityInfo.organizer}}">
+        <view class='c-title-28' style='display:inline-block'>活动承办方：</view>{{activityInfo.organizer}}</view>
+      <i-col span="24" wx:if="{{activityInfo.address}}">
+        <i-col span="6">
+          <view class='c-title-28' style='display:inline-block;padding-left:40rpx'>活动地点：</view>
+        </i-col>
+        <i-col span="18">
+          <view class='text-all c-content-28' style='padding-right: 40rpx;padding-top:3rpx'>
+            <text>{{activityInfo.address}}</text>
+          </view>
+        </i-col>
+      </i-col>
+      <view class='text-all c-content-28' style='padding:0rpx 40rpx;margin-bottom:120rpx'>
+        <view class='c-title-28' style='display:inline-block;margin-right:10rpx'>活动起止：</view>{{activityInfo.beginDate}}~{{activityInfo.endDate}}</view>
+    </i-row>
+    <i-row wx:if="{{tabId == 1}}" i-class="activity chat-content-end">
+      <i-col span="24" i-class='c-content center vertical-center timeline' wx:for="{{activityInfo.timeLine}}" wx:key="{{index}}">
+        <i-col span="1" >
+            <view class="theme-bg-color-{{activityInfo.theme}}" style="border-radius:20rpx;margin-top:8rpx;width:25rpx;height:25rpx;{{item.type == 'time'? 'opacity:.0': '' }}"></view>
+        </i-col>
+        <i-col span="6" i-class="right-time">
+          <text style='display:inline-block;'>{{item.date}}</text>
+        </i-col>
+        <i-col span="16" offset='1'>
+          <view style='display:inline-block;color:#2c3141' class='text-all'>{{item.info}}</view>
+        </i-col>
+      </i-col>
+    </i-row>
+    <i-row wx:if="{{tabId == 2}}" i-class="activity chat chat-content-end">
+      <block wx:for="{{commentList}}" wx:key="{{index}}">
+        <i-col span="24" bindlongpress='showAction' bindtap='reply' data-id="{{item.commentId}}" data-name="{{item.nickname}}" data-uid="{{item.userId}}">
+          <i-col span="3">
+            <image mode="scaleToFill" src="{{item.avatar}}" style='width:70rpx;height:70rpx;border-radius: 35rpx;'></image>
+          </i-col>
+          <i-col span="12">
+            <view class='c-title-26' style='display:inline-block;color:#2c3141;padding:0rpx 0rpx;line-height:70rpx;margin-left:10rpx'>{{item.nickname == null ? '昵称遗失在异次元了_(:з)∠)_':item.nickname }}</view>
+            <view class='chat-tag' wx:if="{{item.flag == 2}}">官方</view>
+          </i-col>
+          <i-col span="9">
+            <view style='text-align:right;line-height:70rpx' class='c-tag-24 text-all'>{{item.ctime}}</view>
+          </i-col>
+        </i-col>
+        <i-col span="21" offset="3" bindlongpress='showAction' data-id="{{item.commentId}}">
+          <view class="c-content-26 text-all {{index != commentList.length? 'chat-content':''}}">{{item.pnickname != null?'回复':''}}<text class='c-title-28' wx:if="{{item.pnickname != null}}"> {{item.pnickname}} </text>{{item.content}}</view>
+        </i-col>
+      </block>
+    </i-row>
+  </scroll-view>
+  <view class="bottom info-bottom" style='display:block;margin-bottom:15rpx;'>
+    <i-row wx:if="{{tabId == 2}}">
+      <i-col span="16" offset="1">
+        <i-input i-class='chat-input' placeholder="{{replyInfo.commentId != undefind ? ('回复 '+replyInfo.nickname+' :'):'评论'}}" value='{{comment}}' key="comment" bind:change='changeInput' maxlength='150'/>
+      </i-col>
+      <i-col span="7">
+        <i-button shape="circle" type="theme{{activityInfo.theme}}" data-type='comment' bindtap="commit">发送</i-button>
+      </i-col>
+    </i-row>
+    <i-row wx:else>
+    <!-- 表单循环 -->
+      <i-col span="{{span}}" wx:for="{{formList}}" wx:index="{{index}}" wx:key="index" wx:if="{{item.type != 4}}">
+      <!-- 报名-->
+        <i-button wx:if="{{item.type == 1}}" i-class="{{item.timeDate >= item.endDate ? 'disable': ''}}" data-formId="{{item.formId}}" shape="circle" type="theme{{item.type!=2 ? activityInfo.theme : activityInfo.theme+'1' }}" data-key="{{index}}" data-type="{{item.type}}" bindtap="commit">{{item.buttonName}}</i-button>
+        <!-- 抢票 -->
+        <i-button wx:if="{{item.type == 2}}" i-class="{{ticket > 0 ? 'disable': ''}}" data-formId="{{item.formId}}" shape="circle" type="theme{{item.type!=2 ? activityInfo.theme : activityInfo.theme+'1' }}" data-key="{{index}}" data-type="{{item.type}}" bindtap="commit">{{item.buttonName}}</i-button>
+        <!-- 投票  -->
+        <i-button wx:if="{{item.type == 3}}" data-url="{{item.skipUrl}}" data-formId="{{item.formId}}" shape="circle" type="theme{{item.type!=2 ? activityInfo.theme : activityInfo.theme+'1' }}" data-key="{{index}}" data-type="{{item.type}}" bindtap="commit">{{item.buttonName}}</i-button>
+      </i-col>
+ <!-- 抽奖循环 -->
+    </i-row>
+  </view>
+    <image mode='aspectFit' bindtap="lottery"  src="/resources/image/activity/ic_lottery.png"  data-formId="{{prizeFormId}}" class="lottery-info center"   wx:if="{{prize != 0}}" />
+  <i-message id="message" />
+</view>
+<i-modal visible="{{ userModal }}" ok-text='确认'  bind:ok="handleUserModal">
+    <i-row i-class='modal-content'>
+      <i-col span="20" offset="2">
+        <text class='c-content-24' style='text-align:left;padding:0px'>当前仅限获得门票的观众进行投票，门票获取方式及投票规则请向主办方询问</text>
+      </i-col>
+    </i-row>
+</i-modal>
+<i-action-sheet visible="{{ shareSheetShow }}" actions="{{ shareSheet }}" show-cancel bind:cancel="closeHandler" bind:click="shareSheetHandler" />
+  <view class="modal-mask {{shareModel ? 'show' : ''}} center centerv" style='align-items:center;' bindtap='closeHandler'>
+    <!-- <canvas canvas-id='share' style='width:590px;height:980px;' hidden='true'></canvas> -->
+    <!--  -->
+    <text class='c-title-32 c-white' style='position:absolute;top:30rpx;'>点击查看大图,长按保存</text>
+    <image mode='aspectFit' style='width:590rpx;height:980rpx;' src="{{shareImg}}" bindtap='openImg'></image>
+  </view>

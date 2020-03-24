@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "个人中心",
+  "usingComponents": {
+    "i-row": "/resources/dist/row/index",
+    "i-col": "/resources/dist/col/index",
+    "i-avatar": "/resources/dist/avatar/index",
+    "i-card": "/resources/dist/card/index",
+    "i-button": "/resources/dist/button/index",
+    "i-message": "/resources/dist/message/index",
+    "i-modal": "/resources/dist/modal/index",
+    "i-toast": "/resources/dist/toast/index"
+  }
+}

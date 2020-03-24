@@ -1,0 +1,46 @@
+/* pages/my/identification.wxss */
+.upImg {
+  width: 100%;
+  height: 140rpx;
+  border-radius:10rpx;
+}
+.btn {
+  margin: 0rpx;
+  padding: 0rpx;
+  background: none;
+  border: none;  
+  border-radius:0rpx;
+}
+.btn:after {
+  border-radius:0rpx;
+  border: none;
+}
+checkbox .wx-checkbox-input {
+  border:4rpx solid #21a3f6;
+  border-radius:4rpx;
+  width: 30rpx;
+  height: 30rpx;
+}
+/* checkbox选中时样式 */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  /* 自定义样式.... */
+  border:4rpx solid #21a3f6!important;
+  border-radius:4rpx;
+  width: 30rpx;
+  height: 30rpx;
+  /* padding: 0px;
+  width: 0rpx;
+  text-align: center;
+  border-radius: 4rpx;
+  border:0px; */
+   color:transparent; /*对勾颜色 白色 */
+  /* position: absolute; */
+  background: #21a3f6!important;
+}
+checkbox .wx-checkbox-input-checked{
+  background: #21a3f6!important;
+  border:4rpx solid #21a3f6!important;
+  border-radius:4rpx;
+  width: 30rpx;
+  height: 30rpx;
+}

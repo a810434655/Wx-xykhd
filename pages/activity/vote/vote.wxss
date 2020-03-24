@@ -1,0 +1,153 @@
+/* pages/activity/vote.wxss */
+@import "../../../resources/dist/button/index.wxss";
+
+.card-bottom {
+  background: #fff;
+  padding: 30rpx;
+  border-radius: 0rpx 0rpx 20rpx 20rpx;
+}
+
+.input {
+  border-radius: 10rpx !important;
+  margin: 20rpx 0rpx;
+}
+
+.button {
+  width: 80%;
+  margin-left: 75rpx !important;
+}
+
+.r-content {
+  font-size: 28rpx;
+  color: #bbbec4;
+}
+
+.non-check {
+  width: 15rpx;
+  height: 15rpx;
+  border: solid 12rpx #dde4ed;
+  border-radius: 40rpx;
+  position: relative;
+  top: 8rpx;
+}
+.non-checked {
+  border: solid 12rpx #dde4ed;
+}
+
+.disable {
+  opacity: 0.6;
+}
+.item-bg {
+  background-color: #f5f8fd;
+  border-radius: 4px;
+  /* padding: 20rpx; */
+  margin-bottom: 30rpx;
+  height: 100%;
+  min-height: 150rpx;
+  line-height: 150rpx;
+
+}
+.color1{
+ color: #774fe5 !important;
+}
+.color2{
+ color: #f7598b !important;
+}
+.color3{
+ color: #0fc2a9 !important;
+}
+.color4{
+ color: #ff867a !important;
+}
+.color5{
+ color: #3a3951 !important;
+}
+
+.vote-button{
+  width: 100%;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 30rpx;
+}
+.ellipsis-vote{
+  line-height: 40rpx;
+}
+.name-vote{
+  font-size:30rpx;
+  color:#3a3951;
+  padding-top:15rpx;
+}
+.name-vote-1{
+  font-size:30rpx;
+  color:#3a3951;
+  padding-top:35rpx;
+}
+.num-vote{
+  font-size:30rpx;
+  color: #b0b0b9;
+}
+.button-vote{
+  width: 100%;
+  height: 50rpx;
+  margin: 50rpx 0;
+  font-size: 30rpx;
+  line-height: 50rpx;
+  padding:0;
+  margin-right: 10rpx;
+  border-radius: 50rpx;
+}
+.button-tanchuang{
+  width: 300rpx;
+  font-size: 30rpx;
+  height:80rpx;
+  padding:0;
+  margin-top: 40rpx;
+  border-radius: 50rpx;
+}
+.content-vote{
+  height: 150rpx;
+}
+.vote-model{
+  background: #fff;
+  min-height: 400rpx;
+  position: fixed;
+  z-index: 999;
+  top:30%;
+  text-align: center;
+  border-radius:20rpx;
+}
+.tanchuang-vote{
+  width: 250rpx;
+  height: 250rpx;
+  margin-top:-100rpx;
+}
+.hr-vote{
+  background:black;
+  opacity: 0.6;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  z-index:998;
+}
+.quxiao-vote{
+  width: 100%;
+  position: absolute;
+  text-align:center;
+}
+.quxiao-vote>image{
+  width: 70rpx;
+  height: 70rpx;
+  margin: 0 auto;
+  margin-top: 40rpx;
+}
+.opti{
+  width: 100%;
+  height: 50rpx;
+  margin: 50rpx 0;
+  font-size: 30rpx;
+  line-height: 50rpx;
+  padding:0;
+  margin-right: 10rpx;
+  border-radius: 50rpx;
+  opacity: 0.5;
+}

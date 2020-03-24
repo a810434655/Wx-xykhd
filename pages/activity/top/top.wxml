@@ -1,0 +1,62 @@
+<!--pages/activity/top.wxml-->
+<view class="container" style='display:flex;flex-direction: column;height:100%'>
+  <view class="page-body" style='overflow:hidden'>
+    <image mode='aspectFill' style='width:100%;height:260rpx' src="http://www.dreamoncampus.com/file/img/ic_top_hot.png"></image>
+    <i-row i-class='page-content'>
+      <i-col span="24" i-class="tabs-title center">
+        <i-col span="1105" i-class="enter">
+          <i-col span="24" i-class='c-title-32'>
+            <picker bindchange="bindAreaChange"  range="{{areaList}}" range-key="name" style='padding-left:80rpx;'>
+              {{area.name}} <image mode='aspectFill' style='width:36rpx;height:20rpx;' src='/resources/image/ic_down_arrow.png'></image>
+            </picker>
+          </i-col>
+        </i-col>
+        <i-col span="1105" i-class="center">
+          <i-col span="24" i-class='c-title-32'>
+            <picker bindchange="bindActivityClassifyChange" range="{{activityclassifyList}}" range-key="name">
+              {{activityClassify.name}} <image mode='aspectFill' style='width:36rpx;height:20rpx;' src='/resources/image/ic_down_arrow.png'></image>
+            </picker>
+          </i-col>
+        </i-col>
+      </i-col>
+    </i-row>
+  </view>
+  <scroll-view scroll-y="true" bindscrolltolower="onReachBottom" bindscrolltoupper="onPullDownRefresh" style='flex: 1;margin-top:298rpx;padding: 10rpx 10rpx;width: auto;'>
+    <i-col span="22" offset="1" i-class="activity" wx:for="{{activityList}}" wx:index="{{index}}" wx:key="item.activityId" data-id="{{item.activityId}}">
+      <i-col span="4" class="center">
+        <image mode='aspectFit' class='radius' style='width:80%;height:140rpx;' src="{{index == 0 ?'/resources/image/NO.1.png' : index == 1 ?'/resources/image/NO.2.png' : index == 2 ?'/resources/image/NO.3.png' : ''}}" wx:if="{{index < 3}}">
+        </image>
+       <view wx:else style="width:80%;height:152rpx;">
+        <text style='font-size:36rpx;color:#b0b0b9;font-weight:bold;text-align:center;' >
+          {{( index + 1 ) < 10 ? '0' + ( index + 1 ) : ( index + 1 )}}
+        </text>
+       </view> 
+      </i-col>
+      <i-col span="20">
+        <i-col span="24">
+          <view class='c-title-30 ellipsis' style='margin-top:15rpx;width:95%;padding-left:20rpx;color:#3a3951;'>
+            {{item.name}}
+          </view>
+        </i-col>
+        <i-col span="12">
+          <view class='c-content-info-22 ellipsis' style='width:90%;padding-left:20rpx;margin-top:40rpx;'>
+            <text class='ellipsis'>{{item.organizer}}</text>
+          </view>
+        </i-col>
+        <i-col span="12">
+          <view class='c-content-info-22 ellipsis' style='width:90%;margin-top:40rpx;float:right;text-align:right;padding-right:40rpx;'>
+            <text class='ellipsis'>浏览人数{{item.viewNumber}}</text>
+          </view>
+        </i-col>
+      </i-col>
+    </i-col>
+    <i-col span="24" wx:if="{{activityList.length == 0}}">
+        <view class='page-body centerv vertical-center' style='flex-direction:column;margin:400rpx 0rpx' >
+        <image mode='aspectFit' style='vertical-align:top;width:50%;height:250rpx;display:block' src="/resources/image/ic_no_activity.png">
+        </image>
+        <view class='c-content' style='display:block;padding-top:20rpx'>该类别还没有活动上榜哦~</view>
+      </view>
+      </i-col>
+  </scroll-view>
+  <i-message id="message" />
+</view>

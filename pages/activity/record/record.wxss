@@ -1,0 +1,56 @@
+/* pages/activity/record.wxss */
+.tab-title {
+  background: #f8f8f9!important;
+  padding-top: 20rpx;
+  z-index: 99999;
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+}
+.tab-unselect-color {
+  color: #b3bdc9!important;
+}
+.jg{
+  margin-top: 5rpx;
+  border-radius: 2rpx;
+  min-width: 4rpx;
+  background: #ddd;
+  display: inline-block;
+  min-height: 36rpx;
+}
+.tab-title-select {
+  margin-top: 20rpx;
+  border-radius: 5rpx;
+  min-width: 5rpx;
+  background: #ffcf3f;
+  display: inline-block;
+  min-height: 10rpx;
+}
+.heart-activity{
+  padding: 20rpx 20rpx 8rpx 10rpx;
+  margin-top: 30rpx;
+}
+.activity {
+  /* background-color: rgba(0, 0, 0, 0.4); */
+  border-radius:2rpx 2rpx 0rpx 0rpx;
+  min-height: 280rpx;
+  max-height: 280rpx; 
+}
+.activity-content {
+  top:-280rpx;
+  position:relative;
+  z-index:999;
+  overflow: hidden;
+}
+
+.card-bottom {
+  background: #fff;
+  padding: 30rpx;
+  border-radius: 0rpx 0rpx 20rpx 20rpx;
+}
+.icon-collect {
+  position: absolute;
+  right:40rpx;
+  margin-top:-20rpx;
+}

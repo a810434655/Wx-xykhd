@@ -1,1 +1,18 @@
 /* pages/login.wxss */
+.login-input{
+  border-bottom: 1px solid #d8d7dc;
+  font-size:38rpx;
+  padding-bottom: 20rpx;
+  
+}
+.login-radio{
+  font-size:24rpx;
+}
+.login-text{
+  color:#4b5cff;
+  font-size: 24rpx;
+
+}
+.login-col-text{
+  padding-top:8rpx;
+}

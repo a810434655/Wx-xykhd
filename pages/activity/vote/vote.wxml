@@ -1,0 +1,73 @@
+<!--pages/activity/vote.wxml-->
+<view class="container b-light-warning" style='background:url({{themeList[themeId-1].pic}})no-repeat;background-size:100% auto;'>
+  <view class="page-body" style='z-index:99;margin-top:120rpx;padding-bottom:80rpx;'>
+    <i-row i-class="c-title-28">
+      <i-col span="20" offset="2">
+        <view class='center c-title-38 ellipsis' style='color:#fff;margin-bottom:30rpx'>{{formInfo.extraData.name}}</view>
+      </i-col>
+      <i-col span="20" offset="2">
+        <view class='center' style='color:#fff;margin-bottom:15rpx'>截止时间:{{endText}}</view>
+      </i-col>
+      <!-- <i-col span="7" offset="4">
+        <view class='center' style='color:#fff;margin-bottom:15rpx'>开始时间</view>
+      </i-col>
+      <i-col span="7" offset="2">
+        <view class='center' style='color:#fff;margin-bottom:15rpx'>截止时间</view>
+      </i-col>
+      <i-col span="7" offset="4">
+        <view class='center' style='color:#fff;border:6rpx solid #fff;border-radius:40rpx;padding:5rpx'>{{beginDate}}</view>
+      </i-col>
+      <i-col span="2">
+        <view class='center' style='color:#fff;padding:5rpx'>一</view>
+      </i-col>
+      <i-col span="7">
+        <view class='center' style='color:#fff;border:6rpx solid #fff;border-radius:40rpx;padding:5rpx'>{{endDate}}</view>
+      </i-col> -->
+    </i-row>
+    <!-- <image mode="widthFix" src="/resources/image/ic_activity_apply_left.png" style='width:120rpx;height:120rpx;margin-left:6rpx!important;margin-top: -26rpx!important;position:absolute;'></image> -->
+    <i-row background="#fff;border-radius:40rpx 40rpx 0 0;z-index:99;margin-top:30rpx;padding-top:30rpx;margin-bottom:50rpx">
+        <i-col span="20" offset="2" wx:if="{{formInfo.extraData.content}}"   i-class="c-title-32">投票说明</i-col>
+        <i-col span="20" offset="2" wx:if="{{formInfo.extraData.content}}" i-class="c-content-24"><view style='padding:30rpx 0;font-size:24rpx;'>{{formInfo.extraData.content}}</view></i-col>
+        <i-col wx:if="{{formInfo.extraData.voteFrequency == 1}}" span="20" offset="2" i-class="c-content-24"><view style='padding:30rpx 0;font-size:30rpx;font-weight:bold;'>今日剩余<text style="{{'color:'+themeList[themeId-1].color}};font-size:30rpx;font-weight:bold;">{{userVoteNumber}}</text>票</view></i-col>
+        <!-- 单次表单 -->
+        <i-col span="20" wx:if="{{formInfo.extraData.voteFrequency == 0}}" offset="2" wx:for="{{formData}}" wx:key="{{item.id}}" i-class='item-bg centerv' data-inx="{{index}}" bind:tap="selectItem">
+          <i-col span="4" offset="1"  bindtap="previewImg" data-index='{{index}}' wx:if="{{item.pic.length > 0}}" ><image mode="aspectFill" src="{{item.pic}}" style='display:block;width:100rpx;height:100rpx;margin-top:25rpx' ></image></i-col>
+          <i-col span="{{item.pic.length > 0?'10':'14'}}" offset="1" i-class="c-content-28">{{item.name}}</i-col>
+          <i-col span="6" offset="1" i-class="c-content-info-28">
+            <view class="tr">
+              {{formInfo.extraData.showToUser=="1" ? (item.num+'票'): ''}}
+              <view class='non-check' style="margin-left:20rpx;display:inline-block;{{item.checked ? ('border-color:'+themeList[themeId-1].color): ''}}">
+              </view>
+            </view>
+          </i-col>
+        </i-col>
+        <!-- 每日表单 -->
+        <i-col span="20" offset="2" wx:if="{{formInfo.extraData.voteFrequency == 1}}" wx:for="{{formData}}" wx:key="{{item.id}}" i-class='item-bg content-vote  centerv' data-inx="{{index}}" bindtap="selectItem">
+          <i-col span="5" offset="1"  bindtap="previewImg" data-index='{{index}}' wx:if="{{item.pic.length > 0}}" >
+            <view style="height:150rpx;vertical-align：middle;padding-top:25rpx;">
+              <image mode="aspectFill" src="{{item.pic}}" style='display:block;width:100rpx;height:100rpx;border-radius:3px;'></image>
+            </view>
+          </i-col>
+          <i-col span="{{item.pic.length == 0?'16':'11'}}" offset="{{item.pic.length == 0?'1':'0'}}" i-class="{{item.name.length>11?'name-vote':'name-vote-1'}}">
+              <view style="font-size:30rpx;color:#3a3951;" class="">{{item.name}}</view>   
+              <view wx:if="{{formInfo.extraData.showToUser == 1}}" style="font-size:28rpx;color:#b0b0b9;">{{item.num}}票</view>
+          </i-col>  
+          <i-col span="5"  offset="1"> <button bindtap="voteF" disabled="{{userVoteNumber == 0}}" data-id="{{item.id}}" data-content="{{item.name}}" class="{{userVoteNumber == 0 ? 'opti' : 'button-vote'}} {{ 'i-btn-' + themeList[themeId-1].buttonTheme }}">投票</button> </i-col>
+        </i-col>
+    </i-row>
+    <form bindsubmit="submit" report-submit="true">
+      <button wx:if="{{formInfo.extraData.voteFrequency == 0}}"  class="button i-class i-btn {{ 'i-btn-' + themeList[themeId-1].buttonTheme }} i-btn-circle {{formInfo.extraData.optionId || vote <= 0? 'disable': ''}}" hover-class="i-btn-hover" plain="true" formType="submit" disabled='{{formInfo.extraData.optionId || vote <= 0}}'>{{formInfo.extraData.optionId ? '已投票':'投票'}}{{vote <= 0 ? '(已截止)':''}}</button>
+    </form>
+  </view>
+  <i-col span="18" offset="3" wx:if="{{voteflag}}" i-class="vote-model" >
+    <view><image class="tanchuang-vote" src="../../../resources/image/tanchuang.png"></image></view>
+    <view style="font-size:30rpx;color:#414141;margin-top:-20rpx;">确定投票给:</view>
+    <view style="font-size:38rpx;color:#414141;font-weight:bold;margin-top:20rpx;">{{content}}</view>
+    <view style="text-aligin:center;"><button bindtap="voteYes" class="button-tanchuang {{ 'i-btn-' + themeList[themeId-1].buttonTheme }}">立即投票</button></view>
+    <view class="quxiao-vote">
+      <image bindtap="voteQ" src="../../../resources/image/quxiao.png"></image>
+    </view>
+  </i-col>
+  <i-col span="24" wx:if="{{voteflag}}" i-class="hr-vote"></i-col>
+  <i-message id="message" />
+</view>

@@ -1,0 +1,19 @@
+<view>
+    <i-col span="20" offset="2">
+      <view style="margin-top:200rpx;">
+          <text class="loginCode">请输入验证码</text> 
+      </view>
+      <view style="margin-top:100rpx;">
+        <view class="loginCode-border-bottom {{number == idx ?'loginCode-border-bottom-activity':''}}" wx:for="{{text}}"  wx:for-index="idx" data-index="{{idx}}"  wx:key="idx" bindtap="bindClick">
+           {{item.content}}
+        </view>
+        <input value="{{code}}" class="loginInputCode" cursor="{{number}}" focus="{{focus}}" type="number" maxlength="4" bindinput="handleInput"></input>
+      </view> 
+      <view style="margin-top:80rpx;">
+         <i-col span="24">
+           <i-button type="login" disabled="{{disabled}}" i-class="login-button" bind:click="handleClick">{{codeDown}}</i-button>       
+        </i-col>
+      </view>
+    </i-col>
+    <i-message id="message" />
+ </view>

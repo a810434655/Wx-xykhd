@@ -1,45 +1,38 @@
 {
   "pages": [
-    "pages/home/plaza",
-    "pages/home/activity",
-    "pages/home/manage",
-    "pages/home/my",
-    "pages/my/feedback",
-    "pages/my/fullimg",
-    "pages/my/ticket",
-    "pages/my/apply",
-    "pages/activity/info",
-    "pages/manage/edit",
-    "pages/manage/lootticketedit",
-    "pages/manage/share",
-    "pages/manage/apply",
-    "pages/login",
-    "pages/manage/applyedit",
-    "pages/ui/statepage",
-    "pages/activity/lootticket",
-    "pages/activity/apply",
-    "pages/my/applyinfo",
-    "pages/my/identification",
-    "pages/ui/webview",
-    "pages/manage/applyfieldedit",
-    "pages/activity/record",
-    "pages/activity/top",
-    "pages/ui/selectpage",
-    "pages/activity/schoolactivity",
-    "pages/activity/searchlist",
-    "pages/my/aboutus",
-    "pages/manage/poster",
-    "pages/manage/function",
-    "pages/manage/vote/edit",
-    "pages/manage/lottery/edit",
-    "pages/manage/lootticket/lootticket",
-    "pages/manage/vote/vote",
+    "pages/home/plaza/plaza",
+    "pages/home/activity/activity",
+    "pages/home/manage/manage",
+    "pages/home/my/my",
+    "pages/my/fullimg/fullimg",
+    "pages/my/ticket/ticket",
+    "pages/my/apply/apply",
+    "pages/my/apply/applyinfo",
+    "pages/my/identification/identification",
+    "pages/my/aboutus/aboutus",
+    "pages/my/aboutus/feedback",
     "pages/my/message/index",
-    "pages/manage/lottery/lottery",
-    "pages/activity/vote",
-    "pages/activity/lottery",
     "pages/my/message/list",
-    "pages/ui/lottery"
+    "pages/activity/info/info",
+    "pages/activity/lootticket/lootticket",
+    "pages/activity/apply/apply",
+    "pages/activity/schoolactivity/schoolactivity",
+    "pages/activity/searchlist/searchlist",
+    "pages/activity/record/record",
+    "pages/activity/top/top",
+    "pages/activity/vote/vote",
+    "pages/activity/lottery/lottery",
+    "pages/ui/webview/webview",
+    "pages/ui/selectpage/selectpage",
+    "pages/ui/lottery/lottery",
+    "pages/ui/statepage/statepage",
+    "pages/login",
+    "pages/activity/school/school",
+    "pages/loginCode",
+    "pages/my/modification/modification",
+    "pages/my/name/name",
+    "pages/my/guidance/guidance",
+    "pages/authorization"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -54,19 +47,13 @@
     "borderStyle": "black",
     "list": [
       {
-        "pagePath": "pages/home/plaza",
+        "pagePath": "pages/home/plaza/plaza",
         "iconPath": "resources/image/ic_home_activity.png",
         "selectedIconPath": "resources/image/ic_home_activity_s.png",
         "text": "活动广场"
       },
       {
-        "pagePath": "pages/home/manage",
-        "iconPath": "resources/image/ic_home_manage.png",
-        "selectedIconPath": "resources/image/ic_home_manage_s.png",
-        "text": "活动管理"
-      },
-      {
-        "pagePath": "pages/home/my",
+        "pagePath": "pages/home/my/my",
         "iconPath": "resources/image/ic_home_my.png",
         "selectedIconPath": "resources/image/ic_home_my_s.png",
         "text": "个人中心"
@@ -80,5 +67,7 @@
   "debug": false,
   "navigateToMiniProgramAppIdList": [
     "wx2aaa10a010060549"
-  ]
+  ],
+  "sitemapLocation":"sitemap.json"
+ 
 }

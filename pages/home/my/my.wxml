@@ -1,0 +1,104 @@
+<!--pages/home/my.wxml-->
+<view class="container">
+  <view class="page-body" style='padding-bottom:40rpx' wx:if="{{!showLogin}}">
+    <i-row i-class='page-content center fix'>
+      <!-- <i-col span="11" i-class="col-class center">
+        <i-button i-class="b-content user-button-fix {{studentI.status == 99 || studentI.status == 1?  'user-button-r' : 'user-button'}}" shape="circle" type="{{studentI.status == 3 ? 'error' : 'warning'}}" data-id='1' bindtap='ident' size="small">学生组织工作者认证</i-button>
+        <!-- <i-button i-class="b-content {{subStudentI.status == 99 || subStudentI.status == 1?  'user-button-r' : 'user-button'}}" shape="circle" type="{{subStudentI.status == 3 ? 'error' : 'warning'}}" data-id='3' bindtap='ident' size="small">在校学生认证</i-button> -->
+      <!-- </i-col>  -->
+      <i-col span="6" i-class="col-class">
+        <image src="{{userInfo.avatar}}" style='margin-top:35rpx' class="user-avatar" />
+      </i-col>
+      <i-col span="10" i-class="col-class ellipse">
+        <view class='c-title-38' style='text-align:left;margin-top:70rpx'>{{userInfo.nickName}}</view>
+      </i-col>
+      <i-col span="8" i-class="col-class">
+      <view bindtap="modification" class='c-title-38 my-backround' style='text-align:right;margin-top:70rpx;'>
+       修改信息              
+      </view>
+      </i-col>
+        <!-- <button size="mini" open-type="getPhoneNumber" wx:if="{{phone==''}}"  style="margin-top:70rpx;" class="c-title-38 my-backround" bindgetphonenumber="getPhoneNumber">绑定手机号</button>
+        <button size="mini" wx:else  style="margin-top:70rpx;" class="c-title-38 my-backround" >已绑定手机号</button>
+      </i-col> -->
+    </i-row>
+    <i-row i-class='page-content b-background'>
+      <!-- <view class='b-background' style='min-height:20rpx;width:100%;float:left' />
+      <i-col span="22" i-class='cell fix'>
+        <navigator target="miniProgram" open-type="navigate" app-id="wx2aaa10a010060549" extra-data="source=jnhdzz" version="release">
+          <image src="/resources/image/ic_my_jnzz.png" style='float:left;width: 70rpx;height: 70rpx;' />
+          <view class='c-title-30' style='line-height:70rpx;display:inline-block;margin:0rpx 20rpx'>聚能学院</view>
+          <view class='c-tag-24' style='line-height:70rpx;display:inline-block;margin:0rpx 20rpx;float:right;padding-right:0rpx'>活动运营技能Get</view>
+          <view class='cell-ft'></view>
+        </navigator>
+      </i-col> -->
+      <!-- <view class='b-background' style="min-height:1rpx;width:100%;float:left" />
+      <i-col span="22" i-class='cell fix' bindtap='openGroupPage'>
+          <image src="/resources/image/ic_my_group.png" style='float:left;width: 70rpx;height: 70rpx;border-radius: 35rpx;' />
+          <view class='c-title-30' style='line-height:70rpx;display:inline-block;margin:0rpx 20rpx'>我的组织</view>
+          <view class='cell-ft'></view>
+      </i-col> -->
+      <block wx:for="{{menuList}}" wx:key="{{item.name}}">
+        <view class='b-background' style="min-height:{{index == 0 || index == 2? '20' : '1'}}rpx;width:100%;float:left" />
+        <i-col span="22" i-class='cell fix' bindtap='openPage' data-url='{{item.url}}'>
+          <image src="{{item.pic}}" style='float:left;width: 70rpx;height: 70rpx;border-radius: 35rpx;' />
+          <view class='red-point' wx:if="{{index==2 && (messageInfo.drawPrizeNotice>0 || messageInfo.interactiveMessage>0 || messageInfo.admissionReminder>0 || messageInfo.systemMessage>0)}}" />
+          <view class='c-title-30' style='line-height:70rpx;display:inline-block;margin:0rpx 20rpx'>{{item.name}}</view>
+          <view class='c-tag-24 c-error' style='line-height:70rpx;display:inline-block;margin:0rpx 20rpx;float:right;padding-right:0rpx' wx:if="{{index==2}}">{{messageInfo.drawPrizeNotice>0 ? '您有新的开奖通知':(messageInfo.interactiveMessage>0 ? '您有新的互动消息请前往查看':(messageInfo.admissionReminder>0 ? '您有新的入场通知':(messageInfo.systemMessage>0 ? '您有新的系统消息':'')))}}</view>
+          <view class='cell-ft'></view>
+        </i-col>
+      </block>
+      <view class='b-background' style='min-height:1rpx;width:100%;float:left' />
+      <i-col span="22" i-class='cell bfix' open-type="contact">
+        <button class='c-title-30 btn' open-type="share" style='line-height:70rpx;display:inline-block;display:block;text-align:left'>
+          <image src="/resources/image/my/ic_person.png" style='float:left;width: 70rpx;height: 70rpx;border-radius: 35rpx;margin-right:20rpx;' />邀请好友
+          <view class='cell-ft'></view>
+        </button>
+      </i-col>
+      <view class='b-background' style='min-height:1rpx;width:100%;float:left' />
+      <i-col span="22" i-class='cell bfix' open-type="contact">
+        <button class='c-title-30 btn' open-type="contact" style='line-height:70rpx;display:inline-block;display:block;text-align:left'>
+          <image src="/resources/image/my/ic_msg.png" style='float:left;width: 70rpx;height: 70rpx;border-radius: 35rpx;margin-right:20rpx;' />联系客服
+          <view class='cell-ft'></view>
+        </button>
+      </i-col>
+       <!-- <i-col span="22" i-class='cell bfix'>
+        <official-account></official-account>
+      </i-col> -->
+    </i-row>
+  </view>
+  <view class='page-body centerv vertical-center' style='flex-direction:column;margin-bottom:100rpx' wx:else>
+    <image mode='aspectFit' style='vertical-align:top;width:50%;height:250rpx;display:block' src="/resources/image/ic_no_userinfo.png">
+    </image>
+    <view class='c-content' style='display:block;padding-top:20rpx;'>
+    <i-col span="24" style="text-align:center;">欢迎来到校园酷活动，登录体验更多功能</i-col>  
+     </view>
+    <button style='width:80%;margin-top:50rpx;' type="primary" bindtap="toLogin">登陆</button>
+  </view>
+  <i-message id="message" />
+  <i-toast id="toast" />
+  <i-modal visible="{{ idenModal }}" showCancel='{{false}}' bind:ok="handleClose">
+    <image mode='aspectFit' style='width:100%;vertical-align:top;height:120rpx;display:block;margin:20rpx 0px' src="/resources/image/ic_state_wait.png">
+    </image>
+    <view class='c-content center vertical-center' style='display:block;padding-top:20rpx'>您的认证正在审核，请耐心等待</view>
+  </i-modal>
+  <i-modal visible="{{ idenFailModal }}" cancel-text='取消认证' ok-text='重新认证' bind:ok="openIden" bind:cancel="handleClose">
+    <i-row i-class='page-content-m'>
+      <i-col span="24">
+        <view class='c-tag' style='font-weight:700;text-align:left;'>很抱歉,您的认证未能通过，原因可能如下：</view>
+      </i-col>
+      <i-col span="24">
+        <view class='c-tag' style='text-align:left;display:block;padding-top:20rpx'>{{idenId == 1? studentI.opinion : mediaI.opinion}}</view>
+      </i-col>
+    </i-row>
+  </i-modal>
+  <i-modal visible="{{ idenFarstModal }}" cancel-text='暂不认证' ok-text='前往认证' bind:ok="openIden" bind:cancel="handleClose">
+    <i-row i-class='page-content-m'>
+      <!-- <i-col span="24">
+        <view class='c-sub-content' style='font-weight:700;text-align:left;'>认证说明：</view>
+      </i-col> -->
+      <i-col span="24">
+        <text class='c-tag' style='text-align:left;display:block;padding-top:20rpx'>{{idenFarstInfo}}</text>
+      </i-col>
+    </i-row>
+  </i-modal>
+</view>

@@ -1,0 +1,54 @@
+<!--pages/my/modification/modification.wxml-->
+<i-row>
+  <view style="margin-top:20rpx;margin-button:40rpx;background:#fff;float:left;width:100%;">
+    <i-col span="22" offset="1"  i-class="modification-li" >
+       <i-col span="10" i-class="modification-text">用户头像</i-col>  
+       <i-col span="14" i-class="modification-image"><image data-key="contentData" class="modification-avatar" bindtap='upImg' src="{{bannerData == '' ? userInfo.avatar : bannerData}}"></image></i-col>  
+    </i-col>
+    <i-col span="22" offset="1"  i-class="modification-li" >
+       <i-col span="10" i-class="modification-text">昵称</i-col>  
+       <i-col span="14" i-class="modification-image">
+        <input maxlength="7" bindinput="bindinputNickName" style="border-bottom:1px solid #000;height:100rpx;color:#b0b0b9;" value="{{userInfo.nickname}}"></input>
+       </i-col>  
+    </i-col>
+    <i-col span="22" offset="1" bindtap="modificationSex"  i-class="modification-li" >
+       <i-col span="10" i-class="modification-text">性别</i-col>
+       <i-col span="14" i-class="modification-image">
+       <picker bindchange="bindSex"  range="{{sex}}" range-key="name" style='padding-left:80rpx;'>
+          <text>{{userInfo.sex == 0?'未知':userInfo.sex == 1 ? '男' : userInfo.sex == 2 ? '女':''}}</text><image class="modification-icon" src="/resources/image/ic_down_arrow-right.png"></image>
+       </picker>
+       </i-col>  
+    </i-col>
+  </view>
+  <view style="height:20rpx;background:#f2f2f5;float:left;width:100%;"></view>
+  <view style="margin-top:20rpx;margin-button:40rpx;background:#fff;float:left;width:100%;">
+    <i-col span="22" offset="1"  i-class="modification-li" >
+       <i-col span="10" i-class="modification-text">所在高校</i-col>  
+       <i-col span="14" i-class="modification-image">{{userInfo.schoolName}}</i-col>  
+    </i-col>
+    <i-col span="22" offset="1"  i-class="modification-li" >
+       <i-col span="10" i-class="modification-text">院系</i-col>  
+       <i-col span="14" i-class="modification-image">
+        <input bindinput="bindinputCollege" maxlength="15" style="border-bottom:1px solid #000;height:100rpx;color:#b0b0b9;" value="{{userInfo.college}}"></input>
+       </i-col>  
+    </i-col>
+    <i-col span="22" offset="1"  i-class="modification-li" >
+       <i-col span="10" i-class="modification-text">入学年份</i-col>  
+       <i-col span="14" i-class="modification-image">{{userInfo.enrollYear}}</i-col>  
+    </i-col>
+  </view>
+  <i-col span="20" offset="2">  
+     <button class="modification-save" bindtap="save">保存</button>
+  </i-col>
+   <i-col span="20" offset="2">  
+     <button class="modification-end" bindtap="quit">退出登录</button>
+  </i-col>
+   <i-modal visible="{{ editModal }}" cancel-text='取消' ok-text='确定' bind:ok="handleEdit" bind:cancel="handleClose">
+    <i-row i-class='modal-content'>
+      <i-col span="20" offset="2">
+        <text class='c-content-28' style='text-align:left;padding:0px'>确定要退出登录吗?</text>
+      </i-col>
+    </i-row>
+  </i-modal>
+  <i-message id="message" />
+</i-row>

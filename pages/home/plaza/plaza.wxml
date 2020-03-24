@@ -1,0 +1,169 @@
+<!--pages/home/plaza.wxml-->
+<view class="container">
+  <view class="page-body" style='overflow:hidden' wx:if="{{!showLogin}}">
+    <swiper class="swiper-box"  autoplay="false" interval="5000" duration="500" style='height:335rpx' circular='true'>
+      <block wx:for="{{bannerList}}" wx:key="item.bannerId">
+        <swiper-item>
+          <image mode='aspectFill' style='width:100%;height:100%' src="{{item.imageUrl}}" data-item="{{item}}" bindtap='openBanner'></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <i-row i-class='page-content'>
+      <i-col span="22" offset="1" i-class="tabs-search">
+        <view class='search-container bottom-shadow vertical-center'>
+          <input placeholder='请输入活动关键字搜索' bindinput="bindKeyWordInput" maxlength='15' confirm-type='search' bindconfirm="search"></input>
+          <image class='input-icon' src='/resources/image/ic_search.png' style='padding:5rpx' bindtap='search'></image>
+        </view>
+      </i-col>
+      <i-col span="24" i-class="tabs-title">
+        <i-col span="8" i-class="custom-zan-col center" data-id="0" bindtap='selectTab'>
+          <i-col span="24" i-class='c-content-info-24'>
+            <image mode='aspectFit' style='margin-left:25%;vertical-align:top;width:50%;height:100rpx;display:block;margin-bottom:20rpx' src="/resources/image/plaza/ic_plaza_hot.png" /> 热度榜
+          </i-col>
+        </i-col>
+        <i-col span="8" i-class="custom-zan-col center" data-id="1" bindtap='selectTab'>
+          <i-col span="24" i-class='c-content-info-24'>
+            <image mode='aspectFit' style='margin-left:25%;vertical-align:top;width:50%;height:100rpx;display:block;margin-bottom:20rpx' src="/resources/image/plaza/ic_plaza_heart.png" /> 我的收藏
+          </i-col>
+        </i-col>
+        <i-col span="8" i-class="custom-zan-col center" data-id="2" bindtap='selectTab'>
+          <i-col span="24" i-class='c-content-info-24'>
+            <image mode='aspectFit' style='margin-left:25%;vertical-align:top;width:50%;height:100rpx;display:block;margin-bottom:20rpx' src="/resources/image/plaza/ic_plaza_record.png" /> 浏览记录
+          </i-col>
+        </i-col>
+      </i-col>
+    </i-row>
+    <!-- H5活动 -->
+    <!-- <i-col span="24">
+        <image mode='aspectFit' style='width:100%;height:230rpx;display:block;margin-bottom:10rpx' src="http://www.dreamoncampus.com/file/img/ic_home_h5.png" data-link="https://h5.dreamoncampus.com/hact3" bindtap='toH5'/>
+    </i-col> -->
+
+    <i-row i-class='page-school'>
+      <!-- 热门活动 -->
+      <i-col span="24" wx:if="{{hotActivityList != 0}}">
+          <i-panel color="#777" title="热门" content="高校最热门的都在这儿" isTitle i-class="inline"></i-panel>
+      </i-col>
+      <i-col span="22" wx:if="{{hotActivityList != 0}}" i-class="hot-activity {{index != 3 ? 'school-activity' : 'school-activity-false'}}" wx:class="index!='4'?school-activity:''"  wx:for="{{hotActivityList}}" wx:index="{{index}}" wx:key="item.activityId" data-id="{{item.activityId}}" bindtap='openInfo' >
+        <i-col span="10"> <image mode='aspectFill' class='radius' style='width:100%;height:150rpx;' src="{{item.image}}"></image></i-col>
+        <i-col span="14" style="height:100%">
+            <view class='c-title-30 two-line ellipsis' style='padding-left:20rpx;;width:100%;'>
+              {{item.name}}
+            </view> 
+            <view  class="c-content-info-24" style='padding-left:20rpx;padding-top:20rpx'>
+              <text class='activity-tag-small gray' wx:if="{{item.status == 3}}">已结束</text>
+              <text class='activity-tag-small hot' wx:if="{{item.status == 2}}">未开始</text>
+              <text class='activity-tag-small' wx:if="{{item.status == 1 && item.tag == false}}">进行中</text>
+              <block wx:if="{{item.status == 1 && item.tag != false}}">
+              <text class='activity-tag-small ticket' wx:if="{{item.tag.ticket > 0}}">抢票中</text>
+              <text class='activity-tag-small enroll' wx:if="{{item.tag.enroll > 0}}">报名中</text>
+              <text class='activity-tag-small vote' wx:if="{{item.tag.vote != 0}}">投票中</text>
+              <text class='activity-tag-small prize' wx:if="{{item.tag.prize != 0}}">抽奖中</text>
+              </block>
+            </view>
+            <i-col span="24">
+             <i-col span="12">
+                <view class='c-content-info-20 two-line ellipsis' style='padding-left:20rpx;height:30rpx;padding-top:25rpx;'>
+                  {{item.organizer}}
+                </view>
+              </i-col>  
+              <i-col span="12">
+                <view class='c-content-info-20 two-line ellipsis' style='float:right;padding-left:20rpx;height:30rpx;padding-top:25rpx;'>
+                  浏览量：{{item.viewNumber}}
+                </view>
+              </i-col>  
+            </i-col>  
+        </i-col>
+      </i-col>
+      <!-- 高校活动 -->
+       <i-col span="24" wx:if="{{schoolActivityList != 0}}">
+        <span style="color:#1d2336;font-weight:700;font-size:20px;padding:15px 0px;">{{activityClassify.name}}</span>
+        <i-row  i-class="{{loading == true ? 'plaza-button':''}}">
+            <view  class="hot-activity" wx:for="{{schoolActivityList}}" wx:index="{{index}}" wx:key="item.activityId" data-id="{{item.activityId}}" bindtap='openInfo'>
+              <image mode='aspectFill' class='radius' style='width:100%;height:200rpx;' src="{{item.image}}">
+              </image>  
+              <i-col i-class="plaza-block  {{item.remark.activityState == 2?'block-end':item.remark.activityState == 1?'block-new':''}} ">
+              {{item.remark.activityState == 2?"热门":item.remark.activityState == 1?"新活动":''}}
+              </i-col>
+              <view class='c-title-30 two-line' style='width:90%;padding-left:20rpx;margin:10rpx 0rpx;position:relative;height:84rpx;'>
+                {{item.name}}
+              </view>
+              <view class='c-content-info-24 ellipsis' style='width:90%;padding:5rpx 0rpx 0rpx 20rpx;'>
+                <text class='ellipsis'>{{item.organizer}}</text>
+              </view>
+            </view>
+             <i-col span="24" bindtap="bindMore" wx:if='{{!loading && provinceId.length != 0}}' style="color:{{pageType?'#79828e':'#0f9fff'}};" i-class="plaza-info">{{pageType?'没有更多活动了':'点击加载更多'}}</i-col>
+          </i-row>
+      </i-col>
+      <!-- 没有数据显示暂无活动 -->
+      <i-col span="24" wx:if="{{hotActivityList.length == 0 &&schoolActivityList.length == 0}}">
+        <view class='page-body centerv vertical-center' style='flex-direction:column;margin:80rpx 0rpx;'>
+          <image mode='aspectFit' style='vertical-align:top;width:50%;height:250rpx;display:block' src="/resources/image/ic_no_activity.png">
+          </image>
+          <view class='c-content' style='display:block;padding-top:20rpx'>该地区暂时还没有活动哦~</view>
+        </view>
+      </i-col>
+             <i-col span="24" class="plaza-loading" wx:if="{{loading}}"><image class="plaza-loading-iamge" src="/resources/image/loading.gif"></image></i-col>
+    </i-row>  
+    
+  </view>
+  <view class='page-body centerv vertical-center' style='flex-direction:column;margin-bottom:100rpx' wx:else>
+    <image mode='aspectFit' style='vertical-align:top;width:50%;height:250rpx;display:block' src="/resources/image/ic_no_userinfo.png">
+    </image>
+    <view class='c-content' style='display:block;padding-top:20rpx'>拒绝授权将无法体验完整功能，建议用户打开信息授权</view>
+    <button style='width:80%' type="primary" open-type="getUserInfo" bindgetuserinfo="toLogin">确认登录</button>
+  </view>
+  <!-- animation="{{h5iconAnimation}}" -->
+  <image mode='aspectFit' class='h5icon' bindtap="toH5" src="/resources/image/ic_h5.png" style='position:fixed;margin-top:100%;margin-left:75%;width:150rpx;height:150rpx;z-index:10000' wx:if="{{activityList.length != 0 && !showLogin}}" />
+  <i-modal visible="{{ activity1Modal }}" cancel-text='取消' ok-text='确认绑定' bind:ok="handleActivity1" bind:cancel="closeModal">
+    <i-row i-class='modal-content'>
+      <i-col span="20" offset="2">
+        <text class='c-tag' style='text-align:left;padding:0px'>是否确认成为该活动检票员？</text>
+      </i-col>
+    </i-row>
+  </i-modal>
+
+
+   <!-- 物料抽奖活动弹窗 -->
+  <view class="modal-mask {{wlNoticeModal ? 'show' : ''}} center centerv" style='align-items:center;' bindtap='closeModal'>
+    <view class='center centerv' style='width:100%;height:100%;position:relative;padding:30rpx 0;align-items:center;'>
+      <view style='width:590rpx;min-height:280rpx;position:relative;padding:30rpx 0 50rpx 0rpx;border-radius:20rpx;background-image: linear-gradient(117deg,#f5523a 0%, #ffc21f 100%);margin-top:40rpx;'>
+      <!-- <image src='/resources/image/ui/ic_balloon.png' mode='aspectFit' style='wi  dth:765rpx;height:538rpx;position:absolute;z-index:10;top:-186rpx;left:-96rpx;'></image> -->
+        <view class='b-white' style='border-radius:20rpx;position:relative;margin:140rpx 50rpx 0rpx 50rpx;padding:40rpx 0rpx;z-index:999;'>
+          <view style='margin-top:0rpx;margin-bottom:20rpx;font-size: 80rpx;font-weight:700;color: #ff6d55;'>福利来了!</view>
+          <text class='c-content-24' style='line-height:3;font-weight:500'>
+          使用校园酷活动
+          创建校园活动
+          抽取全额物料报销
+          </text>
+          <i-row i-class="model-button">
+            <i-col span="12" offset="6">
+              <i-button shape="circle" type="theme2" bindtap='openPage' data-url='/pages/ui/lottery' data-type='5'>查看规则</i-button>
+            </i-col>
+          </i-row>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="modal-mask {{wlModal ? 'show' : ''}} center centerv" style='align-items:center;' bindtap='closeModal'>
+    <view class='center centerv' style='width:100%;height:100%;position:relative;padding:30rpx 0;align-items:center;'>
+      <view style='width:590rpx;min-height:780rpx;position:relative;padding:30rpx 0;border-radius:20rpx;background-image: linear-gradient(117deg,#f5523a 0%, #ffc21f 100%);margin-top:40rpx;'>
+      <!-- <image src='/resources/image/ui/ic_balloon.png' mode='aspectFit' style='width:765rpx;height:538rpx;position:absolute;z-index:10;top:-186rpx;left:-96rpx;'></image> -->
+        <view class='b-white' style='border-radius:20rpx;position:relative;margin:140rpx 50rpx 0rpx 50rpx;padding:40rpx 0rpx;z-index:999;'>
+          <view style='margin-top:0rpx;margin-bottom:20rpx;font-size: 80rpx;font-weight:700;color: #ff6d55;'>恭喜您!</view>
+          <text class='c-content-24' style='line-height:3;font-weight:500'>您创建的活动
+          <text class='ellipsis' style='max-width:100rpx'>【{{wlActivity.name}}】</text> 
+          浏览人数突破<text class='c-error'>{{wlActivity.viewNumber >= 2000 ? '2000':wlActivity.viewNumber >= 1500 ? '1500':wlActivity.viewNumber >= 1000 ? '1000':wlActivity.viewNumber >= 500 ? '500':wlActivity.viewNumber >= 200 ? '200':'0'}}人</text> 
+          可抽取最高{{wlActivity.viewNumber >= 2000 ? '全额':wlActivity.viewNumber >= 1500 ? '500元':wlActivity.viewNumber >= 1000 ? '300元':wlActivity.viewNumber >= 500 ? '150元':wlActivity.viewNumber >= 200 ? '50元':'0元'}}【物料报销】福利
+          </text>
+          <i-row i-class="model-button">
+            <i-col span="12" offset="6">
+              <i-button shape="circle" type="theme2" bindtap='openPage' data-url='/pages/ui/lottery' data-type='5'>前往抽奖</i-button>
+            </i-col>
+          </i-row>
+        </view>
+      </view>
+    </view>
+  </view>
+  <i-message id="message" />
+  <i-toast id="toast" />
+</view>

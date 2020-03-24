@@ -1,0 +1,23 @@
+<!--pages/login.wxml-->
+<!-- 需要使用 button 来授权登录 -->
+<view class="container">
+  <i-row i-class='page-content'>
+    <i-col span="24" i-class='centerv vertical-center' style="display:flex">
+      <image mode='aspectFit' style='width:100%;height:200rpx;display:block;margin:40rpx 0px' src="/resources/image/ic_logo.png">
+      </image>
+      <view class='center b-background' style='mix-height:1px;width:100%'>
+      </view>
+    </i-col>
+    <i-col span="24">
+      <view class='c-titile' style='display:block;padding-top:10rpx'>该小程序由聚能活动助手开发，向其提供以下权限即可继续操作</view>
+    </i-col>
+    <i-col span="24">
+      <view class='c-content' style='display:block;padding:30rpx 0px'>获取你的地理位置</view>
+    </i-col>
+    <i-col span="24">
+      <button wx:if="{{canIUse}}" open-type="userLocation" type="primary" bindgetuserinfo="bindGetUserInfo">授权地理位置</button>
+      <view wx:else>请升级微信版本</view>
+      <i-message id="message" />
+    </i-col>
+  </i-row>
+</view>

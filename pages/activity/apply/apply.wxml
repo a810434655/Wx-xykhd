@@ -1,0 +1,65 @@
+    <!--pages/activity/apply.wxml-->
+<view class="container b-light-warning" style='background:url({{themeList[themeId-1].pic}}) no-repeat;background-size:100% auto;'>
+  <view class="page-body" style='z-index:99;margin-top:100rpx;padding-bottom:80rpx;'>
+    <i-row i-class="c-title-28">
+      <i-col span="20" offset="2">
+        <view class='center c-title-38 ellipsis' style='color:#fff;margin-bottom:30rpx'>{{title}}</view>
+      </i-col>
+       <i-col span="20" offset="2">
+        <view class='center' style='color:#fff;margin-bottom:15rpx'>截止时间:{{endDate}}</view>
+      </i-col>
+      <!-- <i-col span="7" offset="4">
+        <view class='center' style='color:#fff;margin-bottom:15rpx'>开始时间</view>
+      </i-col>
+      <i-col span="7" offset="2">
+        <view class='center' style='color:#fff;margin-bottom:15rpx'>截止时间</view>
+      </i-col>
+      <i-col span="7" offset="4">
+        <view class='center' style='color:#fff;border:6rpx solid #fff;border-radius:40rpx;padding:5rpx'>{{beginDate}}</view>
+      </i-col>
+      <i-col span="2">
+        <view class='center' style='color:#fff;padding:5rpx'>一</view>
+      </i-col>
+      <i-col span="7">
+        <view class='center' style='color:#fff;border:6rpx solid #fff;border-radius:40rpx;padding:5rpx'>{{endDate}}</view>
+      </i-col> -->
+    </i-row>
+    <!-- <image mode="widthFix" src="/resources/image/ic_activity_apply_left.png" style='width:120rpx;height:120rpx;margin-left:6rpx!important;margin-top: -26rpx!important;position:absolute;'></image> -->
+    <i-row background="#fff;border-radius:40rpx 40rpx 0 0;z-index:99;margin-top:30rpx;padding-top:30rpx;margin-bottom:50rpx">
+      <i-col span="20" offset="2" wx:for="{{formInfo.jsonData}}" wx:key="{{item.key}}">
+        <i-input i-class='input' right="true" title="{{item.key}}" placeholder="{{item.required? '（必填）': ''}}" type='{{item.inputType}}' key="{{index}}" bind:change='changeInput' wx:if="{{item.fieldType=='input'}}" />
+        <i-input i-class='input' title="{{item.key}}" placeholder="{{item.required? '（必填）': ''}}" type='textarea' key="{{index}}" bind:change='changeInput' wx:if="{{item.fieldType=='textarea'}}" />
+        <radio-group class="{{themeList[themeId-1].buttonTheme}}" bindchange="radioChange" data-inx="{{index}}" wx:if="{{item.fieldType=='radio'}}">
+          <view class='r-content' style='margin:15rpx 30rpx;color:#495060'>{{item.key}}{{item.required? '（必选）': ''}}</view>
+          <radio class='r-content' style='padding:10rpx 30rpx' value="{{index}}" checked="{{item.checked}}" wx:for="{{item.radioList}}" wx:key="{{item.key}}">{{item.name}}
+          </radio>
+        </radio-group>
+        <checkbox-group class="{{themeList[themeId-1].buttonTheme}}" bindchange="checkboxChange" data-inx="{{index}}" wx:if="{{item.fieldType=='checkbox'}}">
+          <view class='r-content' style='margin:15rpx 30rpx;color:#495060'>{{item.key}}{{item.required? '（必选）': ''}}</view>
+          <checkbox class='r-content' style='padding:10rpx 30rpx' value="{{index}}" wx:for="{{item.checkList}}" wx:for-item="checkItem" wx:key="{{checkItem.name}}">
+            {{checkItem.name}}
+          </checkbox>
+        </checkbox-group>
+        <picker mode="date" value="{{item.data}}" start="1900-12-01" end="2020-12-01" bindchange="bindDateChange" style='display:inline-block;width:100%;' data-inx="{{index}}" wx:if="{{item.fieldType=='date'}}">
+          <i-input i-class='input' title="{{item.key}}" right="true" placeholder="{{item.required? '（必选）': ''}}" value="{{item.data}}" disabled />
+        </picker>
+        <i-col span='24' data-inx="{{index}}" wx:if="{{item.fieldType=='upImg'}}" i-class="center imgBg" bindtap="upImage">
+          <image src="/resources/image/ic_activity_add.png" style='height:100rpx;width:100rpx;margin-top:30rpx' wx:if="{{!item.data}}" />
+          <view class='r-content' style='margin:30rpx 20rpx' wx:if="{{!item.data}}">{{item.picPlaceholder}}{{item.required? '（必传）': ''}}</view>
+          <image src="{{item.data}}" mode="aspectFill" style='width:100%;border-radius:8rpx;margin-bottom:-12rpx;' wx:if="{{item.data}}" />
+        </i-col>
+      </i-col>
+    </i-row>
+    <form bindsubmit="submit" report-submit="true">
+        <button class="button i-class i-btn {{ 'i-btn-' + themeList[themeId-1].buttonTheme }} i-btn-circle" hover-class="i-btn-hover" plain="true" formType="submit">报名</button>
+      </form>
+  </view>
+  <i-modal visible="{{ infoModal }}" showCancel='true' ok-text='确认' bind:ok="reCommit" bind:cancel="handleClose">
+    <i-row i-class='page-content'>
+      <i-col span="24">
+        <text class='c-tag' style='text-align:left;display:block;padding-top:20rpx'>重新报名将覆盖并删除此前的报名信息，确认重新报名吗？</text>
+      </i-col>
+    </i-row>
+  </i-modal>
+  <i-message id="message" />
+</view>

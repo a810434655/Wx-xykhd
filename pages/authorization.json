@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+      "i-row": "/resources/dist/row/index",
+      "i-col": "/resources/dist/col/index",
+      "i-message": "/resources/dist/message/index",
+      "i-radio-group": "/resources/dist/radio-group/index",
+      "i-radio": "/resources/dist/radio/index",
+      "i-button": "/resources/dist/button/index"
+  }
+}

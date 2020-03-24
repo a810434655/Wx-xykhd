@@ -7,7 +7,7 @@ function POST({url, data}) {
     var postData = data
     var header = {}
     var token = wx.getStorageSync('token')
-    if (token){
+    if (token){ 
       // console.error('token!', token)
       header['j4sc-token'] = token
     }
@@ -22,30 +22,16 @@ function POST({url, data}) {
         //服务器返回数据
         if (res.data.status == 200) {
           resolve(res.data.data)
-        } else if (res.data.status == 40101) {
-          var app = getApp()
-          wx.getSetting({
-            success: res => {
-              if (!res.authSetting['scope.userInfo']) {
-                app.toLogin()
-              }else {
-                app.login()
-              }
-            }
-          })
-          reject(res.data.message)
-        }else {
-          //返回错误提示信息
-          reject(res.data.message)
+        } else {
+          reject(res.data)
         }
-      },
+      },  
       error: function (e) {
         reject('网络出错')
       }
     })
   })
 }
-
 function PUT({ url, data }) {
   return new Promise((resolve, reject) => {
     //init
@@ -68,21 +54,8 @@ function PUT({ url, data }) {
         //服务器返回数据
         if (res.data.status == 200) {
           resolve(res.data.data)
-        } else if (res.data.status == 40101) {
-          var app = getApp()
-          wx.getSetting({
-            success: res => {
-              if (!res.authSetting['scope.userInfo']) {
-                app.toLogin()
-              } else {
-                app.login()
-              }
-            }
-          })
-          reject(res.data.message)
         } else {
-          //返回错误提示信息
-          reject(res.data.message)
+          reject(res.data)
         }
       },
       error: function (e) {
@@ -115,20 +88,9 @@ function DEL({ url, data }) {
         if (res.data.status == 200) {
           resolve(res.data.data)
         } else if (res.data.status == 40101) {
-          var app = getApp()
-          wx.getSetting({
-            success: res => {
-              if (!res.authSetting['scope.userInfo']) {
-                app.toLogin()
-              } else {
-                app.login()
-              }
-            }
-          })
-          reject(res.data.message)
+          reject(res.data)
         } else {
-          //返回错误提示信息
-          reject(res.data.message)
+          reject(res.data)
         }
       },
       error: function (e) {
@@ -161,21 +123,8 @@ function GET({ url, data }) {
         //服务器返回数据
         if (res.data.status == 200) {
           resolve(res.data.data)
-        } else if (res.data.status == 40101) {
-          var app = getApp()
-          wx.getSetting({
-            success: res => {
-              if (!res.authSetting['scope.userInfo']) {
-                app.toLogin()
-              } else {
-                app.login()
-              }
-            }
-          })
-          reject(res.data.message)
-        }else {
-          //返回错误提示信息
-          reject(res.data.message)
+        } else {
+          reject(res.data)
         }
       },
       error: function (e) {
@@ -208,8 +157,7 @@ function UP({ url, data }) {
         if (res.data.status == 200) {
           resolve(res.data.data)
         } else {
-          //返回错误提示信息
-          reject(res.data.message)
+          reject(res.data)
         }
       },
       error: function (e) {

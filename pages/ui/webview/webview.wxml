@@ -1,0 +1,4 @@
+<!--pages/ui/webview.wxml-->
+<web-view src="{{url}}" bindmessage="handlerMessage">
+
+</web-view>

@@ -1,0 +1,26 @@
+<!--pages/my/guidance/guidance.wxml-->
+<i-row>
+  <i-col span="22" offset="1">
+    <view style="margin-top:150rpx;font-size:48rpx;font-weight:bold;">
+     请完善信息
+    </view>
+    <view style="margin-top:100rpx;">
+     <view class="guidance-school"  style="margin-top:20rpx;">
+       <input bindinput="bindinput"  placeholder-class="place-holder" maxlength="8" style="color: #b0b0b9;border-bottom:1px solid #000;margin-top: 50rpx;border:none;" placeholder="{{nickName == '' ? '请填写您的昵称' : nickName }}" value=""></input>
+      </view>
+      <view class="guidance-school" bindtap="bindschool"> <text>{{schoolName == "" ? '选择你所在的学校' : schoolName}}</text>  <image class="guidance-icon" src="/resources/image/ic_down_arrow-right.png"></image></view>
+      <view class="guidance-school" style="margin-top:20rpx;">
+        <picker bindchange="bindsession"  range="{{date}}">
+          <text>{{session == "" ? '选择您的入学年份' : session }}</text>
+          <image class="guidance-icon" src="/resources/image/ic_down_arrow-right.png"></image>
+        </picker>
+      </view>
+     
+    </view>
+    <button bindtap="bindguidance" class="guidance-buttom">开启全新校园生活</button>
+    <view class="guidance-title" style="margin-top:40rpx;">
+     <text style="color:#ff4967;">*</text> 注册后学校信息无法更改，请确定是否选择正确
+    </view>
+  </i-col>
+   <i-message id="message" />
+</i-row>

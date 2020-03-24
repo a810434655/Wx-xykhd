@@ -1,0 +1,195 @@
+/* pages/home/plaza.wxss */
+.swiper-box .wx-swiper-dots.wx-swiper-dots-horizontal{
+  margin-bottom: 60rpx;
+}
+.tabs-search {
+  margin-top: -60rpx;
+  position: relative;
+  z-index: 100;
+} 
+.search-container {
+  background: #fff;
+  border-radius: 50rpx;
+  padding: 20rpx 60rpx;
+}
+.search-container input {
+  width: 90%;
+  display: inline-block
+}
+.tabs-title {
+  margin-top: 60rpx;
+  padding-bottom: 0rpx;
+}
+.fleft {
+  float: left;
+}
+.page-content {
+  border-bottom: 20rpx solid #f4f6f9
+}
+.page-school{
+  padding:10rpx 40rpx 40rpx 40rpx;
+  width:auto;
+}
+.state{
+  position: absolute;
+  padding: 10rpx 25rpx;
+  border-radius: 0 10rpx 0 10rpx;
+  background: #ffcc12;
+  color: #fff;
+  font-size: 24rpx;
+  font-weight: 700;
+  right:0rpx;
+}
+.hot-activity{
+  margin-bottom:40rpx;
+  position:relative;
+  width: 47%;
+  display:inline-block;
+  margin: 20rpx 20rpx 0px 0px;
+}
+.school-activity{
+  padding: 10rpx 0rpx 10rpx 0rpx;
+  margin-bottom: 10rpx;
+  border-bottom: 1px solid #f4f6f9
+}
+.school-activity-false{
+  padding: 20rpx 0rpx 20rpx 0rpx;
+  margin-bottom: 10rpx;
+}
+.school-activity.noLine{
+  border-bottom: 0px solid #f4f6f9!important
+}
+
+.activity-tag-small {
+  padding: 4rpx 14rpx;
+  font-weight: 700;
+  text-align: center;
+  margin-right: 10rpx;
+  background: rgba(255,203,18,0.2);
+  color: rgb(255,203,18);
+}
+.activity-tag-small.ticket{
+  color: #ff0579;
+  background:rgba(255,5,121,0.1);
+}
+.activity-tag-small.prize{
+  color: #ffd100;
+  background:rgba(255,209,0,0.1);
+}
+.activity-tag-small.vote{
+  color: #0fc2a9;
+  background:rgba(15,194,169,0.1);
+}
+.activity-tag-small.enroll{
+  color: #4b5cff;
+  background:rgba(75,92,255,0.1);
+}
+
+.activity-tag-small.new {
+  background: rgba(31,220,133,0.2);
+  color: rgb(31,220,133);
+}
+
+.activity-tag-small.hot {
+  background: rgba(255,109,85,0.2);
+  color: rgb(255,109,85);
+}
+
+.activity-tag-small.blue {
+   background: rgba(0,168,255,0.2);
+  color: rgb(0,168,255);
+}
+
+.activity-tag-small.gray {
+   background: rgba(121,130,142,0.2);
+  color: rgb(121,130,142);
+}
+
+.modal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+}
+.modal-mask.show{
+  opacity:1;
+  visibility:visible;
+}
+.aspectFit{
+  margin-left:25%;
+  vertical-align:top;
+  width:50%;
+  height:100rpx;
+  display:block;
+  margin-bottom:20rpx;
+}
+.batch{
+  font-weight:normal;
+  float:right;
+  padding:32rpx 0px;
+  line-height:1;
+  text-align:right;
+}
+.info-title{
+  width:90%;
+  padding-left:20rpx;
+  margin:10rpx 0rpx;
+  position:relative;
+}
+
+.info-schoolGroup{
+  width:90%;
+  padding:5rpx 0rpx 30rpx 20rpx;
+}
+.plaza-block{
+  position:absolute;
+  top:0px;
+  right:-1px;
+  z-index:555;
+  float:none;
+  font-size:24rpx;
+  padding:12rpx 26rpx;
+  color:#fff;
+  border-radius:0rpx 15rpx 0rpx 15rpx;
+  font-weight:800;
+}
+.block-end{
+  background: -webkit-linear-gradient(left, #ffae83 , #ff867a); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #ffae83, #ff867a); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #ffae83, #ff867a); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #ffae83 , #ff867a); /* 标准的语法 */
+}
+.block-new{
+  background: -webkit-linear-gradient(left, #63cc90 , #0fc2a9); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #63cc90, #0fc2a9); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #63cc90, #0fc2a9); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #63cc90 , #0fc2a9); /* 标准的语法 */
+}
+.plaza-info{
+  text-align: center;
+  margin-top: 20px;
+  font-size: 30rpx;
+  font-family: "SourceHanSansCN-Bold";
+  line-height: 24rpx;
+}
+.plaza-loading{
+  height: 100rpx;
+  text-align: center;
+  padding-top:50rpx;
+  margin-top: 40rpx;
+}
+
+.plaza-loading-iamge{
+  width:64rpx;
+  height:64rpx;
+  margin-right: 20rpx;
+}
+.plaza-button{
+  margin-bottom: 50rpx;
+}

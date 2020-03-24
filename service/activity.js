@@ -3,8 +3,8 @@ var http = require("../utils/request.js")
 
 module.exports = {
   // 新增活动
-  creatActivity: function({ address, bannerData, beginDate, content, endDate, name,
-    notice, organizer, phone, posterData, realname, remark, shareLink, timeLine, theme, type, join
+  creatActivity: function ({ address, bannerData, beginDate, content, endDate, name,
+    notice, organizer, phone, posterData, realname, remark, shareLink, timeLine, theme, type, join, schoolId, schoolName
   }) {
     const data = {
       address,
@@ -23,7 +23,9 @@ module.exports = {
       timeLine,
       theme,
       type,
-      join
+      join,
+      schoolId,
+      schoolName
     }
     return http.POST({
       url: URL.dreamActServer + '/user/DaActivity/insert',
@@ -32,7 +34,7 @@ module.exports = {
   },
   // 编辑活动
   editActivity: function ({ activityId, address, bannerData, beginDate, content, endDate, name,
-    notice, organizer, phone, posterData, realname, remark, shareLink, timeLine, theme, type, join
+    notice, organizer, phone, posterData, realname, remark, shareLink, timeLine, theme, type, join, schoolId, schoolName
   }) {
     const data = {
       activityId,
@@ -51,7 +53,7 @@ module.exports = {
       shareLink,
       timeLine,
       theme,
-      type, 
+      type,
       join
     }
     return http.PUT({
@@ -60,9 +62,10 @@ module.exports = {
     })
   },
   // 收藏活动
-  collectActivity: function ({ activityId }) {
+  collectActivity: function ({ activityId, type }) {
     const data = {
-      activityId
+      activityId,
+      type
     }
     return http.POST({
       url: URL.dreamActServer + '/user/DaCollect/insertOrCancel',
@@ -108,30 +111,28 @@ module.exports = {
       data
     })
   },
-  // 根据ID查询活动
-  getActivityById: function ({ id }) {
-    const data = {
-      id
+  // 根据ID查询活动 浏览
+  getUserActivityById: function ({ activityId, userId }) {
+    let data
+    if (userId == 1) {
+      data = {
+        activityId,
+        userId: qq.getStorageSync("userId")
+      }
+    } else {
+      data = {
+        activityId,
+      }
     }
     return http.GET({
       url: URL.dreamActServer + '/user/DaActivity/selectById',
       data
     })
   },
-  // 根据ID查询活动 浏览
-  getUserActivityById: function ({ id }) {
-    const data = {
-      id
-    }
-    return http.GET({
-      url: URL.dreamActServer + '/index/selectActivityById',
-      data
-    })
-  },
   // 查找用户是否符合现场投票条件
-  getSceneInfo: function ({activityId}){
+  getSceneInfo: function ({ formId }) {
     const data = {
-      activityId
+      formId
     }
     return http.GET({
       url: URL.dreamActServer + '/user/DaUserCastVote/checkVotePermission',
@@ -149,10 +150,9 @@ module.exports = {
     })
   },
   // 获取活动表单
-  getActivityForm: function ({ activityId, type }) {
+  getActivityForm: function ({ formId }) {
     const data = {
-      activityId,
-      type
+      formId,
     }
     return http.GET({
       url: URL.dreamActServer + '/user/DaForm/selectById',
@@ -170,11 +170,11 @@ module.exports = {
     })
   },
   // 用户提交活动抢票表单
-  postUserTicketForm: function ({ activityId, jsonData, formId, key }) {
+  postUserTicketForm: function ({ jsonData, formId, name, key }) {
     const data = {
-      activityId,
       jsonData,
       formId,
+      name,
       key
     }
     return http.POST({
@@ -183,11 +183,11 @@ module.exports = {
     })
   },
   // 用户提交活动报名表单
-  postUserApplyForm: function ({ activityId, jsonData, formId }) {
+  postUserApplyForm: function ({ jsonData, formId, name }) {
     const data = {
-      activityId,
       jsonData,
-      formId
+      formId,
+      name
     }
     return http.POST({
       url: URL.dreamActServer + '/user/DaFormData/insertEnroll',
@@ -209,7 +209,7 @@ module.exports = {
   // 用户提交投票表单
   postUserVoteForm: function ({ formId, optionId }) {
     const data = {
-      formId, 
+      formId,
       optionId
     }
     return http.POST({
@@ -218,10 +218,10 @@ module.exports = {
     })
   },
   // 用户提交抽奖表单
-  postUserLotteryForm: function ({ formId, phone, name}) {
+  postUserLotteryForm: function ({ formId, phone, name }) {
     const data = {
       formId,
-      phone, 
+      phone,
       name
     }
     return http.POST({
@@ -236,7 +236,7 @@ module.exports = {
       jsonData,
       type,
       totalTickets,
-      beginDate, 
+      beginDate,
       endDate,
       extraData
     }
@@ -330,6 +330,7 @@ module.exports = {
       data
     })
   },
+  
   // 发送各类表单数据
   sendMailFormData: function ({ activityId, email, type }) {
     const data = {
@@ -345,7 +346,7 @@ module.exports = {
   // 获取检票员
   getAllTicketUser: function ({ activityId }) {
     const data = {
-      activityId 
+      activityId
     }
     return http.GET({
       url: URL.dreamActServer + '/user/DaForm/selectActivityUser',
@@ -382,5 +383,65 @@ module.exports = {
       url: URL.dreamActServer + '/user/DaFormData/checkTicket',
       data
     })
+  },
+  putOperateVote: function ({ formId, activityId }) {
+    const data = {
+      formId,
+      activityId
+    }
+    return http.PUT({
+      url: URL.dreamActServer + "/user/DaForm/operateVote",
+      data
+    })
+  },
+  // 获取热门活动
+  getHotActivity: function ({ schoolId }) {
+    const data = {
+      schoolId
+    }
+    return http.GET({
+      url: URL.dreamActServer + "/user/DaActivity/selectHotAll",
+      data
+    })
+  },
+  // 获取分页活动
+  getPickerChange: function ({ page, size, schoolId }) {
+    const data = {
+      page,
+      size,
+      schoolId
+    }
+    return http.GET({
+      url: URL.dreamActServer + "/user/DaActivity/selectPage",
+      data
+    })
+  },
+  putUpdata: function (data) {
+    return http.PUT({
+      url: URL.dreamStarServer + '/user/DsUser/update',
+      data
+    })
+  },
+  getBanner: function () {
+    const data = {
+      belong:2,
+      schoolId: wx.getStorageSync("schoolId")
+    }
+    return http.GET({
+      url: URL.dreamStarServer + '/index/banner/selectAll',
+      data
+    })
+  },
+  castVote:function(optionId,formId){
+    const data = {
+      optionId:optionId,
+      formId:formId
+    } 
+    return http.POST({
+      url: URL.dreamActServer + '/user/DaUserCastVote/castVote',
+      data
+    })
+    
   }
+
 }

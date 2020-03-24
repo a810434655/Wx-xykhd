@@ -14,8 +14,11 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.6.1",
 	"appid": "wx561771c8f2873c7f",
-	"projectname": "%E8%81%9A%E8%83%BD%E6%B4%BB%E5%8A%A8%E5%8A%A9%E6%89%8B",
+	"projectname": "%E6%A0%A1%E5%9B%AD%E9%85%B7%E6%B4%BB%E5%8A%A8",
 	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"qqappid": "1109573085",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -30,28 +33,31 @@
 			"list": []
 		},
 		"game": {
-			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 20,
 			"list": [
 				{
 					"id": 0,
 					"name": "北大",
-					"pathName": "pages/activity/info",
+					"pathName": "pages/activity/info/info",
 					"query": "id=308"
 				},
 				{
 					"id": -1,
 					"name": "绘图",
-					"pathName": "pages/manage/poster",
+					"pathName": "pages/manage/share/poster",
 					"query": ""
 				},
 				{
 					"id": -1,
 					"name": "抽奖页",
-					"pathName": "pages/ui/lottery",
+					"pathName": "pages/ui/lottery/lottery",
 					"query": "",
 					"scene": null
 				},
@@ -65,7 +71,120 @@
 				{
 					"id": -1,
 					"name": "活动页",
-					"pathName": "pages/home/manage",
+					"pathName": "pages/home/manage/manage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "检票员进入",
+					"pathName": "pages/home/plaza/plaza",
+					"query": "scene=a1dwadwadwadwae",
+					"scene": 1011
+				},
+				{
+					"id": -1,
+					"name": "北大歌手",
+					"pathName": "pages/activity/info/info",
+					"query": "id=84",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "收藏",
+					"pathName": "pages/activity/record/record",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "热度榜",
+					"pathName": "pages/activity/top/top",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 9,
+					"name": "活动",
+					"pathName": "pages/activity/info/info",
+					"query": "id=1",
+					"scene": null
+				},
+				{
+					"id": 10,
+					"name": "我的活动",
+					"pathName": "pages/activity/info/info",
+					"query": "id=1",
+					"scene": 1001
+				},
+				{
+					"id": 11,
+					"name": "热度榜",
+					"pathName": "pages/activity/top/top",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/home/my/my",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 14,
+					"name": "登录",
+					"pathName": "pages/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "登录验证",
+					"pathName": "pages/loginCode",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "修改资料",
+					"pathName": "pages/my/modification/modification",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "昵称修改",
+					"pathName": "pages/my/name/name",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "引导选择学校",
+					"pathName": "pages/my/guidance/guidance",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "门票",
+					"pathName": "pages/my/ticket/ticket",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "二维码",
+					"pathName": "pages/activity/info/info",
+					"query": "id=",
+					"scene": 1011
+				},
+				{
+					"id": -1,
+					"name": "pages/activity/vote/vote",
+					"pathName": "pages/activity/vote/vote",
+					"query": "beginDate=2019-08-30&endDate=2019-12-31&formId=134&theme=3&title=睡觉&vote=28045986",
 					"scene": null
 				}
 			]

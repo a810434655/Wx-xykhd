@@ -34,11 +34,15 @@ Page({
         that.data.messageList.splice(0, that.data.messageList.length)
       }
       data.records.forEach(c => {
+        console.log(c)
         if (that.data.platform == 'ios') {
-          c.ctime = c.ctime.replace(/-/g, "/").replace("T", " ").substring(0,18)
+          c.ctime = c.ctime.replace("T", " ").substring(0,19)
+          var ctime = new Date(c.ctime)
+          c.ctime = _util.formatTime(ctime,0)
+        }else{
+          var ctime = new Date(c.ctime)
+          c.ctime = _util.formatTime(ctime,1)
         }
-        var ctime = new Date(c.ctime)
-        c.ctime = _util.formatTime(ctime)
         if(c.jsonData){
           c.jsonData = JSON.parse(c.jsonData)
         }
@@ -48,8 +52,7 @@ Page({
       })
       wx.stopPullDownRefresh()
       wx.hideLoading()
-    }).catch(errMsg => {
-      console.error(errMsg)
+    }).catch(e => {
       wx.stopPullDownRefresh()
       wx.hideLoading()
     })

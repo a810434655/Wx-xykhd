@@ -1,0 +1,14 @@
+<!--pages/ui/selectpage.wxml-->
+<view class="container">
+  <view class='search-container bottom-shadow vertical-center'>
+    <input placeholder='请输入关键字搜索' style='padding:10rpx;width: 100%;' maxlength='15' bindinput="searchHandle"></input>
+  </view>
+  <image src='https://loading.io/spinners/microsoft/index.svg' style='width:50rpx;height:50rpx;margin:50%;' wx:if="{{loading}}"></image>
+  <view wx:else style='margin-top:20rpx'>
+    <text class='list vertical-center c-content' wx:for="{{list}}" wx:key="{{item}}" data-item='{{item}}' bindtap='selectItem'> {{item.name}} </text>
+    <view wx:if="{{list.length == 0}}" style='height:100%;width:100%' class='center'>
+      <text class='c-content' style='text-align:center;width:100%;'> 暂无数据 </text>
+    </view>
+  </view>
+</view>
+<i-message id="message" />

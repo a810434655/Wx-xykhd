@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "关于我们",
+  "usingComponents": {
+    "i-row": "/resources/dist/row/index",
+    "i-button": "/resources/dist/button/index",
+    "i-col": "/resources/dist/col/index"
+  }
+}

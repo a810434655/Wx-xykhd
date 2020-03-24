@@ -1,11 +1,25 @@
-const formatTime = date => {
-  const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  const day = date.getDate()
-  const hour = date.getHours()
-  const minute = date.getMinutes()
-  const second = date.getSeconds()
-
+const formatTime = (date,index) => {
+  let year
+  let month 
+  let day
+  let hour
+  let minute
+  let second
+  if (index == 0){
+    year = date.getFullYear()
+    month = date.getMonth() + 1
+    day = date.getDate()
+    hour = date.getHours()+8
+    minute = date.getMinutes()
+    second = date.getSeconds()
+  }else if(index == 1){
+    year = date.getFullYear()
+    month = date.getMonth() + 1
+    day = date.getDate()
+    hour = date.getHours()
+    minute = date.getMinutes()
+    second = date.getSeconds()
+  }
   return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
 

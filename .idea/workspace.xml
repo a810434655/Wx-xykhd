@@ -1,7 +1,237 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fb8cf76c-4068-4fbe-a4f5-b2e0adfb020f" name="Default Changelist" comment="" />
+    <list default="true" id="fb8cf76c-4068-4fbe-a4f5-b2e0adfb020f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/app.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/activityclassify.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/activityclassify.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/area.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/activity/apply.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/activity/apply.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/activity/apply.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/activity/apply.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/activity/info.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/activity/info.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/activity/info.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/activity/info.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/activity/lootticket.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/activity/lootticket.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/activity/lootticket.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/activity/lootticket.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/activity/lottery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/activity/lottery.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/activity/lottery.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/activity/lottery.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/activity/record.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/activity/record.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/activity/record.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/activity/record.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/activity/schoolactivity.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/activity/schoolactivity.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/activity/schoolactivity.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/activity/schoolactivity.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/activity/searchlist.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/activity/searchlist.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/activity/searchlist.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/activity/searchlist.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/activity/top.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/activity/top.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/activity/top.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/activity/top.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/activity/vote.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/activity/vote.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/activity/vote.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/activity/vote.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/activity.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/activity.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/activity.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/activity.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/manage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/manage.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/manage.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/manage.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/my.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/my.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/my.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/my.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/plaza.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/plaza.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/plaza.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/plaza.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/login.json" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/login.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/login.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/apply.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/apply.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/apply.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/apply.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/applyedit.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/applyedit.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/applyedit.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/applyedit.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/applyfieldedit.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/applyfieldedit.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/applyfieldedit.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/applyfieldedit.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/edit.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/edit.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/edit.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/edit.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/function.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/function.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/function.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/function.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/lootticket/lootticket.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/lootticket/lootticket.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/lootticket/lootticket.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/lootticket/lootticket.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/lootticketedit.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/lootticketedit.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/lootticketedit.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/lootticketedit.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/lottery/edit.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/lottery/edit.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/lottery/edit.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/lottery/edit.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/lottery/lottery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/lottery/lottery.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/lottery/lottery.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/lottery/lottery.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/poster.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/poster.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/poster.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/poster.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/share.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/share.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/share.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/share.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/vote/edit.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/vote/edit.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/vote/edit.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/vote/edit.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/vote/vote.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/vote/vote.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/vote/vote.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manage/vote/vote.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/my/aboutus.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/my/aboutus.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/my/aboutus.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/my/aboutus.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/my/apply.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/my/apply.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/my/apply.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/my/apply.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/my/applyinfo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/my/applyinfo.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/my/applyinfo.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/my/applyinfo.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/my/feedback.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/my/feedback.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/my/feedback.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/my/feedback.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/my/fullimg.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/my/fullimg.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/my/fullimg.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/my/fullimg.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/my/identification.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/my/identification.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/my/identification.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/my/identification.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/my/ticket.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/my/ticket.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/my/ticket.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/my/ticket.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ui/lottery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ui/lottery.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ui/lottery.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ui/lottery.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ui/selectpage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ui/selectpage.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ui/selectpage.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ui/selectpage.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ui/statepage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ui/statepage.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ui/statepage.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ui/statepage.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ui/webview.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ui/webview.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ui/webview.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ui/webview.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/project.config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/base/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/dist/base/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/button/index.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/dist/button/index.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/cell/index.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/dist/cell/index.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/col/index.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/dist/col/index.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/radio/index.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/dist/radio/index.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/rate/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/dist/rate/index.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/step/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/dist/step/index.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/switch/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/dist/switch/index.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/ic_info_zan.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/ic_theme_cir_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/ic_theme_cir_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/ic_theme_cir_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/ic_theme_cir_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/ic_theme_cir_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/manage/function/ic_add.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/manage/function/ic_addticket.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/manage/function/ic_apply.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/manage/function/ic_date.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/manage/function/ic_download.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/manage/function/ic_edit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/manage/function/ic_lootticket.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/manage/function/ic_lottery.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/manage/function/ic_manual.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/manage/function/ic_pic.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/manage/function/ic_scan.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/manage/function/ic_vote.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/manage/ic_+.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/manage/ic_-.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/manage/ic_edit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/manage/ic_function.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/manage/ic_share.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/manage/share/ic_code.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/manage/share/ic_picture.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/manage/share/ic_share.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/manage/share/ic_wechat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/ui/i_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/ui/i_00.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/ui/i_10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/ui/i_100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/ui/i_1000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/ui/i_120.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/ui/i_150.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/ui/i_20.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/ui/i_200.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/ui/i_250.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/ui/i_30.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/ui/i_300.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/ui/i_350.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/ui/i_40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/ui/i_400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/ui/i_50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/ui/i_500.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/ui/i_600.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/ui/i_800.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/ui/i_active.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/ui/i_button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/ui/ic_b_blue.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/ui/ic_b_red.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/ui/ic_balloon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/ui/ic_bottom.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/ui/ic_prize.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/image/ui/ic_title.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/activity.js" beforeDir="false" afterPath="$PROJECT_DIR$/service/activity.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/service/comment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/service/home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/special.js" beforeDir="false" afterPath="$PROJECT_DIR$/service/special.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/service/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/request.js" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -12,38 +242,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/manage/applyedit.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="344" column="4" lean-forward="true" selection-start-line="344" selection-start-column="4" selection-end-line="344" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/manage/applyedit.wxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="1" />
-              <folding>
-                <element signature="n#style#0;n#view#0;n#view#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pages/manage/applyedit.wxss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -56,6 +255,9 @@
     <dirStrings>
       <dir>E:\wechatProject\jnhdzs</dir>
     </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -81,19 +283,8 @@
         <subPane>
           <expand>
             <path>
-              <item name="jnhdzs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jnhdzs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jnhdzs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jnhdzs" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jnhdzs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jnhdzs" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="manage" type="462c0819:PsiDirectoryNode" />
+              <item name="jnhdzs-WX-2019-9-25 4.0.1 开发" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jnhdzs-WX-2019-9-25 4.0.1 开发" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -134,16 +325,21 @@
       <workItem from="1552549114595" duration="139000" />
       <workItem from="1552882614382" duration="2338000" />
       <workItem from="1553660929970" duration="926000" />
+      <workItem from="1554272166717" duration="425000" />
+      <workItem from="1557906431100" duration="1000" />
+      <workItem from="1567053376809" duration="20000" />
+      <workItem from="1569224703975" duration="944000" />
+      <workItem from="1570451778341" duration="11000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4078000" />
+    <option name="totallyTimeSpent" value="5479000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17913593" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13645943" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -154,48 +350,22 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Key Promoter X" order="3" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pages/ui/lottery.wxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="25" column="16" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/manage/applyedit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="344" column="4" lean-forward="true" selection-start-line="344" selection-start-column="4" selection-end-line="344" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/manage/applyedit.wxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="1" />
-          <folding>
-            <element signature="n#style#0;n#view#0;n#view#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/manage/applyedit.wxss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/ui/lottery.wxml" />
+    <entry file="file://$PROJECT_DIR$/pages/manage/applyedit.wxss" />
+    <entry file="file://$PROJECT_DIR$/pages/manage/applyedit.wxml" />
+    <entry file="file://$PROJECT_DIR$/pages/manage/applyedit.js" />
   </component>
 </project>

@@ -1,0 +1,40 @@
+<!--pages/activity/searchlist.wxml-->
+<view class="container" style='display:flex;flex-direction: column;height:100%'>
+  <view class='search-container bottom-shadow vertical-center'>
+    <input value='{{keyword}}' placeholder='请输入关键字搜索' style='flex:0.9;padding:10rpx' maxlength='15' bindinput="bindKeyWordInput" confirm-type='search' bindconfirm="searchHandle"></input>
+    <image class='input-icon' src='/resources/image/ic_search.png' style='padding:5rpx;' bindtap='searchHandle'></image>
+  </view>
+  <scroll-view scroll-y="true" style='flex: 1;margin-top:95rpx'>
+    <view class="page-body page-content">
+      <i-col span="24" i-class="b-background radius activity" wx:for="{{activityList}}" wx:index="{{index}}" wx:key="item.activityId" data-id="{{item.activityId}}" bindtap='openInfo'>
+        <i-col span="9">
+          <image mode='aspectFill' class='radius' style='width:100%;height:160rpx;' src="{{item.bannerData[0]}}">
+          </image>
+        </i-col>
+        <i-col span="15">
+          <i-col span="24">
+            <view class='c-title-30 ellipsis' style='margin-top:10rpx;width:95%;padding-left:20rpx;font-weight:500'>
+              {{item.name}}
+            </view>
+          </i-col>
+          <i-col span="24">
+            <view class='c-content-info-22 ellipsis' style='margin-top:12rpx;padding-left:20rpx'>
+              {{item.schoolGroup}}
+            </view>
+          </i-col>
+          <i-col span="24">
+            <view class='c-content-info-22 ellipsis' style='margin-top:12rpx;padding-left:20rpx'>
+              浏览人数：{{item.viewNumber}}人
+            </view>
+          </i-col>
+        </i-col>
+      </i-col>
+      <view class='page-body centerv vertical-center' style='flex-direction:column;margin:100rpx 0rpx' wx:if="{{activityList.length == 0}}">
+        <image mode='aspectFit' style='vertical-align:top;width:50%;height:250rpx;display:block' src="/resources/image/ic_no_activity.png">
+        </image>
+        <view class='c-content' style='display:block;padding-top:20rpx'>您搜索的关键字下没有活动哦~</view>
+      </view>
+    </view>
+  </scroll-view>
+  <i-message id="message" />
+</view>

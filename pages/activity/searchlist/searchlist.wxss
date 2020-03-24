@@ -1,0 +1,21 @@
+/* pages/activity/searchlist.wxss */
+.search-container {
+  background: #FFF;
+  z-index: 99999;
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  padding: 10rpx 20rpx;
+  display: flex;
+}
+.activity {
+  padding: 20rpx 20rpx 8rpx 20rpx;
+  margin: 20rpx 0;
+}
+.activity-content {
+  top:-280rpx;
+  position:relative;
+  z-index:999;
+  overflow: hidden;
+}

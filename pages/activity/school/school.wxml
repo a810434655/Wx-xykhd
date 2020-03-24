@@ -1,0 +1,8 @@
+<i-row>
+  <view class="school-search">
+     <i-col span="16">
+        <input type="text" class="school-input"></input>
+      </i-col>
+  </view>
+</i-row>
+<!-- <i-col></i-col> -->

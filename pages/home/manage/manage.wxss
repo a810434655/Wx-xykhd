@@ -1,0 +1,20 @@
+.manage-img{
+  /* width: 100%; */
+  /* height:750rpx; */
+  /* margin-left:60rpx; */
+  margin-top: 150rpx;
+  text-align: center;
+}
+.manage-text{
+  text-align: center;
+  margin-top:-50rpx;
+  color: #616174;
+  font-size: 30rpx;
+  font-family:SourceHanSansCN-Regular;
+}
+.manage-text{
+  text-align: center;
+}
+.manage-image{
+  text-align: center;
+}

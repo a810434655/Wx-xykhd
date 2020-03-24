@@ -1,0 +1,9 @@
+<!--pages/my/name/name.wxml-->
+<i-row>
+ <i-col span="20" offset="2" class="name-input">
+    <input bindinput="bindinput" style="border-bottom:1px solid #000;margin-top: 50rpx;" value=""></input>
+ </i-col>
+ <i-col span="20" offset="2" bindtap="bindName" class="name-input">
+    <button class="name-button"  style="margin-top: 50rpx;color:#fff">确定</button>
+ </i-col>
+</i-row>

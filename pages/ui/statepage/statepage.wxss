@@ -1,0 +1,4 @@
+/* pages/ui/statepage.wxss */
+.page-content{
+  margin-top: 180rpx;
+}

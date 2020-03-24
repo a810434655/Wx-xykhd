@@ -1,9 +1,0 @@
-/* pages/manage/applyfieldedit.wxss */
-.b-white {
-  background: #FFF!important;
-  margin-bottom: 20rpx 
-}
-
-.timeline {
-  margin-bottom: 20rpx 
-}

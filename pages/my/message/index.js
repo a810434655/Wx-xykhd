@@ -32,8 +32,11 @@ Page({
       that.setData({
         messageInfo: data
       })
-    }).catch(errMsg => {
-      console.error(errMsg)
+    }).catch(e => {
+      $Message({
+        content: e.message,
+        type: 'warning'
+      })
       // wx.navigateBack({})
       wx.hideLoading()
     })

@@ -1,0 +1,54 @@
+<!--pages/my/ticket.wxml-->
+<view class="container">
+  <view class="page-body page-content" wx:if="{{ticketList.length != 0}}">
+    <swiper interval="5000" duration="500" style='min-height:1150rpx;padding-top:20rpx' indicator-color='#94d5ff' indicator-active-color='#2ea3f6' bindchange="getChange" previous-margin='60rpx' next-margin='60rpx' >
+      <block wx:for="{{ticketList}}" wx:key="{{item.number}}" wx:index="index">
+        <swiper-item style="height:auto;padding-bottom:20rpx;">
+          <i-row i-class="bottom-shadow">
+            <!-- item.theme -->
+            <i-row background="url({{themeList[item.theme-1].pic}})no-repeat;background-size:100% 100%;border-radius:20rpx 20rpx 0rpx 0rpx">
+              <i-col span="16" i-class="top-right">
+                <view class='ellipsis c-title-30' style='padding-bottom:0rpx;margin:50rpx 10rpx 0rpx 40rpx;color:#fff;display:inline-block;max-width:355rpx;font-weight:900;'>{{item.name}}</view>
+                <view class='ellipsis c-tag-24' style='padding:10rpx 10rpx 10rpx 40rpx;color:#fff;margin-top:20rpx;height:30rpx;'>
+                {{item.extraData.joinTime}}
+                  <!-- <view style='float:left;max-width:65%;min-width:65%;display:inline-block;text-align:left;font-weight:700;'>{{item.extraData.join}}</view> -->
+                </view>
+                <view class='text-all c-tag-24' style='padding:0rpx 10rpx 30rpx 40rpx;color:#fff;margin-top:20rpx'>
+                  <view style='float:left;max-width:75%;min-width:65%;display:inline-block;text-align:left;font-weight:700;'>{{item.extraData.address}}</view>
+                </view>
+              </i-col>
+              <i-col span="8" i-class="c-content bottom-right activity-col-img">
+                <image src="{{item.extraData.ticketImg}}" mode="aspectFill" class="circle activity-img" />
+                <image src="/resources/image/ic_ticket_used.png" style='float:right;width:140rpx;height:140rpx;position:absolute;z-index:10;right:0rpx;top:0rpx' wx:if="{{item.status == 0}}" />
+              </i-col>
+            </i-row>
+            <i-row i-class="center">
+              <i-col span="16" offset="{{index == (ticketList.length-1) ? '6':'5'}}">
+                <canvas style='margin:40rpx 0rpx 0rpx 0rpx' class="qrcode-img" canvas-id="qrcCanvas{{index}}" />
+              </i-col>
+              <view class='c-content-info-24' style='margin-bottom:20rpx;background-color: #f4f6f9;padding:8rpx 20rpx;display:inline-block' >门票编号 {{item.number}}</view>
+              <i-col i-class="line" span="20" offset="2">
+              </i-col>
+            </i-row>
+            <i-row i-class="info-centent">
+              <i-col span="20" offset="2" wx:for="{{item.jsonData}}" wx:key="{{item.value}}">
+                <i-col span="7">
+                  <view class='c-tag-24' style='margin-bottom:30rpx'>{{item.key}}</view>
+                </i-col>
+                <i-col span="16" offset="1">
+                  <view class='c-content-24' style='text-align:right;margin-bottom:30rpx;'>{{item.data}}</view>
+                </i-col>
+              </i-col>
+            </i-row>
+          </i-row>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class='page-body centerv vertical-center' style='flex-direction:column;margin-bottom:100rpx' wx:else>
+    <image mode='aspectFit' style='vertical-align:top;width:50%;height:250rpx;display:block' src="/resources/image/ic_no_apply.png">
+    </image>
+    <view class='c-content' style='display:block;padding-top:20rpx'>您还没有门票哟，赶快参加活动吧~</view>
+  </view>
+  <i-message id="message" />
+</view>

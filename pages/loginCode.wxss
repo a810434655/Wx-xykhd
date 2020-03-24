@@ -1,0 +1,37 @@
+/* pages/loginCode.wxss */
+
+
+.loginCode{
+  font-size:48rpx;
+  color: #3a3951;
+  font-weight:bold;
+  font-family:SourceHanSansCN-Bold;
+}
+.loginCode{
+  text-align: center;
+}
+.loginCode-border-bottom{
+   border-bottom:1px solid #d8d7dc;
+   width: 20%;
+   float: left;
+   text-align: center;
+   font-size: 48rpx;
+   color: #616174;
+   height: 100rpx;
+   line-height: 100rpx;
+}
+.loginCode-border-bottom:nth-child(1){
+   margin-left: 0.5%;
+}
+.loginCode-border-bottom:nth-child(n+2){
+   margin-left: 6.5%;
+}
+.loginCode-border-bottom-activity{
+  border-bottom:1px solid #774fe5;
+}
+.loginInputCode{
+ text-indent: -999em; /*文本向左缩进*/
+ margin-left: -100%; /*输入框光标起始点向左左移*/
+ width: 200%; /*输入框增大一倍*/
+ opacity: 0;
+}

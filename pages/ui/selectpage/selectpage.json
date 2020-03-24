@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText":"选择学校",
+  "usingComponents": {
+    "i-row": "/resources/dist/row/index",
+    "i-message": "/resources/dist/message/index",
+    "i-col": "/resources/dist/col/index",
+    "i-panel": "/resources/dist/panel/index",
+    "i-modal": "/resources/dist/modal/index",
+    "i-button": "/resources/dist/button/index"
+  }
+
+}

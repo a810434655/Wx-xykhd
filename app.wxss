@@ -83,6 +83,7 @@ textarea {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  -webkit-line-clamp:1;  /* 设置行数 */
 }
 
 .two-line {
@@ -405,13 +406,16 @@ swiper-item image {
   font-size: 30rpx;
   font-weight: 700;
 }
-
 .c-title-28 {
   color: #051c33;
   font-size: 28rpx;
   font-weight: 700;
 }
-
+.c-title-26 {
+  color: #051c33;
+  font-size: 26rpx;
+  font-weight: 700;
+}
 .c-content {
   color: #313e51;
   font-size: 30rpx;
@@ -421,7 +425,10 @@ swiper-item image {
   color: #313e51;
   font-size: 28rpx;
 }
-
+.c-content-26 {
+  color: #313e51;
+  font-size: 26rpx;
+}
 .c-content-24 {
   color: #313e51;
   font-size: 24rpx;
@@ -486,52 +493,69 @@ swiper-item image {
 }
 
 .theme-bg-color-1 {
-  background-image: -webkit-linear-gradient(left, #ffcc12, #ffcc12)!important
+  background-image: -webkit-linear-gradient(left, #7084ed, #774fe5)!important
 }
 .theme-bg-color-2 {
-  background-image: -webkit-linear-gradient(left, #ff6d55, #ff6d55)!important
+  background-image: -webkit-linear-gradient(left, #fca19b, #f7598b)!important
 }
 .theme-bg-color-3 {
-  background-image: -webkit-linear-gradient(left, #1fdd86, #1fdd86)!important
+  background-image: -webkit-linear-gradient(left, #63cc90, #0fc2a9)!important
 }
 .theme-bg-color-4 {
-  background-image: -webkit-linear-gradient(left, #286eff, #286eff)!important
+  background-image: -webkit-linear-gradient(left, #ffae83, #ff867a)!important
 }
 .theme-bg-color-5 {
-  background-image: -webkit-linear-gradient(left, #051c33, #051c33)!important
+  background-image: -webkit-linear-gradient(left, #4e4569, #3a3951)!important
 }
 
 .theme-bgl-color-1 {
-  background-image: -webkit-linear-gradient(left, #ffcc12, #ffe200)!important
+  background-image: -webkit-linear-gradient(left, #7084ed, #774fe5)!important
 }
 .theme-bgl-color-2 {
-  background-image: -webkit-linear-gradient(left, #ff6d55, #ff9575)!important
+  background-image: -webkit-linear-gradient(left, #fca19b, #f7598b)!important
 }
 .theme-bgl-color-3 {
-  background-image: -webkit-linear-gradient(left, #1fdd86, #88f893)!important
+  background-image: -webkit-linear-gradient(left, #63cc90, #0fc2a9)!important
 }
 .theme-bgl-color-4 {
-  background-image: -webkit-linear-gradient(left, #286eff, #5a90ff)!important
+  background-image: -webkit-linear-gradient(left, #ffae83, #ff867a)!important
 }
 .theme-bgl-color-5 {
-  background-image: -webkit-linear-gradient(left, #051c33, #6a6a75)!important
+  background-image: -webkit-linear-gradient(left, #4e4569, #3a3951)!important
 }
 
 .theme-color-1 {
-  color: #ffcc12
+  color: #774fe5
 }
 .theme-color-2 {
-  color: #ff6d55
+  color: #f7598b
 }
 .theme-color-3 {
-  color: #1fdd86
+  color: #0fc2a9
 }
 .theme-color-4 {
-  color: #286eff
+  color: #ff867a
 }
 .theme-color-5 {
-  color: #051c33
+  color: #3a3951
 }
+
+.theme-color-11 {
+  color: #774fe5
+}
+.theme-color-21 {
+  color: #f7598b
+}
+.theme-color-31 {
+  color: #0fc2a9
+}
+.theme-color-41 {
+  color: #ff867a
+}
+.theme-color-51 {
+  color: #3a3951
+}
+
 .model{
   width: 750rpx;
   height: 100vh;
@@ -574,4 +598,11 @@ swiper-item image {
   width: 480rpx;
   height: 75rpx;
   text-align:left
+}
+.ellipse{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp:1;  /* 设置行数 */
+  -webkit-box-orient: vertical;
 }

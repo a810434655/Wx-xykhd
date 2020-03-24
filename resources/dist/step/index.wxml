@@ -1,4 +1,4 @@
-<view class="i-class i-step-item {{parse.getClass(status,current,index)}} {{ direction === 'vertical' ? 'i-step-vertical' : 'i-step-horizontal' }}" style="{{parse.getItemStyle(len,direction)}}">
+<!-- <view class="i-class i-step-item {{parse.getClass(status,current,index)}} {{ direction === 'vertical' ? 'i-step-vertical' : 'i-step-horizontal' }}" style="{{parse.getItemStyle(len,direction)}}">
     <view class="i-step-item-ico">
         <view class="i-step-ico" wx:if="{{parse.noIco(status,current,index,icon)  }}">{{ index+1 }}</view>
         <view class="i-step-ico" wx:else>
@@ -67,4 +67,4 @@ module.exports = {
         return classes;
     }
 }
-</wxs>
+</wxs> -->

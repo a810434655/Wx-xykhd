@@ -2,10 +2,7 @@ var URL = require("../config/config.js")
 var http = require("../utils/request.js")
 
 module.exports = {
-  getBanner: function () {
-    const data = {}
-    return http.GET({ url: URL.dreamOnServer + '/index/banner/selectAll', data })
-  },
+ 
   // 查询活动留言
   getActivityCommentPage: function ({ page, size, activityId }) {
     const data = {
@@ -14,7 +11,7 @@ module.exports = {
       activityId: activityId
     }
     return http.GET({
-      url: URL.dreamActServer + '/index/selectCommentPage',
+      url: URL.dreamActServer + '/user/DaComment/selectPage',
       data
     })
   },

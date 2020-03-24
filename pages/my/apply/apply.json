@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "我的报名",
+  "usingComponents": {
+    "i-row": "/resources/dist/row/index",
+    "i-button": "/resources/dist/button/index",
+    "i-col": "/resources/dist/col/index"
+  }
+}

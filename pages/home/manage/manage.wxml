@@ -1,0 +1,10 @@
+<view style="backround:#f5f6f7;">
+  <i-col span="24" i-class="manage-image"> 
+    <image src="/resources/image/kj.png" class="manage-img"></image>
+    <view class="manage-text">
+        <view>活动管理已全新升级至App内</view>
+        <view>新增管理员、组织群聊功能</view>
+        <view>快前往应用商店下载「聚芒星球」试试吧！</view>
+    </view>
+  </i-col>  
+</view>

@@ -1,0 +1,181 @@
+<!--pages/ui/lottery.wxml-->
+<view class="container">
+
+  <view class="page-body center centerv-c" style='overflow:hidden;background-image: linear-gradient(0deg, #f5523a 0%,#ff614c 42%,#ffb46b 100%);'>
+    <!--公告栏-->
+    <view  wx:if="{{notice?true:false}}" id="text" class="notice" scroll-y="true">
+      <view  class="notice-content" style="transform:translateY({{scor}}px);" id="height" >
+        <view class="text" wx:for="{{text}}" wx:key="{{index}}">{{item}}</view>
+      </view>
+    </view>
+    <!-- <view class="text" wx:for="{{text}}" v->{{item}}</view> -->
+    <image mode='aspectFill' style='position:absolute;top:0rpx;width:100%;height:800rpx' src="/resources/image/ui/ic_title.png"></image>
+    <i-row background=";margin:850rpx 30rpx 0rpx 30rpx">
+      <view class='center c-title-28' style='line-height:78rpx;height: 78rpx;background-color: #ea4b30;border-radius: 40rpx 40rpx 0px 0px;color:#FFF;text-align:center'>{{userActivity.viewNumber ? ('您当前创建的活动最高浏览量为'+userActivity.viewNumber) : '您还没有浏览量达到200的活动'}}</view>
+      <i-row background="#FFF;padding:40rpx 28rpx 10rpx 28rpx;">
+        <i-col span="8">
+            <view class="{{gear == 1 ? 'b-blue':'b-red'}} center centerv-c">
+              最高50元
+              <text class="bx">物料报销</text>
+            </view>
+            <view class='ll'>浏览量200抽取</view>
+        </i-col>
+        <i-col span="8">
+            <view class="{{gear == 2 ? 'b-blue':'b-red'}} center centerv-c">
+              最高150元
+              <text class="bx">物料报销</text>
+            </view>
+            <view class='ll'>浏览量500抽取</view>
+        </i-col>
+        <i-col span="8">
+            <view class="{{gear == 3 ? 'b-blue':'b-red'}} center centerv-c">
+              最高300元
+              <text class="bx">物料报销</text>
+            </view>
+            <view class='ll'>浏览量1000抽取</view>
+        </i-col>
+        <i-col span="8" offset="4">
+            <view class="{{gear == 4 ? 'b-blue':'b-red'}} center centerv-c">
+              最高500元
+              <text class="bx">物料报销</text>
+            </view>
+            <view class='ll'>浏览量1500抽取</view>
+        </i-col>
+        <i-col span="8">
+            <view class="{{gear == 5 ? 'b-blue':'b-red'}} center centerv-c">
+              全额
+              <text class="bx">物料报销</text>
+            </view>
+            <view class='ll'>浏览量2000抽取</view>
+        </i-col>
+      </i-row>
+      <i-row background="#FFF;padding:0rpx 28rpx 50rpx 28rpx;border-radius:0px 0px 40rpx 40rpx;">
+        <i-row background=";background-image:url({{lightState ? 'https://oss.dreamoncampus.com/img/draw_prize1.png':'https://oss.dreamoncampus.com/img/draw_prize2.png'}});background-repeat:no-repeat; background-size:100% 100%;padding:55rpx 55rpx 60rpx 55rpx;max-height:640rpx;min-width:500rpx;transform: scale(1);">
+          <i-col span="6">
+            <view class="prize-col">
+              <image mode='aspectFill' class="active {{activePrize == 0? '':'hid'}}" src="/resources/image/ui/i_active.png" hidden=""></image>
+              <image mode='aspectFill' class='prize' src="/resources/image/ui/i_{{prizeList[0].img}}.png"></image>
+            </view>
+          </i-col>
+          <i-col span="6">
+            <view class="prize-col">
+              <image mode='aspectFill' class="active {{activePrize == 1? '':'hid'}}" src="/resources/image/ui/i_active.png" hidden=""></image>
+              <image mode='aspectFill' class='prize' src="/resources/image/ui/i_{{prizeList[1].img}}.png"></image>
+            </view>
+          </i-col>
+          <i-col span="6">
+            <view class="prize-col">
+              <image mode='aspectFill' class="active {{activePrize == 2? '':'hid'}}" src="/resources/image/ui/i_active.png" hidden=""></image>
+              <image mode='aspectFill' class='prize' src="/resources/image/ui/i_{{prizeList[2].img}}.png"></image>
+            </view>
+          </i-col>
+          <i-col span="6">
+            <view class="prize-col">
+              <image mode='aspectFill' class="active {{activePrize == 3? '':'hid'}}" src="/resources/image/ui/i_active.png" hidden=""></image>
+              <image mode='aspectFill' class='prize' src="/resources/image/ui/i_{{prizeList[3].img}}.png"></image>
+            </view>
+          </i-col>
+
+          <i-col span="6">
+            <view class="prize-col">
+              <image mode='aspectFill' class="active {{activePrize == 11? '':'hid'}}" src="/resources/image/ui/i_active.png" hidden=""></image>
+              <image mode='aspectFill' class='prize' src="/resources/image/ui/i_{{prizeList[11].img}}.png"></image>
+            </view>
+            <view class="prize-col">
+              <image mode='aspectFill' class="active {{activePrize == 10? '':'hid'}}" src="/resources/image/ui/i_active.png" hidden=""></image>
+              <image mode='aspectFill' class='prize' src="/resources/image/ui/i_{{prizeList[10].img}}.png"></image>
+            </view>
+          </i-col>
+          <!-- 抽奖按钮 -->
+          <i-col span="12">
+            <view class="button-col">
+              <image mode='aspectFill' class='prize-button' src="/resources/image/ui/i_button.png" bindtap='showModel'></image>
+              <text class='prize-surplus' style='display:block'>奖金余额
+              {{money}}元</text>
+            </view>
+          </i-col>
+
+          <i-col span="6">
+            <view class="prize-col">
+              <image mode='aspectFill' class="active {{activePrize == 4? '':'hid'}}" src="/resources/image/ui/i_active.png" hidden=""></image>
+              <image mode='aspectFill' class='prize' src="/resources/image/ui/i_{{prizeList[4].img}}.png"></image>
+            </view>
+            <view class="prize-col">
+              <image mode='aspectFill' class="active {{activePrize == 5? '':'hid'}}" src="/resources/image/ui/i_active.png" hidden=""></image>
+              <image mode='aspectFill' class='prize' src="/resources/image/ui/i_{{prizeList[5].img}}.png"></image>
+            </view>
+          </i-col>
+          <!-- 底部 -->
+          <i-col span="6">
+            <view class="prize-col">
+              <image mode='aspectFill' class="active {{activePrize == 9? '':'hid'}}" src="/resources/image/ui/i_active.png" hidden=""></image>
+              <image mode='aspectFill' class='prize' src="/resources/image/ui/i_{{prizeList[9].img}}.png"></image>
+            </view>
+          </i-col>
+          <i-col span="6">
+            <view class="prize-col">
+              <image mode='aspectFill' class="active {{activePrize == 8? '':'hid'}}" src="/resources/image/ui/i_active.png" hidden=""></image>
+              <image mode='aspectFill' class='prize' src="/resources/image/ui/i_{{prizeList[8].img}}.png"></image>
+            </view>
+          </i-col>
+          <i-col span="6">
+            <view class="prize-col">
+              <image mode='aspectFill' class="active {{activePrize == 7? '':'hid'}}" src="/resources/image/ui/i_active.png" hidden=""></image>
+              <image mode='aspectFill' class='prize' src="/resources/image/ui/i_{{prizeList[7].img}}.png"></image>
+            </view>
+          </i-col>
+          <i-col span="6">
+            <view class="prize-col">
+              <image mode='aspectFill' class="active {{activePrize == 6? '':'hid'}}" src="/resources/image/ui/i_active.png" hidden=""></image>
+              <image mode='aspectFill' class='prize' src="/resources/image/ui/i_{{prizeList[6].img}}.png"></image>
+            </view>
+          </i-col>
+        </i-row>
+      </i-row>
+    </i-row>
+    <image mode='aspectFill' style='bottom:0rpx;width:100%;height:695rpx;margin-top:100rpx' src="/resources/image/ui/ic_bottom.png"></image>
+  </view>
+  <view class="modal-mask {{lotteryModal ? 'show' : ''}} center centerv" style='align-items:center;'>
+    <view class='center b-white' style='width:590rpx;height:800rpx;position:relative;padding:30rpx 0;border-radius:20rpx'>
+      <image src='/resources/image/ui/ic_prize.png' mode='aspectFit' style='width:590rpx;height:180rpx;z-index:10;margin-top:60rpx;' bindtap='handleClose'></image>
+      <text class='c-title-38' style='margin-top:10rpx;margin-bottom:40rpx;display:block'>您当前创建的活动
+最高浏览量为<text style='color:#ff320f'>{{userActivity.viewNumber}}</text></text>
+      <view class='c-content-28' style='line-height:2;font-weight:500;max-width:490rpx;margin-left:50rpx;text-align:left'>每个用户仅有一次抽奖机会，若浏览量还可能有较大增幅或本学期还可能有更高浏览量的活动，建议在浏览量更高时进行抽奖。您确认现在进行抽奖吗?
+      </view>
+      <i-row i-class="model-button">
+        <i-col span="12">
+          <i-button shape="circle" type="theme2-border" bindtap='closeModel'>暂不抽取</i-button>
+        </i-col>
+        <i-col span="12" >
+          <i-button shape="circle" type="theme2" bindtap='lottery'>确认抽奖</i-button>
+        </i-col>
+      </i-row>
+    </view>
+  </view>
+   <view class="modal-mask {{prizeModal ? 'show' : ''}} center centerv" style='align-items:center;'>
+    <view class='center b-white' style='width:590rpx;height:640rpx;position:relative;padding:30rpx 0;border-radius:20rpx'>
+      <image src='/resources/image/activity/ic_star.png' mode='aspectFit' style='width:590rpx;height:235rpx;position:absolute;z-index:10;top:-120rpx;left:0rpx;' bindtap='handleClose'></image>
+      <block wx:if="{{userAmount != '感谢参与'}}"> 
+        <view class='c-title-38' style='margin-top:120rpx;margin-bottom:20rpx'>恭喜您成功获得</view>
+        <image src='/resources/image/ui/i_{{userAmount}}.png' mode='aspectFit' style='width:100%;height:230rpx;z-index:10;' ></image>
+        <text class='c-content-24' style='line-height:3;font-weight:500'>请添加微信：junengzhuli 按要求领取奖励
+        </text>
+      </block>
+       <block wx:else> 
+        <view class='c-title-38' style='margin-top:120rpx;margin-bottom:20rpx'>很遗憾，您没有中奖</view>
+        <image src='/resources/image/ui/i_0.png' mode='aspectFit' style='width:100%;height:230rpx;z-index:10;' ></image>
+        <!-- <text class='c-content-24' style='line-height:3;font-weight:500'>下次活动你就是锦鲤哦！
+        </text> -->
+      </block>
+      <i-row i-class="model-button">
+        <i-col span="12" offset="6">
+          <i-button shape="circle" type="theme2" bindtap='openPage' data-url='/pages/home/plaza/plaza' data-type='5'>返回首页</i-button>
+        </i-col>
+        <!-- <i-col span="12" >
+          <i-button shape="circle" type="theme1" bindtap='openPage' data-url='/pages/home/manage/manage' data-type='6'>前往认证</i-button>
+        </i-col> -->
+      </i-row>
+    </view>
+  </view>
+  <i-message id="message" />
+</view>
